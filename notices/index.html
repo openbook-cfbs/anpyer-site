@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Third-party notices — AnPyer</title>
 <meta name="description" content="Open-source components bundled with the AnPyer Android app and their licences.">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=2">
 <style>
   .filter { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1rem 0; }
   .filter input { flex: 1; min-width: 12rem; padding: 0.5rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-elev); color: var(--fg); font: inherit; }
@@ -27,17 +27,34 @@
   <div class="inner">
     <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
     <nav class="nav" aria-label="Site">
-      <a href="/">Home</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/support/">Support</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/privacy/">Privacy</a>
+      <a class="nav-link" href="/terms/">Terms</a>
+      <a class="nav-link" href="/support/">Support</a>
+      <details class="lang-menu">
+        <summary aria-label="Language" title="Language"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="/assets/icons.svg?v=2#icon-globe"/></svg><svg class="icon chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons.svg?v=2#icon-chevron"/></svg></summary>
+        <ul class="menu">
+          <li><a href="/notices/" hreflang="en" aria-current="true"><span class="flag" aria-hidden="true">🇬🇧</span>English<svg class="icon tick" width="16" height="16" aria-hidden="true"><use href="/assets/icons.svg?v=2#icon-check"/></svg></a></li>
+          <!-- This page exists in English only (licence texts are English); the Chinese entry leads to the Chinese home page. -->
+          <li><a href="/zh/" hreflang="zh" lang="zh"><span class="flag" aria-hidden="true">🇨🇳</span>简体中文<svg class="icon tick" width="16" height="16" aria-hidden="true"><use href="/assets/icons.svg?v=2#icon-check"/></svg></a></li>
+        </ul>
+      </details>
     </nav>
   </div>
 </header>
 
 <main>
-  <h1>Third-party notices</h1>
-  <p class="lead">AnPyer is built on open-source software. This page lists every component bundled in the app, its licence, and — where the licence requires it — the licence text and copyright notice. The same list is available offline inside the app under <em>About → Open-source licences</em>.</p>
+  <section class="block page-hero">
+    <div class="inner">
+      <p class="eyebrow">Open source</p>
+      <h1>Third-party notices</h1>
+      <p class="lead">AnPyer is built on open-source software. This page lists every component bundled in the app, its licence, and — where the licence requires it — the licence text and copyright notice. The same list is available offline inside the app under <em>About → Open-source licences</em>.</p>
+    </div>
+  </section>
+
+  <section class="block doc-block">
+    <div class="inner">
+    <article class="doc">
   <p class="muted" id="meta">Loading…</p>
 
   <div class="filter" hidden id="filter">
@@ -53,6 +70,9 @@
   <div id="list"></div>
 
   <noscript><p class="notice">This page needs JavaScript to render the list. The raw data is available as <a href="/notices/third-party-notices.json">JSON</a>.</p></noscript>
+    </article>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -67,6 +87,7 @@
   </div>
 </footer>
 
+<script src="/assets/site.js?v=2" defer></script>
 <script>
 (async function () {
   const meta = document.getElementById('meta');
