@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — AnPyer</title>
+<meta name="description" content="Privacy Policy for the AnPyer Android app: what data stays on your device, what is sent to a third-party AI provider you configure, and how to delete it.">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" hreflang="zh" href="/zh/privacy/">
+<link rel="alternate" hreflang="en" href="/privacy/">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/privacy/" aria-current="page">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/support/">Support</a>
+      <a class="lang" href="/zh/privacy/" lang="zh">中文</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Applies to the <strong>AnPyer</strong> Android application (package <code>com.openbook.anpyer</code>), published by <span class="legal-name">[COMPANY LEGAL NAME]</span> ("we", "us").<br>Effective date: 19 September 2026 · Version 1.0</p>
+
+  <div class="notice">
+    <strong>Summary.</strong> AnPyer is an offline notebook app. We do not operate any server, we do not collect analytics or crash reports, and we never receive your notebooks, your code, or your API keys. The only time data leaves your device is when <em>you</em> choose to use the optional AI assistant — in which case your request goes directly from your device to the third-party model provider <em>you</em> configured — or when code <em>you</em> run makes a network request.
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>AnPyer is published by <span class="legal-name">[COMPANY LEGAL NAME]</span>. For any privacy question or request, e-mail <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>. We are the data controller for the (very limited) processing described here.</p>
+
+  <h2>2. What AnPyer does</h2>
+  <p>AnPyer runs Jupyter notebooks (<code>.ipynb</code> files) on your Android device using a Python interpreter that ships inside the app. All code execution, rendering, and file handling happen locally. The app does not require an account, login, or any registration.</p>
+
+  <h2>3. Data that stays on your device</h2>
+  <p>The following data is created or stored on your device only. We have no access to it.</p>
+  <table>
+    <thead><tr><th>Data</th><th>Where it is stored</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Notebook files you open, edit, or create</td><td>The location you choose through the Android file picker, and a private working folder inside the app's sandbox</td><td>Core function: opening, editing, saving notebooks</td></tr>
+      <tr><td>Recently opened notebook list</td><td>App-private storage</td><td>Convenience: quick re-open</td></tr>
+      <tr><td>AI provider settings, including API keys you enter</td><td>App-private storage (WebView local storage) on this device only</td><td>To authenticate <em>your</em> requests to the provider <em>you</em> configured. Keys are never sent to us.</td></tr>
+      <tr><td>AI conversation of the current session</td><td>Memory only; discarded when the app is closed</td><td>Displaying the assistant's replies</td></tr>
+      <tr><td>Reports you file about an AI reply ("Report this reply")</td><td>App-private storage</td><td>Kept locally so you can review, export, or e-mail them. <strong>Nothing is sent automatically.</strong></td></tr>
+      <tr><td>Interface language preference</td><td>App-private storage</td><td>UI display</td></tr>
+    </tbody>
+  </table>
+  <p>App-private storage is removed by Android when you uninstall the app. You can also remove it at any time from <em>About → Clear local data</em> inside the app. Notebook files you saved to a location of your choice are ordinary files that you manage yourself.</p>
+
+  <h2>4. The optional AI assistant (bring your own key)</h2>
+  <p>AnPyer includes an optional assistant that can read and edit cells of the notebook you are working on. It is <strong>off until you configure it</strong>: you must enter an API key for a third-party large-language-model provider yourself. We do not provide, resell, or proxy any AI service.</p>
+
+  <h3>4.1 What is sent, and to whom</h3>
+  <p>When you send a message to the assistant, the following is transmitted <strong>directly from your device to the provider you configured</strong> (for example DeepSeek, OpenAI, Google Gemini, OpenRouter, or any other OpenAI-compatible endpoint whose address you enter):</p>
+  <ul>
+    <li>your message text and the conversation so far;</li>
+    <li>the contents of notebook cells that the assistant reads or edits (only when the assistant invokes a notebook tool, which it does to answer your request);</li>
+    <li>a short system instruction describing the app environment;</li>
+    <li>your API key, as required by the provider to authenticate the request.</li>
+  </ul>
+  <p>The assistant may also ask to fetch a public web page or call a public HTTP API on your behalf. <strong>Each such request requires your explicit confirmation</strong> in the app before it is made, and it goes to the address shown in the confirmation card.</p>
+
+  <h3>4.2 We are not a party to that transfer</h3>
+  <p>We do not receive, store, log, or have any technical ability to access these requests or responses. The provider's own privacy policy and terms govern how it handles your data (including retention and whether it is used for training). Please review them before entering a key. Where the built-in provider templates offer a "do not store" option supported by the provider's API, AnPyer sets it; we cannot guarantee provider behaviour.</p>
+
+  <h3>4.3 Transport security</h3>
+  <p>All built-in provider templates use HTTPS. If you enter a custom endpoint, the connection security is that of the address you enter.</p>
+
+  <h2>5. Code that you run</h2>
+  <p>AnPyer executes the Python code in your notebooks. Some bundled libraries (for example <code>requests</code>) can make network requests if your code asks them to. Such requests are initiated by your code, go to the destinations your code specifies, and are not visible to or controlled by us. Please review notebooks from sources you do not trust before running them.</p>
+
+  <h2>6. Data we collect ourselves</h2>
+  <p><strong>None.</strong> AnPyer contains no analytics, advertising, crash-reporting, or telemetry SDK. The app makes no network connection to any server operated by us; we have none. We therefore do not collect device identifiers, usage statistics, location, contacts, or any other personal data.</p>
+  <p>If you contact us by e-mail, we will process the information you include in order to reply, and retain the correspondence for as long as reasonably needed for that purpose.</p>
+
+  <h2>7. Google Play</h2>
+  <p>Purchases and installation are handled by Google Play under Google's own terms and privacy policy. We receive only the aggregated, non-identifying statistics that Google Play Console shows to every developer (for example install counts by country). We do not receive your name, e-mail address, or payment details from Google.</p>
+
+  <h2>8. Permissions</h2>
+  <table>
+    <thead><tr><th>Android permission</th><th>Used for</th></tr></thead>
+    <tbody>
+      <tr><td><code>INTERNET</code></td><td>Only the AI assistant (§4) and network code you run yourself (§5). Nothing else in the app uses the network.</td></tr>
+      <tr><td>File access</td><td>AnPyer does <em>not</em> request broad storage permission. It uses the Android system file picker (Storage Access Framework); it can only read or write the files and folders you explicitly select.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>9. Children</h2>
+  <p>AnPyer is a general-audience developer tool and is not directed at children under 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal data from anyone, including children.</p>
+
+  <h2>10. Your rights and how to exercise them</h2>
+  <p>Because we hold no personal data about app users, requests for access, correction, or deletion under GDPR, UK GDPR, CCPA/CPRA, PIPL, or similar laws can be fulfilled entirely by you on your device:</p>
+  <ul>
+    <li><strong>Delete app data:</strong> <em>About → Clear local data</em>, or uninstall the app.</li>
+    <li><strong>Delete data held by an AI provider:</strong> contact that provider directly; we cannot do it on your behalf.</li>
+    <li><strong>Anything else:</strong> e-mail <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>. You also have the right to lodge a complaint with your local data-protection authority.</li>
+  </ul>
+
+  <h2>11. International transfers</h2>
+  <p>We transfer no data. If you use the AI assistant, your data is sent by your device to the provider you chose, wherever that provider operates. Consult the provider's policy for its transfer safeguards.</p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>We may update this policy when the app gains new features that affect data handling. The current version is always published at <code>https://anpyer.com/privacy/</code> and linked from <em>About</em> inside the app. Material changes will be noted in the app's release notes on Google Play. The effective date at the top tells you when it was last changed.</p>
+
+  <h2>13. Contact</h2>
+  <p><span class="legal-name">[COMPANY LEGAL NAME]</span><br>E-mail: <a href="mailto:contact@anpyer.com">contact@anpyer.com</a></p>
+
+  <p class="muted">A Simplified Chinese translation is available at <a href="/zh/privacy/">/zh/privacy/</a>. In case of any discrepancy, this English version prevails.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 <span class="legal-name">[COMPANY LEGAL NAME]</span></span>
+    <div class="links">
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+      <a href="/notices/">Third-party notices</a>
+      <a href="/support/">Support</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — AnPyer</title>
+<meta name="description" content="Get help with AnPyer: contact, frequently asked questions, and what to include in a bug report.">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" hreflang="zh" href="/zh/support/">
+<link rel="alternate" hreflang="en" href="/support/">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/support/" aria-current="page">Support</a>
+      <a class="lang" href="/zh/support/" lang="zh">中文</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Support</h1>
+  <p class="lead">E-mail us at <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>. We read everything; please allow a few working days for a reply.</p>
+
+  <h2>Reporting a bug</h2>
+  <p>It helps enormously if you include:</p>
+  <ul>
+    <li>the AnPyer version (shown in <em>⋯ → About</em>);</li>
+    <li>your device model and Android version;</li>
+    <li>what you did, what you expected, and what happened instead;</li>
+    <li>if a cell failed: the code of the cell and the full error output (long-press the output to copy it);</li>
+    <li>if the problem is with a notebook file, the file itself if you are able to share it. <strong>Please remove any private data first</strong> — we do not need your data to reproduce most problems.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>Can I install additional Python packages?</h3>
+  <p>Not at runtime. Android does not allow apps to load native code that was not shipped with them, so the package set is fixed at build time. The full list is under <a href="/notices/">Third-party notices</a>. If a package you need is missing, tell us — pure-Python packages and many C-extension packages can be added in an update.</p>
+
+  <h3>Where are my notebooks stored?</h3>
+  <p>Wherever you save them. AnPyer uses the Android system file picker, so files live in the folder you chose (device storage, SD card, or a cloud-drive provider that integrates with Android). AnPyer also keeps a working copy in its private sandbox while a notebook is open, and syncs it back when you save.</p>
+
+  <h3>The AI assistant says no model is configured</h3>
+  <p>The assistant needs your own API key from a provider such as DeepSeek, OpenAI, Google Gemini, or OpenRouter (any OpenAI-compatible endpoint works). Open <em>⋯ → AI settings</em>, pick a provider, paste your key, then tap <em>Refresh models</em> and select one. The key is stored only on your device.</p>
+
+  <h3>A cell is stuck</h3>
+  <p>Tap the ■ button on the cell or in the status bar to interrupt it. If it does not respond within a couple of seconds (this can happen while native code such as a long numpy operation is running), use <em>⋯ → Restart kernel</em>. Restarting clears all variables but keeps your notebook contents.</p>
+
+  <h3>How do I delete all data the app has stored?</h3>
+  <p><em>⋯ → About → Clear local data</em> removes provider settings, API keys, the recent-files list, and AI reports. Uninstalling the app does the same. Notebook files you saved elsewhere are not touched — delete those with your file manager.</p>
+
+  <h3>Refunds</h3>
+  <p>Purchases are processed by Google Play; please use <a href="https://support.google.com/googleplay/answer/2479637">Google Play's refund process</a>. We cannot issue refunds directly.</p>
+
+  <h2>Reporting an AI reply</h2>
+  <p>If the assistant produces something offensive, harmful, or misleading, use <em>⋯ → Report this reply</em> on that message. Reports are kept on your device; from <em>About</em> you can export them or send them to us by e-mail so we can improve the built-in instructions.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 <span class="legal-name">[COMPANY LEGAL NAME]</span></span>
+    <div class="links">
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+      <a href="/notices/">Third-party notices</a>
+      <a href="/support/">Support</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

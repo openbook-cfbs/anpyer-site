@@ -1,0 +1,296 @@
+/* AnPyer 首页专用样式（产品页风格）。依赖 site.css 的变量与顶栏 / 页脚基础样式。
+   结构：全宽色块（.block）纵向堆叠，每块内容居中限宽（.inner），左右两栏（文案 + 视觉）交替，
+   窄屏塌成单列。零构建、零依赖；滚动入场动画在 prefers-reduced-motion 下关闭。 */
+
+:root {
+  --wide: 72rem;        /* 内容最大宽度（比法务页的 46rem 宽） */
+  --narrow: 40rem;      /* 居中文案段最大宽度 */
+  --block-y: clamp(3.5rem, 9vw, 7rem);
+}
+
+body.landing { overflow-x: hidden; }
+
+/* ---------- 悬浮顶栏 ---------- */
+body.landing .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg-elev) 78%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  backdrop-filter: saturate(160%) blur(14px);
+}
+body.landing .site-header .inner,
+body.landing .site-footer .inner { max-width: var(--wide); }
+
+/* ---------- 主区不限宽（各 block 自己限） ---------- */
+body.landing main { max-width: none; padding: 0; }
+
+/* ---------- 色块 ---------- */
+.block {
+  padding: var(--block-y) 1.25rem;
+}
+.block.alt { background: var(--bg-elev); }
+.block > .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+}
+
+/* 两栏：文案 + 视觉；.reverse 让视觉在左 */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.split.reverse > .copy { order: 2; }
+.split.reverse > .visual { order: 1; }
+
+/* 居中文案（无视觉的块 / 块标题） */
+.centered {
+  max-width: var(--narrow);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------- 文案排版 ---------- */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+.block h2 {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  border: 0;
+}
+.block .lead {
+  font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+  color: var(--fg-muted);
+  margin: 0 0 1.2rem;
+}
+.block .copy p { max-width: 34rem; }
+.block .copy ul { padding-left: 1.1rem; color: var(--fg-muted); }
+.block .copy li { margin: 0.35rem 0; }
+.block .copy li strong { color: var(--fg); }
+
+/* ---------- Hero ---------- */
+.hero-block {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: 0;
+  text-align: center;
+  background:
+    radial-gradient(60rem 30rem at 50% -10rem, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+    var(--bg);
+}
+.hero-block h1 {
+  font-size: clamp(2.3rem, 6vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 auto 1rem;
+  max-width: 18ch;
+}
+.hero-block .lead {
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  max-width: var(--narrow);
+  margin: 0 auto 1.6rem;
+}
+.hero-block .cta { justify-content: center; margin: 0 0 clamp(2.5rem, 6vw, 4.5rem); }
+.hero-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); margin: -1.8rem 0 2.5rem; }
+
+.btn.large { padding: 0.85rem 1.5rem; font-size: 1.05rem; border-radius: 999px; }
+
+/* ---------- 手机 mockup（纯 CSS，等截图到了换 <img>） ---------- */
+.phone {
+  width: min(20rem, 78vw);
+  aspect-ratio: 9 / 19;
+  margin: 0 auto;
+  border-radius: 2.6rem;
+  background: #0b0d12;
+  border: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+  box-shadow:
+    0 0 0 6px #14171e,
+    0 0 0 7px color-mix(in srgb, var(--fg) 10%, transparent),
+    0 40px 80px -30px rgba(0,0,0,0.65);
+  padding: 0.55rem;
+  position: relative;
+  text-align: left;
+}
+.hero-block .phone { margin-bottom: -1px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 0; aspect-ratio: 9 / 13; overflow: hidden; }
+.hero-block .phone .screen { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.phone .screen {
+  width: 100%; height: 100%;
+  border-radius: 2.1rem;
+  background: #0f1115;
+  color: #e6e8ee;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+.phone .bar {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 1.1rem 0.9rem 0.5rem;
+  color: #9aa3b2;
+  font-size: 0.7rem;
+}
+.phone .bar .dot { width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; }
+.phone .bar .title { color: #e6e8ee; font-weight: 600; }
+.phone .bar .spacer { flex: 1; }
+
+.cell { margin: 0.35rem 0.6rem; border-radius: 8px; overflow: hidden; border: 1px solid #262c38; }
+.cell .in {
+  background: #1c212b;
+  padding: 0.5rem 0.65rem;
+  font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  white-space: pre;
+  overflow: hidden;
+}
+.cell .in .k { color: #c792ea; }
+.cell .in .f { color: #82aaff; }
+.cell .in .s { color: #c3e88d; }
+.cell .in .n { color: #f78c6c; }
+.cell .out { background: #12151b; padding: 0.5rem 0.65rem; color: #c7ccd6; }
+.cell .out.plain { font-family: ui-monospace, Menlo, Consolas, monospace; white-space: pre; }
+
+.df { border-collapse: collapse; width: 100%; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.66rem; margin: 0; }
+.df th, .df td { border: 0; padding: 0.12rem 0.35rem; text-align: right; color: #c7ccd6; }
+.df th { color: #9aa3b2; font-weight: 600; }
+.df td:first-child, .df th:first-child { color: #9aa3b2; text-align: left; }
+
+.bars { display: flex; align-items: flex-end; gap: 0.35rem; height: 4.2rem; padding: 0.3rem 0.2rem 0; }
+.bars i { flex: 1; display: block; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 50%, #0f1115)); }
+.bars i:nth-child(2n) { background: linear-gradient(180deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 50%, #0f1115)); }
+.caption { font-size: 0.62rem; color: #9aa3b2; text-align: center; padding: 0.2rem 0 0.4rem; }
+
+/* AI 确认卡 mockup */
+.ai-card {
+  margin: 0.35rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, #262c38);
+  border-radius: 10px;
+  background: #12151b;
+  padding: 0.6rem 0.7rem;
+}
+.ai-card .who { color: var(--accent); font-weight: 700; font-size: 0.68rem; margin-bottom: 0.25rem; }
+.ai-card .diff { font-family: ui-monospace, Menlo, Consolas, monospace; white-space: pre; font-size: 0.66rem; margin: 0.35rem 0; }
+.ai-card .diff .add { color: #3ddc84; }
+.ai-card .diff .del { color: #ff6b6b; }
+.ai-card .actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
+.ai-card .actions span {
+  flex: 1; text-align: center; padding: 0.3rem 0; border-radius: 6px;
+  border: 1px solid #262c38; font-size: 0.66rem; color: #c7ccd6;
+}
+.ai-card .actions span.ok { background: var(--accent); color: #06121c; border-color: var(--accent); font-weight: 700; }
+
+/* 非 hero 的视觉容器：卡片化 */
+.visual .panel {
+  border-radius: 1.2rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--bg-elev) 80%, var(--accent) 6%), var(--bg));
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 30px 60px -40px rgba(0,0,0,0.6);
+}
+.visual .panel .phone { width: min(16rem, 70vw); }
+
+/* ---------- 包名 chips ---------- */
+.chips {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem;
+  margin: 1.8rem auto 0; max-width: 52rem; padding: 0; list-style: none;
+}
+.chips li {
+  font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.92rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  margin: 0;
+}
+.block.alt .chips li { background: var(--bg-elev); }
+.chips li.hl { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent); }
+.chips-note { text-align: center; font-size: 0.9rem; color: var(--fg-muted); margin-top: 1.2rem; }
+
+/* ---------- 三步流程 ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.2rem 0 0;
+  padding: 0; list-style: none;
+}
+.steps li {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1.3rem 1.2rem;
+  margin: 0;
+  position: relative;
+}
+.block.alt .steps li { background: var(--bg-elev); }
+.steps .num {
+  display: inline-grid; place-items: center;
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--accent); color: #06121c; font-weight: 800; font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+.steps strong { display: block; font-size: 1.08rem; margin-bottom: 0.35rem; }
+.steps span { color: var(--fg-muted); font-size: 0.95rem; }
+.steps code { font-size: 0.85em; }
+
+/* ---------- 大数字（隐私块） ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.2rem 0 0;
+  padding: 0; list-style: none;
+  text-align: center;
+}
+.stats li { margin: 0; padding: 1.4rem 0.8rem; border-radius: 1rem; border: 1px solid var(--line); background: var(--bg); }
+.block.alt .stats li { background: var(--bg-elev); }
+.stats b { display: block; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; margin-top: 0.5rem; color: var(--fg-muted); font-size: 0.95rem; }
+
+/* ---------- 诚实边界（小卡） ---------- */
+.limits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; margin: 1.8rem 0 0; padding: 0; list-style: none;
+}
+.limits li { margin: 0; padding: 1.1rem 1.2rem; border-radius: 1rem; border: 1px dashed var(--line); color: var(--fg-muted); font-size: 0.95rem; }
+.limits li strong { display: block; color: var(--fg); margin-bottom: 0.25rem; }
+
+/* ---------- 价格 / 收尾 CTA ---------- */
+.pricing-block { text-align: center; }
+.price { font-size: clamp(2.6rem, 6vw, 4rem); letter-spacing: -0.03em; line-height: 1; margin: 0.5rem 0 0.4rem; }
+.price small { font-size: 0.35em; color: var(--fg-muted); letter-spacing: 0; vertical-align: middle; margin-left: 0.4rem; }
+.pricing-block .cta { justify-content: center; margin: 1.6rem 0 0.8rem; }
+.pricing-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); max-width: var(--narrow); margin: 0.6rem auto 0; }
+
+/* ---------- 滚动入场 ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 52rem) {
+  .split { grid-template-columns: 1fr; gap: 2rem; }
+  .split.reverse > .copy { order: 1; }
+  .split.reverse > .visual { order: 2; }
+  .split .copy { text-align: left; }
+  .steps, .stats, .limits { grid-template-columns: 1fr; }
+  .visual .panel .phone { width: min(15rem, 66vw); }
+}
+@media (max-width: 30rem) {
+  .block { padding-left: 1rem; padding-right: 1rem; }
+  .hero-block .cta .btn { flex: 1 1 100%; text-align: center; }
+}
