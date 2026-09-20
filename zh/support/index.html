@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支持 — AnPyer</title>
+<meta name="description" content="获取 AnPyer 的帮助：联系方式、常见问题，以及提交 bug 时需要附带的信息。">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" hreflang="en" href="/support/">
+<link rel="alternate" hreflang="zh" href="/zh/support/">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/zh/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <nav class="nav" aria-label="站点导航">
+      <a href="/zh/">首页</a>
+      <a href="/zh/privacy/">隐私政策</a>
+      <a href="/zh/terms/">使用条款</a>
+      <a href="/zh/support/" aria-current="page">支持</a>
+      <a class="lang" href="/support/" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>支持</h1>
+  <p class="lead">请发邮件至 <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>。每一封我们都会看，回复请预留几个工作日。</p>
+
+  <h2>报告 bug</h2>
+  <p>如果能附上以下信息，会帮我们省很多来回：</p>
+  <ul>
+    <li>AnPyer 版本（在 <em>⋯ → 关于</em> 里）；</li>
+    <li>设备型号和 Android 版本；</li>
+    <li>你做了什么、预期是什么、实际发生了什么；</li>
+    <li>如果是 cell 执行失败：该 cell 的代码和完整错误输出（长按输出可复制）；</li>
+    <li>如果问题与某个 notebook 文件有关，且方便分享，请附上该文件。<strong>请先删掉其中的私密数据</strong>——绝大多数问题我们不需要你的数据就能复现。</li>
+  </ul>
+
+  <h2>常见问题</h2>
+
+  <h3>能额外安装 Python 包吗？</h3>
+  <p>运行时不能。Android 不允许应用加载未随包分发的原生代码，因此包集合在构建期就固定了。完整清单见 <a href="/notices/">第三方声明</a>。如果你需要的包缺失，请告诉我们——纯 Python 包和许多 C 扩展包都可以在后续更新中加入。</p>
+
+  <h3>我的 notebook 存在哪里？</h3>
+  <p>存在你保存的地方。AnPyer 使用 Android 系统文件选择器，文件就在你选择的目录里（设备存储、SD 卡，或与 Android 集成的网盘应用）。notebook 打开期间，AnPyer 会在自己的私有沙箱里保留一份工作副本，保存时同步回原位置。</p>
+
+  <h3>AI 助手提示未配置模型</h3>
+  <p>助手需要你自己的 API key，来源可以是 DeepSeek、OpenAI、Google Gemini、OpenRouter 等（任何 OpenAI 兼容端点均可）。打开 <em>⋯ → AI 设置</em>，选择服务商，粘贴 key，然后点 <em>刷新模型</em> 并选一个。key 只存在你的设备上。</p>
+
+  <h3>cell 卡住了</h3>
+  <p>点 cell 上或状态栏中的 ■ 按钮中断它。如果几秒内没有响应（在运行原生代码，例如一次很长的 numpy 运算时可能发生），请用 <em>⋯ → 重启内核</em>。重启会清空所有变量，但 notebook 内容不受影响。</p>
+
+  <h3>如何删除应用存储的全部数据？</h3>
+  <p><em>⋯ → 关于 → 清除本地数据</em> 会删除服务商设置、API key、最近文件列表和 AI 举报记录。卸载应用效果相同。你保存在其他位置的 notebook 文件不受影响——请用文件管理器自行删除。</p>
+
+  <h3>退款</h3>
+  <p>购买由 Google Play 处理，请使用 <a href="https://support.google.com/googleplay/answer/2479637?hl=zh-Hans">Google Play 的退款流程</a>。我们无法直接退款。</p>
+
+  <h2>报告 AI 回复</h2>
+  <p>如果助手产生了冒犯性、有害或误导性的内容，请在那条消息上使用 <em>⋯ → 报告此回复</em>。举报记录保留在你的设备上；你可以在 <em>关于</em> 页导出，或通过邮件发给我们，帮助我们改进内置指令。</p>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 <span class="legal-name">[公司法定名称]</span></span>
+    <div class="links">
+      <a href="/zh/privacy/">隐私政策</a>
+      <a href="/zh/terms/">使用条款</a>
+      <a href="/notices/">第三方声明</a>
+      <a href="/zh/support/">支持</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

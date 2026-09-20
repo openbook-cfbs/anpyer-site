@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnPyer — A real Jupyter Notebook for Android</title>
+<meta name="description" content="AnPyer runs Jupyter notebooks fully on your Android device: a real CPython 3.13 with numpy, pandas, matplotlib and more. No account, no server, no telemetry.">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/landing.css">
+<link rel="alternate" hreflang="zh" href="/zh/">
+<link rel="alternate" hreflang="en" href="/">
+</head>
+<body class="landing">
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <nav class="nav" aria-label="Site">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/support/">Support</a>
+      <a class="lang" href="/zh/" lang="zh">中文</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="block hero-block">
+    <div class="inner">
+      <p class="eyebrow">For Android</p>
+      <h1>A real Jupyter Notebook. In your pocket.</h1>
+      <p class="lead">CPython 3.13 and the scientific stack, running entirely on your phone. Open an <code>.ipynb</code>, run cells, plot, save. No account, no server, no telemetry.</p>
+      <div class="cta">
+        <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">Get it on Google Play</a>
+        <a class="btn large" href="#how">See how it works</a>
+      </div>
+      <p class="fineprint">One-time purchase · Android 7.0+ · ~170 MB download</p>
+
+      <!-- 手机 mockup：等真机截图到了换成 <img> -->
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="bar"><span class="dot"></span><span class="title">sales.ipynb</span><span class="spacer"></span><span>Python 3.13</span></div>
+          <div class="cell">
+            <div class="in"><span class="k">import</span> pandas <span class="k">as</span> pd
+df = pd.<span class="f">read_csv</span>(<span class="s">"q3.csv"</span>)
+df.<span class="f">groupby</span>(<span class="s">"region"</span>).sum()</div>
+            <div class="out">
+              <table class="df">
+                <thead><tr><th></th><th>units</th><th>revenue</th></tr></thead>
+                <tbody>
+                  <tr><td>APAC</td><td>1 240</td><td>86 800</td></tr>
+                  <tr><td>EMEA</td><td>980</td><td>71 540</td></tr>
+                  <tr><td>NA</td><td>1 530</td><td>112 300</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="in">df.<span class="f">plot</span>.bar(x=<span class="s">"region"</span>, y=<span class="s">"revenue"</span>)</div>
+            <div class="out">
+              <div class="bars"><i style="height:62%"></i><i style="height:51%"></i><i style="height:80%"></i></div>
+              <div class="caption">revenue by region</div>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="in"><span class="k">import</span> numpy <span class="k">as</span> np
+np.<span class="f">polyfit</span>(x, y, <span class="n">2</span>)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1. Real CPython ============ -->
+  <section class="block alt" id="how">
+    <div class="inner split">
+      <div class="copy reveal">
+        <p class="eyebrow">Real Python</p>
+        <h2>Not a toy interpreter. CPython 3.13.</h2>
+        <p class="lead">The interpreter and every package ship inside the app and run natively on your device. It is the same Python you use on your laptop — the same IPython kernel, the same magics, the same tracebacks.</p>
+        <ul>
+          <li><strong>Offline by design.</strong> Your code never leaves the device to run.</li>
+          <li><strong>Interrupt &amp; restart.</strong> Stop a runaway cell, restart the kernel, keep going.</li>
+          <li><strong>Completion &amp; help.</strong> Tab completion and <code>?</code> help from the real kernel.</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <div class="panel">
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="bar"><span class="dot"></span><span class="title">scratch.ipynb</span><span class="spacer"></span><span>● running</span></div>
+              <div class="cell">
+                <div class="in"><span class="k">import</span> sys, numpy, scipy
+<span class="f">print</span>(sys.version.split()[<span class="n">0</span>])
+<span class="f">print</span>(numpy.__version__, scipy.__version__)</div>
+                <div class="out plain">3.13.5
+2.3.2 1.16.1</div>
+              </div>
+              <div class="cell">
+                <div class="in"><span class="k">from</span> scipy <span class="k">import</span> integrate
+integrate.<span class="f">quad</span>(<span class="k">lambda</span> x: x**<span class="n">2</span>, <span class="n">0</span>, <span class="n">1</span>)</div>
+                <div class="out plain">(0.33333333333333337, 3.700743415417189e-15)</div>
+              </div>
+              <div class="cell">
+                <div class="in">%timeit numpy.<span class="f">linalg</span>.inv(numpy.random.rand(<span class="n">200</span>, <span class="n">200</span>))</div>
+                <div class="out plain">4.1 ms ± 120 µs per loop</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. Scientific stack ============ -->
+  <section class="block">
+    <div class="inner">
+      <div class="centered reveal">
+        <p class="eyebrow">Preinstalled</p>
+        <h2>The scientific stack, ready on first launch.</h2>
+        <p class="lead">No pip, no wheels, no waiting. Everything below is bundled and tested on-device.</p>
+      </div>
+      <ul class="chips reveal">
+        <li class="hl">numpy 2</li><li class="hl">pandas</li><li class="hl">scipy</li><li class="hl">matplotlib</li>
+        <li>scikit-learn</li><li>statsmodels</li><li>sympy</li><li>plotly</li><li>seaborn</li>
+        <li>astropy</li><li>networkx</li><li>lifelines</li><li>emcee</li><li>pint</li>
+        <li>pillow</li><li>requests</li><li>beautifulsoup4</li><li>lxml</li><li>openpyxl</li>
+        <li>jieba</li><li>wordcloud</li><li>yfinance</li><li>PyWavelets</li><li>…and 20 more</li>
+      </ul>
+      <p class="chips-note reveal">Full list with licences under <a href="/notices/">Third-party notices</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. Compute in Python, render on the web ============ -->
+  <section class="block alt">
+    <div class="inner">
+      <div class="centered reveal">
+        <p class="eyebrow">The workflow</p>
+        <h2>Compute in Python. Render on the web.</h2>
+        <p class="lead">AnPyer's output area is a full web renderer. Interactive charts, Mermaid diagrams, LaTeX, HTML — anything a browser can draw, a cell can show.</p>
+      </div>
+      <ol class="steps reveal">
+        <li><span class="num">1</span><strong>Crunch the numbers</strong><span>numpy, pandas, scipy — the heavy lifting stays in Python, where it belongs.</span></li>
+        <li><span class="num">2</span><strong>Hand over the result</strong><span>Ask the assistant to chart it, or call <code>anpyer.plot</code> yourself with a plain dict.</span></li>
+        <li><span class="num">3</span><strong>Get an interactive chart</strong><span>ECharts, plotly, Mermaid, MathJax — rendered right in the output, pinch-zoomable on your phone.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 4. AI in the cell ============ -->
+  <section class="block">
+    <div class="inner split reverse">
+      <div class="copy reveal">
+        <p class="eyebrow">Optional AI assistant</p>
+        <h2>AI that works <em>in</em> the cell, not beside it.</h2>
+        <p class="lead">The assistant reads your notebook, proposes edits, and shows you a diff. Nothing changes until you tap <strong>Apply</strong>. It can add or remove cells — it never runs them for you.</p>
+        <ul>
+          <li><strong>Bring your own key.</strong> Any OpenAI-compatible provider — DeepSeek, OpenRouter, OpenAI, Gemini, or your own endpoint.</li>
+          <li><strong>Pay the provider, not us.</strong> A budget model is plenty for notebook work.</li>
+          <li><strong>Off until you turn it on.</strong> Without a key, the app makes no network requests at all.</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <div class="panel">
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="bar"><span class="dot"></span><span class="title">Assistant</span><span class="spacer"></span><span>deepseek</span></div>
+              <div class="ai-card">
+                <div class="who">Proposed edit · cell 3</div>
+                <div>Vectorise the loop with numpy:</div>
+                <div class="diff"><span class="del">- for i in range(len(x)):</span>
+<span class="del">-     y[i] = x[i] ** 2</span>
+<span class="add">+ y = x ** 2</span></div>
+                <div class="actions"><span>Dismiss</span><span class="ok">Apply</span></div>
+              </div>
+              <div class="cell">
+                <div class="in">y = x ** <span class="n">2</span>
+y[:<span class="n">5</span>]</div>
+                <div class="out plain">array([0, 1, 4, 9, 16])</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. Your files ============ -->
+  <section class="block alt">
+    <div class="inner split">
+      <div class="copy reveal">
+        <p class="eyebrow">Your files</p>
+        <h2>Standard <code>.ipynb</code>. Your folder. No lock-in.</h2>
+        <p class="lead">Pick a folder with the Android file picker and it becomes your workspace: notebooks, CSVs, images, side by side. Files save as plain Jupyter notebooks that open anywhere.</p>
+        <ul>
+          <li><strong>No broad storage permission.</strong> AnPyer only sees the folders you choose.</li>
+          <li><strong>Round-trips cleanly.</strong> Open a notebook from your laptop, edit on the phone, open it again on the laptop.</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <div class="panel">
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="bar"><span class="dot"></span><span class="title">Workspace</span><span class="spacer"></span><span>/Documents/notebooks</span></div>
+              <div class="cell"><div class="out plain">📁 data/
+📄 sales.ipynb
+📄 q3.csv
+📄 forecast.ipynb
+🖼 fig1.png</div></div>
+              <div class="cell">
+                <div class="in">pd.<span class="f">read_csv</span>(<span class="s">"q3.csv"</span>).shape</div>
+                <div class="out plain">(3750, 12)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Privacy ============ -->
+  <section class="block">
+    <div class="inner">
+      <div class="centered reveal">
+        <p class="eyebrow">Privacy</p>
+        <h2>Nothing leaves your device.</h2>
+        <p class="lead">There is no AnPyer server. No analytics, no crash reporting, no telemetry SDK. The only network traffic is the AI assistant you configure — sent straight from your phone to the provider you chose — and any HTTP calls your own code makes.</p>
+      </div>
+      <ul class="stats reveal">
+        <li><b>0</b><span>accounts to create</span></li>
+        <li><b>0</b><span>servers of ours</span></li>
+        <li><b>0</b><span>bytes of telemetry</span></li>
+      </ul>
+      <p class="chips-note reveal">Details in the <a href="/privacy/">Privacy Policy</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ 7. Honest limits ============ -->
+  <section class="block alt">
+    <div class="inner">
+      <div class="centered reveal">
+        <p class="eyebrow">Good to know</p>
+        <h2>What AnPyer doesn't do.</h2>
+        <p class="lead">We'd rather you know before you buy.</p>
+      </div>
+      <ul class="limits reveal">
+        <li><strong>No <code>pip install</code></strong>The package set is fixed at build time. Missing something? <a href="/support/">Tell us</a>.</li>
+        <li><strong>matplotlib is static</strong>Figures render as images. For interaction, use plotly or the built-in ECharts renderer.</li>
+        <li><strong>C extensions can't be interrupted</strong>Same as desktop Jupyter: a cell stuck inside compiled code needs a kernel restart.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 8. Pricing / CTA ============ -->
+  <section class="block pricing-block">
+    <div class="inner">
+      <div class="centered reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>One purchase. That's it.</h2>
+        <p class="price">$4.99<small>one-time</small></p>
+        <p class="lead">No subscription, no in-app purchases, no ads. Updates included.</p>
+        <div class="cta">
+          <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">Get it on Google Play</a>
+        </div>
+        <p class="fineprint">The optional AI assistant requires an API key from a third-party model provider of your choice; any fees for that usage are charged by that provider, not by us.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 <span class="legal-name">[COMPANY LEGAL NAME]</span></span>
+    <div class="links">
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+      <a href="/notices/">Third-party notices</a>
+      <a href="/support/">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 滚动入场：仅在支持 IntersectionObserver 且未开启「减少动态效果」时启用
+(function () {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

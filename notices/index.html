@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Third-party notices — AnPyer</title>
+<meta name="description" content="Open-source components bundled with the AnPyer Android app and their licences.">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .filter { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1rem 0; }
+  .filter input { flex: 1; min-width: 12rem; padding: 0.5rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-elev); color: var(--fg); font: inherit; }
+  .filter select { padding: 0.5rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-elev); color: var(--fg); font: inherit; }
+  .pkg { border-bottom: 1px solid var(--line); padding: 0.55rem 0; }
+  .pkg summary { cursor: pointer; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: baseline; list-style: none; }
+  .pkg summary::-webkit-details-marker { display: none; }
+  .pkg .name { font-weight: 600; }
+  .pkg .ver { color: var(--fg-muted); font-size: 0.9em; }
+  .pkg .lic { margin-left: auto; font-size: 0.85em; color: var(--accent-2); white-space: nowrap; }
+  .pkg .line { font-size: 0.78em; color: var(--fg-muted); border: 1px solid var(--line); border-radius: 999px; padding: 0 0.5em; }
+  .pkg pre { white-space: pre-wrap; background: var(--code-bg); padding: 0.8rem; border-radius: 8px; font-size: 0.8rem; max-height: 24rem; overflow: auto; margin: 0.6rem 0 0; }
+  .pkg .nolic { color: var(--fg-muted); font-size: 0.9em; margin: 0.4rem 0 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Third-party notices</h1>
+  <p class="lead">AnPyer is built on open-source software. This page lists every component bundled in the app, its licence, and — where the licence requires it — the licence text and copyright notice. The same list is available offline inside the app under <em>About → Open-source licences</em>.</p>
+  <p class="muted" id="meta">Loading…</p>
+
+  <div class="filter" hidden id="filter">
+    <input type="search" id="q" placeholder="Filter by name…" aria-label="Filter packages by name">
+    <select id="line" aria-label="Filter by ecosystem">
+      <option value="">All ecosystems</option>
+    </select>
+    <select id="lic" aria-label="Filter by licence">
+      <option value="">All licences</option>
+    </select>
+  </div>
+
+  <div id="list"></div>
+
+  <noscript><p class="notice">This page needs JavaScript to render the list. The raw data is available as <a href="/notices/third-party-notices.json">JSON</a>.</p></noscript>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 <span class="legal-name">[COMPANY LEGAL NAME]</span></span>
+    <div class="links">
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+      <a href="/notices/">Third-party notices</a>
+      <a href="/support/">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(async function () {
+  const meta = document.getElementById('meta');
+  const list = document.getElementById('list');
+  const filter = document.getElementById('filter');
+  const q = document.getElementById('q');
+  const lineSel = document.getElementById('line');
+  const licSel = document.getElementById('lic');
+
+  let data;
+  try {
+    const res = await fetch('/notices/third-party-notices.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+    data = await res.json();
+  } catch (e) {
+    meta.textContent = 'The notices file could not be loaded (' + e.message + '). Copy AnPyer/src/generated/third-party-notices.json to /notices/ in this site.';
+    return;
+  }
+
+  const pkgs = (data.packages || []).slice().sort((a, b) => a.name.localeCompare(b.name));
+  const lineNames = { node: 'JavaScript', python: 'Python', rust: 'Rust', android: 'Android', kotlin: 'Kotlin', java: 'Java' };
+  const lines = new Set(), lics = new Set();
+  for (const p of pkgs) { (p.line || []).forEach(l => lines.add(l)); if (p.license) lics.add(p.license); }
+  for (const l of [...lines].sort()) lineSel.add(new Option(lineNames[l] || l, l));
+  for (const l of [...lics].sort()) licSel.add(new Option(l, l));
+
+  const when = data.generatedAt ? new Date(data.generatedAt).toISOString().slice(0, 10) : '';
+  meta.textContent = pkgs.length + ' components' + (when ? ' · generated ' + when : '');
+  filter.hidden = false;
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  function render() {
+    const needle = q.value.trim().toLowerCase();
+    const line = lineSel.value, lic = licSel.value;
+    const parts = [];
+    let n = 0;
+    for (const p of pkgs) {
+      if (needle && !p.name.toLowerCase().includes(needle)) continue;
+      if (line && !(p.line || []).includes(line)) continue;
+      if (lic && p.license !== lic) continue;
+      n++;
+      const tags = (p.line || []).map(l => '<span class="line">' + esc(lineNames[l] || l) + '</span>').join('');
+      const nameHtml = p.url ? '<a class="name" href="' + esc(p.url) + '" rel="noopener">' + esc(p.name) + '</a>' : '<span class="name">' + esc(p.name) + '</span>';
+      let body = '';
+      if (p.copyright) body += '<p class="nolic">' + esc(p.copyright) + '</p>';
+      body += p.licenseText ? '<pre>' + esc(p.licenseText) + '</pre>' : '<p class="nolic">Licence text not included in the package; see the licence identifier above.</p>';
+      parts.push('<details class="pkg"><summary>' + nameHtml + '<span class="ver">' + esc(p.version || '') + '</span>' + tags + '<span class="lic">' + esc(p.license || 'unknown') + '</span></summary>' + body + '</details>');
+    }
+    list.innerHTML = parts.join('') || '<p class="muted">No components match.</p>';
+    meta.textContent = n + ' of ' + pkgs.length + ' components' + (when ? ' · generated ' + when : '');
+  }
+  q.addEventListener('input', render);
+  lineSel.addEventListener('change', render);
+  licSel.addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
