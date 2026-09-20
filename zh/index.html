@@ -6,7 +6,11 @@
 <title>AnPyer — 安卓上的真 Jupyter Notebook</title>
 <meta name="description" content="AnPyer 让 Jupyter Notebook 完整运行在你的 Android 设备上：真正的 CPython 3.13，内置 numpy、pandas、matplotlib 等科学计算库。无需账号、无服务器、无遥测。">
 <link rel="stylesheet" href="/assets/site.css?v=2">
-<link rel="stylesheet" href="/assets/landing.css?v=2">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<meta property="og:image" content="https://anpyer.com/assets/brand/og-image.png">
+<link rel="stylesheet" href="/assets/landing.css?v=4">
 <link rel="alternate" hreflang="en" href="/">
 <link rel="alternate" hreflang="zh" href="/zh/">
 </head>
@@ -14,7 +18,7 @@
 
 <header class="site-header">
   <div class="inner">
-    <a class="brand" href="/zh/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <a class="brand" href="/zh/"><img class="logo" src="/assets/brand/brand-64.png" alt="" width="26" height="26">AnPyer</a>
     <nav class="nav" aria-label="站点导航">
       <a class="nav-link" href="/zh/" aria-current="page">首页</a>
       <a class="nav-link" href="/zh/privacy/">隐私政策</a>
@@ -36,17 +40,20 @@
   <!-- ============ HERO ============ -->
   <section class="block hero-block">
     <div class="inner">
-      <p class="eyebrow">For Android</p>
-      <h1>真正的 Jupyter Notebook，装进口袋。</h1>
-      <p class="lead">CPython 3.13 加完整科学计算栈，全部在手机本地运行。打开 <code>.ipynb</code>、运行 cell、画图、保存。无需账号，没有服务器，没有遥测。</p>
-      <div class="cta">
-        <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">在 Google Play 获取</a>
-        <a class="btn large" href="#how">看看它怎么工作</a>
-      </div>
-      <p class="fineprint">一次买断 · Android 7.0+ · 下载约 170 MB</p>
+      <div class="hero-split">
+        <div class="hero-copy">
+          <h1><img class="hero-icon" src="/assets/brand/icon-512.png" alt="" width="64" height="64">真正的 Jupyter Notebook，装进口袋。</h1>
+          <p class="lead">CPython 3.13 加完整科学计算栈，全部在手机本地运行。打开 <code>.ipynb</code>、运行 cell、画图、保存。无需账号，没有服务器，没有遥测。</p>
+          <div class="cta">
+            <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">在 Google Play 获取</a>
+            <a class="btn large" href="#how">看看它怎么工作</a>
+          </div>
+          <p class="fineprint">一次买断 · Android 7.0+ · 下载约 170 MB</p>
+        </div>
 
-      <!-- 手机 mockup：等真机截图到了换成 <img> -->
-      <div class="phone" aria-hidden="true">
+        <!-- 手机 mockup（右栏，底部沉进下一块）：等真机截图到了换成 <img> -->
+        <div class="hero-art" aria-hidden="true">
+      <div class="phone">
         <div class="screen">
           <div class="bar"><span class="dot"></span><span class="title">销售.ipynb</span><span class="spacer"></span><span>Python 3.13</span></div>
           <div class="cell">
@@ -75,6 +82,8 @@ df.<span class="f">groupby</span>(<span class="s">"区域"</span>).sum()</div>
             <div class="in"><span class="k">import</span> numpy <span class="k">as</span> np
 np.<span class="f">polyfit</span>(x, y, <span class="n">2</span>)</div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </div>

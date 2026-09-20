@@ -6,7 +6,11 @@
 <title>AnPyer — A real Jupyter Notebook for Android</title>
 <meta name="description" content="AnPyer runs Jupyter notebooks fully on your Android device: a real CPython 3.13 with numpy, pandas, matplotlib and more. No account, no server, no telemetry.">
 <link rel="stylesheet" href="/assets/site.css?v=2">
-<link rel="stylesheet" href="/assets/landing.css?v=2">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<meta property="og:image" content="https://anpyer.com/assets/brand/og-image.png">
+<link rel="stylesheet" href="/assets/landing.css?v=4">
 <link rel="alternate" hreflang="zh" href="/zh/">
 <link rel="alternate" hreflang="en" href="/">
 </head>
@@ -14,7 +18,7 @@
 
 <header class="site-header">
   <div class="inner">
-    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>AnPyer</a>
+    <a class="brand" href="/"><img class="logo" src="/assets/brand/brand-64.png" alt="" width="26" height="26">AnPyer</a>
     <nav class="nav" aria-label="Site">
       <a class="nav-link" href="/" aria-current="page">Home</a>
       <a class="nav-link" href="/privacy/">Privacy</a>
@@ -36,17 +40,20 @@
   <!-- ============ HERO ============ -->
   <section class="block hero-block">
     <div class="inner">
-      <p class="eyebrow">For Android</p>
-      <h1>A real Jupyter Notebook. In your pocket.</h1>
-      <p class="lead">CPython 3.13 and the scientific stack, running entirely on your phone. Open an <code>.ipynb</code>, run cells, plot, save. No account, no server, no telemetry.</p>
-      <div class="cta">
-        <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">Get it on Google Play</a>
-        <a class="btn large" href="#how">See how it works</a>
-      </div>
-      <p class="fineprint">One-time purchase · Android 7.0+ · ~170 MB download</p>
+      <div class="hero-split">
+        <div class="hero-copy">
+          <h1><img class="hero-icon" src="/assets/brand/icon-512.png" alt="" width="64" height="64">A real Jupyter Notebook. In your pocket.</h1>
+          <p class="lead">CPython 3.13 and the scientific stack, running entirely on your phone. Open an <code>.ipynb</code>, run cells, plot, save. No account, no server, no telemetry.</p>
+          <div class="cta">
+            <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">Get it on Google Play</a>
+            <a class="btn large" href="#how">See how it works</a>
+          </div>
+          <p class="fineprint">One-time purchase · Android 7.0+ · ~170 MB download</p>
+        </div>
 
-      <!-- 手机 mockup：等真机截图到了换成 <img> -->
-      <div class="phone" aria-hidden="true">
+        <!-- 手机 mockup（右栏，底部沉进下一块）：等真机截图到了换成 <img> -->
+        <div class="hero-art" aria-hidden="true">
+      <div class="phone">
         <div class="screen">
           <div class="bar"><span class="dot"></span><span class="title">sales.ipynb</span><span class="spacer"></span><span>Python 3.13</span></div>
           <div class="cell">
@@ -75,6 +82,8 @@ df.<span class="f">groupby</span>(<span class="s">"region"</span>).sum()</div>
             <div class="in"><span class="k">import</span> numpy <span class="k">as</span> np
 np.<span class="f">polyfit</span>(x, y, <span class="n">2</span>)</div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </div>
