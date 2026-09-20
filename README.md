@@ -62,9 +62,11 @@ Every page shares the same shell: sticky translucent header (brand, section link
 │   ├── site.css             # Base: variables, header, language menu, blocks, typography, footer
 │   ├── landing.css          # Landing-only blocks: hero, phone mockups, chips, steps, pricing
 │   ├── site.js              # Language menu behaviour + scroll-reveal (progressive enhancement)
-│   └── icons.svg            # SVG sprite: UI icons (globe, chevron, check)
+│   ├── icons.svg            # SVG sprite: UI icons (globe, chevron, check)
+│   └── brand/               # GENERATED — favicon-32 / apple-touch-icon / brand-64 / og-image / icon-512 (see "Brand images")
 ├── scripts/
 │   └── fill-placeholders.ps1  # One-shot placeholder replacement + notices JSON sync
+├── favicon.ico              # GENERATED — 16/32/48 multi-frame
 ├── CNAME  robots.txt  sitemap.xml  .nojekyll
 └── README.md
 ```
@@ -78,6 +80,10 @@ Every page shares the same shell: sticky translucent header (brand, section link
 ### Language menu
 
 The header language switch is a native `<details class="lang-menu">`: a globe icon opens a dropdown listing each language with its flag emoji, the current one ticked. It works without JavaScript; `site.js` only adds close-on-outside-click and Escape. Icons come from `assets/icons.svg` via `<use href="/assets/icons.svg#…">`; flags are plain emoji (🇬🇧 🇨🇳).
+
+### Brand images
+
+`favicon.ico` and everything under `assets/brand/` are **generated, do not hand-edit**. The single source of truth is the 1024² icon master set in the app repo (`AnPyer/assets/icon/`); `AnPyer/scripts/gen-site-icons.py` renders the web sizes and writes them straight into this repo (the two repos are siblings under `D:/Coding`). To refresh after the icon changes: in the app repo run `uv run --with pillow python scripts/gen-site-icons.py` (add `--check` to verify without writing), then commit here. Every page's `<head>` links `/favicon.ico`, `/assets/brand/favicon-32.png`, `/assets/brand/apple-touch-icon.png` and `og:image`; the header `<img class="logo">` uses `brand-64.png` (displayed at 26 px); the landing hero is a two-column split (`.hero-split`: copy left with `icon-512.png` inline at the start of the `<h1>` as a drop-cap (sized in em, tracks the heading), phone mockup right; stacks under 52rem) — the icon is rounded, transparent, same size as the Play listing icon — also the file to hand out for press / social avatars).
 
 To add a language: add one `<li>` to the menu on every page and mirror the page tree under `/xx/`.
 
