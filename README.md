@@ -1,75 +1,153 @@
-# AnPyer 官网（GitHub Pages 静态站）
+# anpyer.com
 
-合规用途的官网：Play 组织账户的官网验证 + 隐私政策 URL + 支持页。纯静态 HTML/CSS，零构建、零依赖，直接推到 GitHub Pages。
+> Official website for **AnPyer** — a real Jupyter Notebook for Android.
+> Static HTML/CSS, zero build step, hosted on GitHub Pages at <https://anpyer.com/>.
 
-## 页面
+[![Live](https://img.shields.io/badge/site-anpyer.com-5cc8ff)](https://anpyer.com/)
+[![Hosting](https://img.shields.io/badge/hosting-GitHub%20Pages-222)](https://pages.github.com/)
+[![No build](https://img.shields.io/badge/build-none-2ea44f)](#development)
 
-| 路径 | 内容 | 对应 Play 需求 |
-|---|---|---|
-| `/` `/zh/` | 首页：一句话介绍、Play 链接、功能点、价格说明 | 商店页 Website |
-| `/privacy/` `/zh/privacy/` | 隐私政策（英文为法律版本，中文译本注「以英文为准」） | Privacy policy URL（Console 填英文）；app 内 `links.ts` 按 locale 链两版 |
-| `/terms/` `/zh/terms/` | 使用条款 | 非强制，Paid app 建议有 |
-| `/support/` `/zh/support/` | 支持邮箱 + FAQ + bug 报告要点 | 商店页 Support |
-| `/notices/` | 第三方开源声明，读同目录 `third-party-notices.json` 动态渲染（带筛选） | 与 app 内「关于 → 开源许可」同源 |
-| `404.html` | GitHub Pages 自动接管 404 | —— |
+<!-- TODO: screenshot / social preview of the landing page -->
 
-`robots.txt` / `sitemap.xml` / `.nojekyll`（禁用 Jekyll，原样托管）/ `CNAME`（自定义域名）。
+## Table of contents
 
-样式两份：`assets/site.css` 是全站基础（变量 / 顶栏 / 页脚 / 法务页排版，46rem 限宽）；`assets/landing.css` 只给首页（`body.landing`）—— 产品页风格，全宽色块纵向堆叠、内容 72rem 限宽、两栏交替、窄屏塔单列。首页的手机画面是纯 CSS mockup（`.phone`），真机截图到了换成 `<img>` 即可。
+- [About](#about)
+- [Pages](#pages)
+- [Project structure](#project-structure)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Configuration](#configuration)
+- [Maintenance](#maintenance)
+- [Roadmap](#roadmap)
+- [License](#license)
 
-## 上线前必做
+## About
 
-1. **替换占位符**（全站统一，见 `scripts/fill-placeholders.ps1` 头部说明）。~~`[DOMAIN]`~~ 与邮箱已于 2026-09-20 全站替换为 `anpyer.com` / `contact@anpyer.com`（含 `CNAME` / `robots.txt` / `sitemap.xml`）；~~注册地址 / 司法辖区~~ 已于 2026-09-20 整体砧掉（非必要不放；地址由 Play 商店页 trader 信息公开，条款不设适用法律节）。**剩余仅** `[COMPANY LEGAL NAME]` / `[公司法定名称]` —— **用户自己填**，填 Play Console 商店页显示的开发者名（两处逐字一致即可，不必是营业执照全名）。
-   ```powershell
-   pwsh -File scripts/fill-placeholders.ps1 -LegalNameEn "<Play 开发者名>" -LegalNameZh "<同上或中文>"
-   ```
-   脚本同时把 `AnPyer/src/generated/third-party-notices.json` 拷到 `notices/`（app 出包前跑过 `licenses.py --notice` 的话，两边就一致）。**发布者名必须与 Play Console 商店页显示的开发者名逐字一致**（Play User Data 政策：隐私政策需 reference the entity named in the listing）。
-2. **核对隐私政策与 Data safety 表单一致**：本文按「collected = App activity / Other UGC + Files and docs（仅 AI 助手，可选，加密传输，不申报 shared）」写；Console 填表时口径要一样。
-3. 隐私政策生效日期（两版顶部 `Effective date` / `生效日期`）改成实际上线日。
-4. 回 AnPyer 仓库改 `src/config/links.ts`：`PRIVACY_POLICY_URL = 'https://anpyer.com/privacy/'`，`SUPPORT_EMAIL = 'contact@anpyer.com'`。`privacyPolicyUrlFor` 拼的是 `${URL}/zh` → 本站中文路径是 `/zh/privacy/`，**路径不同**，改 links.ts 时把它改成 `locale.startsWith('zh') ? 'https://anpyer.com/zh/privacy/' : PRIVACY_POLICY_URL`（或把本站中文页搬到 `/privacy/zh/`，二选一，建议改代码——语言前缀在前是站点通行做法）。
+This repository contains the public website for the AnPyer Android app. It serves three purposes:
 
-## 本地预览
+1. **Product page** — what the app is, what it bundles, what it costs.
+2. **Legal** — privacy policy, terms of use and third-party notices required by Google Play.
+3. **Support** — contact address, FAQ and bug-report guidance.
 
-任何静态服务器都行，**必须用服务器而不是双击文件**（站内链接是绝对路径 `/privacy/`，`notices` 页要 fetch JSON）：
+The site is intentionally boring on the engineering side: hand-written HTML, two CSS files, one tiny script, no framework, no bundler. Edit a file, push, done.
 
-```powershell
-# 三选一
-python -m http.server 8080          # Python
-npx serve .                         # Node
-pwsh -c "uv run --with rangehttpserver python -m RangeHTTPServer 8080"
+<!-- TODO: one paragraph on design principles (dark-first, product-page blocks, bilingual) -->
+
+## Pages
+
+| Path | Language | Purpose | Play Console requirement |
+|---|---|---|---|
+| `/` | en | Landing page | Store listing → Website |
+| `/zh/` | zh-CN | Landing page (Chinese) | — |
+| `/privacy/` | en | Privacy policy (legally binding version) | Privacy policy URL |
+| `/zh/privacy/` | zh-CN | Privacy policy (translation, English prevails) | Linked from the app by locale |
+| `/terms/` `/zh/terms/` | en / zh-CN | Terms of use | Recommended for paid apps |
+| `/support/` `/zh/support/` | en / zh-CN | Support, FAQ, bug reports | Store listing → Support |
+| `/notices/` | en | Third-party open-source notices, rendered from `notices/third-party-notices.json` | Same data as *About → Open-source licences* in the app |
+| `/404.html` | bilingual | Not-found page picked up by GitHub Pages | — |
+
+Every page shares the same shell: sticky translucent header (brand, section links, language menu), full-width content blocks, footer with legal links.
+
+## Project structure
+
+```
+.
+├── index.html               # Landing page (en)
+├── zh/                      # Chinese pages, mirroring the English tree
+│   ├── index.html
+│   ├── privacy/  terms/  support/
+├── privacy/  terms/  support/  notices/
+├── 404.html
+├── assets/
+│   ├── site.css             # Base: variables, header, language menu, blocks, typography, footer
+│   ├── landing.css          # Landing-only blocks: hero, phone mockups, chips, steps, pricing
+│   ├── site.js              # Language menu behaviour + scroll-reveal (progressive enhancement)
+│   └── icons.svg            # SVG sprite: UI icons (globe, chevron, check)
+├── scripts/
+│   └── fill-placeholders.ps1  # One-shot placeholder replacement + notices JSON sync
+├── CNAME  robots.txt  sitemap.xml  .nojekyll
+└── README.md
 ```
 
-然后开 `http://localhost:8080/`。
+### Layout model
 
-## 部署到 GitHub Pages
+- `assets/site.css` owns the **page skeleton** used by every page: `.site-header`, `.block` / `.block.alt` full-width sections with a centred `.inner` (max `--wide`, 72 rem), `.page-hero` title banner, `.doc` long-form column (max `--doc`, 46 rem), `.site-footer`.
+- `assets/landing.css` adds only what the landing pages need (two-column `.split`, `.phone` mockups, `.chips`, `.steps`, `.stats`, `.pricing-block`, `.reveal` animation).
+- Colours are CSS variables; dark is the default, light follows `prefers-color-scheme`.
 
-1. 新建 GitHub 仓库（公开或私有均可，Pages 免费版要求公开仓库），把本目录内容推到 `main`。
-2. Settings → Pages → Build and deployment → Source = **Deploy from a branch**，Branch = `main` / `(root)`。
-3. Settings → Pages → Custom domain 填域名 → Save（会自动写 `CNAME`，与本仓库已有的一致）。
-4. DNS（在域名服务商处）：
-   - **裸域** `example.com`：4 条 A 记录 → `185.199.108.153` `185.199.109.153` `185.199.110.153` `185.199.111.153`；可选 4 条 AAAA → `2606:50c0:8000::153` `…8001::153` `…8002::153` `…8003::153`
-   - **子域 / www** `www.example.com`：1 条 CNAME → `<github用户名>.github.io`（**不是**仓库名）
-   - 建议裸域 + www 都配，GitHub 自动把其中一个 301 到另一个。
-   - **Cloudflare 用户**：记录设灰云（DNS only），否则 GitHub 签不了证书。
-5. 等 DNS 生效（几分钟到几小时），Pages 页面显示 "DNS check successful" → 证书自动签发（Let's Encrypt）→ 勾 **Enforce HTTPS**。若长时间不出证书，检查域名有没有 CAA 记录限制了 `letsencrypt.org`。
+### Language menu
 
-## Search Console 验证（Play 组织账户强制）
+The header language switch is a native `<details class="lang-menu">`: a globe icon opens a dropdown listing each language with its flag emoji, the current one ticked. It works without JavaScript; `site.js` only adds close-on-outside-click and Escape. Icons come from `assets/icons.svg` via `<use href="/assets/icons.svg#…">`; flags are plain emoji (🇬🇧 🇨🇳).
 
-用**注册 Play 的那个 Google 账号**：Search Console → 添加资源 → 选「**网域**」类型 → 按提示在 DNS 加一条 **TXT 记录**（`google-site-verification=...`）→ 验证。域名级验证覆盖裸域和全部子域，与托管在哪无关。之后回 Play Console 的官网验证会自动通过。
+To add a language: add one `<li>` to the menu on every page and mirror the page tree under `/xx/`.
 
-## 域名邮箱
+### Cache busting
 
-> **已落地（2026-09-20 用户确认）**：域名 `anpyer.com`，Cloudflare 托管 DNS，HTTPS 已通；邮箱 **`contact@anpyer.com`** 走 Cloudflare Email Routing，**已测试可收**。站内邮箱已全站替换。剩余：DNS 把 A / CNAME 指到 GitHub Pages（**灰云 DNS only**，否则 GitHub 签不了证书 —— 若坚持橙云代理，则 Pages 侧不开 Enforce HTTPS，由 Cloudflare 终止 TLS，SSL 模式设 Full）。
+GitHub Pages caches assets for 10 minutes and browsers longer. Stylesheet / script / sprite URLs carry a `?v=N` query string; bump it whenever you change a file under `assets/`.
 
-Play 要求 contact / developer email 与官网同域。不必买邮箱套餐，两条免费路：
+## Development
 
-- **注册商自带邮件转发**（Namecheap / Porkbun / GoDaddy / 阿里云 / 腾讯云等大多有）：后台建 `support@<域名>` → 转到你的常用邮箱。实现方式是注册商替你托管 MX 记录，**收**信免费；**发**信要么在 Gmail「以其他地址发送」里配 SMTP（部分注册商提供），要么接受「收用域名邮箱、回信用个人邮箱」。
-- **Cloudflare Email Routing**（免费，若 DNS 托在 Cloudflare）：同样只收不发，Gmail 侧可配「以此地址发送」。
+There is nothing to install. Serve the directory with any static server — **do not open the files directly**, because links are root-absolute (`/privacy/`) and the notices page fetches JSON:
 
-Play 只校验邮箱能收到验证码，不校验发件人，所以「只收不发」完全够用。
+```bash
+# pick one
+python -m http.server 8080
+npx serve .
+```
 
-## 维护
+Then open <http://localhost:8080/>.
 
-- 改隐私政策：两版同改，顶部日期 + 版本号递增；重大变更在 Play 版本说明里提一句。
-- app 换了依赖：AnPyer 里 `uv run scripts/licenses.py --notice` → 重跑 `fill-placeholders.ps1`（或手动拷 JSON）。
-- 没有任何构建步骤，改完 push 即上线（Pages 约 1 分钟生效）。
+<!-- TODO: browser support statement (color-mix, dvh, :has-free — modern evergreen only) -->
+
+## Deployment
+
+Pushing to `main` deploys automatically (GitHub Pages, *Deploy from a branch*, root). Changes go live in about a minute.
+
+DNS is managed at Cloudflare and points the apex and `www` at GitHub Pages; the `CNAME` file in this repository pins the custom domain. HTTPS is issued by GitHub (Let's Encrypt).
+
+<!-- TODO: condensed first-time setup (Pages settings, A/AAAA records, DNS-only mode on Cloudflare, Enforce HTTPS) -->
+
+## Configuration
+
+### Placeholders
+
+The only placeholders left in the HTML are the publisher names, which must match the developer name shown in the Play Console listing **character for character**:
+
+- `[COMPANY LEGAL NAME]` — English pages
+- `[公司法定名称]` — Chinese pages
+
+Fill them once with:
+
+```powershell
+pwsh -File scripts/fill-placeholders.ps1 -LegalNameEn "<Play developer name>" -LegalNameZh "<same, or Chinese>"
+```
+
+The script is idempotent and also copies `AnPyer/src/generated/third-party-notices.json` into `notices/` if the app repository is available next to this one (`-AnPyerRepo` to override).
+
+### Links from the app
+
+The app's `src/config/links.ts` references this site (`PRIVACY_POLICY_URL`, `SUPPORT_EMAIL`, localized privacy URL). Keep the paths above in sync when moving pages.
+
+<!-- TODO: table of external references (Play Console fields, app links.ts constants) -->
+
+## Maintenance
+
+- **Privacy policy / terms** — edit both language versions, bump the version and effective date at the top, mention material changes in the Play release notes.
+- **Third-party notices** — after the app's dependencies change, run `uv run scripts/licenses.py --notice` in the app repo, then re-run `fill-placeholders.ps1` (or copy the JSON by hand).
+- **Landing copy** — the marketing text is still a placeholder draft; see [Roadmap](#roadmap).
+
+## Roadmap
+
+- [ ] Rewrite landing-page copy (both languages)
+- [ ] Replace CSS phone mockups with real device screenshots (`<img>` slots)
+- [ ] Feature graphic / social preview image
+- [ ] Google Search Console domain verification
+- [ ] Fill publisher name placeholders before store submission
+
+<!-- TODO: link to the internal planning doc if/when it moves out of the app repo -->
+
+## License
+
+<!-- TODO: decide. Suggested: site code (HTML/CSS/JS) under MIT; text, brand assets and screenshots © [COMPANY LEGAL NAME], all rights reserved. -->
+
+Copyright © 2026 [COMPANY LEGAL NAME]. All rights reserved unless stated otherwise.

@@ -1,41 +1,9 @@
-/* AnPyer 首页专用样式（产品页风格）。依赖 site.css 的变量与顶栏 / 页脚基础样式。
-   结构：全宽色块（.block）纵向堆叠，每块内容居中限宽（.inner），左右两栏（文案 + 视觉）交替，
-   窄屏塌成单列。零构建、零依赖；滚动入场动画在 prefers-reduced-motion 下关闭。 */
+/* AnPyer landing page — marketing blocks only (body.landing).
+   Block / header / footer / typography basics live in site.css; this file adds the
+   two-column splits, phone mockups, chips, steps, stats and pricing blocks.
+   Zero build step; scroll-reveal animation is disabled under prefers-reduced-motion. */
 
-:root {
-  --wide: 72rem;        /* 内容最大宽度（比法务页的 46rem 宽） */
-  --narrow: 40rem;      /* 居中文案段最大宽度 */
-  --block-y: clamp(3.5rem, 9vw, 7rem);
-}
-
-body.landing { overflow-x: hidden; }
-
-/* ---------- 悬浮顶栏 ---------- */
-body.landing .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: color-mix(in srgb, var(--bg-elev) 78%, transparent);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
-  backdrop-filter: saturate(160%) blur(14px);
-}
-body.landing .site-header .inner,
-body.landing .site-footer .inner { max-width: var(--wide); }
-
-/* ---------- 主区不限宽（各 block 自己限） ---------- */
-body.landing main { max-width: none; padding: 0; }
-
-/* ---------- 色块 ---------- */
-.block {
-  padding: var(--block-y) 1.25rem;
-}
-.block.alt { background: var(--bg-elev); }
-.block > .inner {
-  max-width: var(--wide);
-  margin: 0 auto;
-}
-
-/* 两栏：文案 + 视觉；.reverse 让视觉在左 */
+/* Two columns: copy + visual; .reverse puts the visual on the left */
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -45,23 +13,14 @@ body.landing main { max-width: none; padding: 0; }
 .split.reverse > .copy { order: 2; }
 .split.reverse > .visual { order: 1; }
 
-/* 居中文案（无视觉的块 / 块标题） */
+/* Centred copy (blocks without a visual / block headings) */
 .centered {
   max-width: var(--narrow);
   margin: 0 auto;
   text-align: center;
 }
 
-/* ---------- 文案排版 ---------- */
-.eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 0.9rem;
-}
+/* ---------- Copy typography ---------- */
 .block h2 {
   font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   line-height: 1.12;
@@ -104,9 +63,7 @@ body.landing main { max-width: none; padding: 0; }
 .hero-block .cta { justify-content: center; margin: 0 0 clamp(2.5rem, 6vw, 4.5rem); }
 .hero-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); margin: -1.8rem 0 2.5rem; }
 
-.btn.large { padding: 0.85rem 1.5rem; font-size: 1.05rem; border-radius: 999px; }
-
-/* ---------- 手机 mockup（纯 CSS，等截图到了换 <img>） ---------- */
+/* ---------- Phone mockup (pure CSS; swap for <img> when real screenshots arrive) ---------- */
 .phone {
   width: min(20rem, 78vw);
   aspect-ratio: 9 / 19;
@@ -170,7 +127,7 @@ body.landing main { max-width: none; padding: 0; }
 .bars i:nth-child(2n) { background: linear-gradient(180deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 50%, #0f1115)); }
 .caption { font-size: 0.62rem; color: #9aa3b2; text-align: center; padding: 0.2rem 0 0.4rem; }
 
-/* AI 确认卡 mockup */
+/* AI confirmation card mockup */
 .ai-card {
   margin: 0.35rem 0.6rem;
   border: 1px solid color-mix(in srgb, var(--accent) 45%, #262c38);
@@ -189,7 +146,7 @@ body.landing main { max-width: none; padding: 0; }
 }
 .ai-card .actions span.ok { background: var(--accent); color: #06121c; border-color: var(--accent); font-weight: 700; }
 
-/* 非 hero 的视觉容器：卡片化 */
+/* Non-hero visual container: card */
 .visual .panel {
   border-radius: 1.2rem;
   border: 1px solid var(--line);
@@ -199,7 +156,7 @@ body.landing main { max-width: none; padding: 0; }
 }
 .visual .panel .phone { width: min(16rem, 70vw); }
 
-/* ---------- 包名 chips ---------- */
+/* ---------- Package chips ---------- */
 .chips {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem;
   margin: 1.8rem auto 0; max-width: 52rem; padding: 0; list-style: none;
@@ -217,7 +174,7 @@ body.landing main { max-width: none; padding: 0; }
 .chips li.hl { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--accent); }
 .chips-note { text-align: center; font-size: 0.9rem; color: var(--fg-muted); margin-top: 1.2rem; }
 
-/* ---------- 三步流程 ---------- */
+/* ---------- Three-step flow ---------- */
 .steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -244,7 +201,7 @@ body.landing main { max-width: none; padding: 0; }
 .steps span { color: var(--fg-muted); font-size: 0.95rem; }
 .steps code { font-size: 0.85em; }
 
-/* ---------- 大数字（隐私块） ---------- */
+/* ---------- Big numbers (privacy block) ---------- */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -258,7 +215,7 @@ body.landing main { max-width: none; padding: 0; }
 .stats b { display: block; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
 .stats span { display: block; margin-top: 0.5rem; color: var(--fg-muted); font-size: 0.95rem; }
 
-/* ---------- 诚实边界（小卡） ---------- */
+/* ---------- Honest limits (small cards) ---------- */
 .limits {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -267,21 +224,21 @@ body.landing main { max-width: none; padding: 0; }
 .limits li { margin: 0; padding: 1.1rem 1.2rem; border-radius: 1rem; border: 1px dashed var(--line); color: var(--fg-muted); font-size: 0.95rem; }
 .limits li strong { display: block; color: var(--fg); margin-bottom: 0.25rem; }
 
-/* ---------- 价格 / 收尾 CTA ---------- */
+/* ---------- Pricing / closing CTA ---------- */
 .pricing-block { text-align: center; }
 .price { font-size: clamp(2.6rem, 6vw, 4rem); letter-spacing: -0.03em; line-height: 1; margin: 0.5rem 0 0.4rem; }
 .price small { font-size: 0.35em; color: var(--fg-muted); letter-spacing: 0; vertical-align: middle; margin-left: 0.4rem; }
 .pricing-block .cta { justify-content: center; margin: 1.6rem 0 0.8rem; }
 .pricing-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); max-width: var(--narrow); margin: 0.6rem auto 0; }
 
-/* ---------- 滚动入场 ---------- */
+/* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 
-/* ---------- 响应式 ---------- */
+/* ---------- Responsive ---------- */
 @media (max-width: 52rem) {
   .split { grid-template-columns: 1fr; gap: 2rem; }
   .split.reverse > .copy { order: 1; }
@@ -291,6 +248,5 @@ body.landing main { max-width: none; padding: 0; }
   .visual .panel .phone { width: min(15rem, 66vw); }
 }
 @media (max-width: 30rem) {
-  .block { padding-left: 1rem; padding-right: 1rem; }
   .hero-block .cta .btn { flex: 1 1 100%; text-align: center; }
 }

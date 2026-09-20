@@ -1,4 +1,8 @@
-/* AnPyer 官网 —— 单文件样式，零构建。深色为主，跟随系统偏好切浅色。 */
+/* AnPyer website — base stylesheet, zero build step.
+   Dark by default, follows the system preference for light.
+   Layout model (all pages): full-width blocks stacked vertically, each with a centred
+   .inner limited to --wide. Long-form documents (privacy / terms / support) additionally
+   limit their article to --doc for readability. landing.css adds the marketing blocks. */
 
 :root {
   color-scheme: light dark;
@@ -10,7 +14,10 @@
   --accent: #5cc8ff;
   --accent-2: #ffd166;
   --code-bg: #1c212b;
-  --max: 46rem;
+  --wide: 72rem;        /* max content width of every block */
+  --doc: 46rem;         /* max width of long-form text */
+  --narrow: 40rem;      /* max width of centred copy */
+  --block-y: clamp(3.5rem, 9vw, 7rem);
   --radius: 10px;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.65;
@@ -32,6 +39,8 @@
 * { box-sizing: border-box; }
 
 html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   background: var(--bg);
@@ -40,6 +49,7 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -51,19 +61,25 @@ code, pre {
 }
 code { background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 5px; }
 
-/* ---------- 顶栏 ---------- */
+.icon { width: 1em; height: 1em; display: inline-block; vertical-align: -0.15em; flex: none; }
+
+/* ---------- Header (sticky, translucent) ---------- */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: var(--bg-elev);
+  background: color-mix(in srgb, var(--bg-elev) 78%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  backdrop-filter: saturate(160%) blur(14px);
 }
 .site-header .inner {
-  max-width: var(--max);
+  max-width: var(--wide);
   margin: 0 auto;
   padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 .brand {
   font-weight: 700;
@@ -73,6 +89,7 @@ code { background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 5px; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 .brand:hover { text-decoration: none; }
 .brand .logo {
@@ -80,26 +97,108 @@ code { background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 5px; }
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   display: inline-block;
 }
-.nav { display: flex; gap: 1rem; margin-left: auto; flex-wrap: wrap; }
+.nav { display: flex; align-items: center; gap: 1rem; margin-left: auto; flex-wrap: wrap; }
 .nav a { color: var(--fg-muted); font-size: 0.95rem; }
 .nav a[aria-current="page"] { color: var(--fg); font-weight: 600; }
-.lang {
-  font-size: 0.85rem;
-  color: var(--fg-muted);
+
+/* ---------- Language menu (native <details>, JS only closes it on outside click) ---------- */
+.lang-menu { position: relative; }
+.lang-menu > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.55rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 0.15rem 0.7rem;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  line-height: 1;
+  user-select: none;
+}
+.lang-menu > summary::-webkit-details-marker { display: none; }
+.lang-menu > summary:hover, .lang-menu[open] > summary { color: var(--fg); border-color: var(--fg-muted); }
+.lang-menu > summary .icon { width: 1.15em; height: 1.15em; }
+.lang-menu > summary .chev { width: 0.9em; height: 0.9em; transition: transform 0.15s ease; }
+.lang-menu[open] > summary .chev { transform: rotate(180deg); }
+.lang-menu .menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6);
+  z-index: 60;
+}
+.lang-menu .menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  color: var(--fg);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.lang-menu .menu a:hover { background: color-mix(in srgb, var(--fg) 7%, transparent); text-decoration: none; }
+.lang-menu .menu a[aria-current="true"] { color: var(--fg); font-weight: 600; }
+.lang-menu .menu a .tick { margin-left: auto; width: 1em; height: 1em; color: var(--accent); visibility: hidden; }
+.lang-menu .menu a[aria-current="true"] .tick { visibility: visible; }
+/* Flags are plain emoji (🇬🇧 🇨🇳); Windows Chrome/Edge lack flag glyphs and show "GB"/"CN" letters,
+   which is acceptable. Swap for <img> if pixel-identical flags are ever required. */
+.flag {
+  font-size: 1.15em;
+  line-height: 1;
+  flex: none;
+  font-family: "Twemoji Mozilla", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 }
 
-/* ---------- 正文 ---------- */
-main {
-  max-width: var(--max);
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem 1.25rem 3rem;
-  flex: 1;
-}
+/* ---------- Main: blocks ---------- */
+main { flex: 1; width: 100%; }
+.block { padding: var(--block-y) 1.25rem; }
+.block.alt { background: var(--bg-elev); }
+.block > .inner { max-width: var(--wide); margin: 0 auto; }
 
+/* Page hero: title banner shared by all non-landing pages */
+.page-hero {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  background:
+    radial-gradient(60rem 30rem at 50% -10rem, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+    var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.page-hero .eyebrow { margin-bottom: 0.6rem; }
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.6rem;
+}
+.page-hero h1 .sub { font-size: 0.5em; font-weight: 400; color: var(--fg-muted); letter-spacing: 0; margin-left: 0.4em; }
+.page-hero .meta, .page-hero .lead { margin: 0.4rem 0 0; }
+.page-hero .lead { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--fg-muted); max-width: var(--doc); }
+
+/* Long-form document */
+.doc-block { padding-top: clamp(2rem, 4vw, 3rem); }
+.doc { max-width: var(--doc); }
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
 h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
 h2 { font-size: 1.35rem; margin: 2.2rem 0 0.6rem; padding-top: 0.4rem; border-top: 1px solid var(--line); }
 h3 { font-size: 1.08rem; margin: 1.5rem 0 0.4rem; }
@@ -117,15 +216,13 @@ li { margin: 0.25rem 0; }
   margin: 1rem 0;
   font-size: 0.95rem;
 }
+.doc-block.alt .notice, .block.alt .notice { background: var(--bg); }
 
 table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
 th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--fg-muted); font-weight: 600; }
 
-/* ---------- 首页 ---------- */
-.hero { padding: 1.5rem 0 1rem; }
-.hero h1 { font-size: 2.4rem; }
-.hero .tagline { font-size: 1.25rem; color: var(--fg-muted); margin: 0.4rem 0 1.4rem; }
+/* ---------- Buttons ---------- */
 .cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 1rem 0 2rem; }
 .btn {
   display: inline-block;
@@ -138,33 +235,16 @@ th { color: var(--fg-muted); font-weight: 600; }
 }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #06121c; }
 .btn:hover { text-decoration: none; filter: brightness(1.08); }
+.btn.large { padding: 0.85rem 1.5rem; font-size: 1.05rem; border-radius: 999px; }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 0.9rem;
-  margin: 1.2rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-.features li {
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 0.9rem 1rem;
-  margin: 0;
-}
-.features strong { display: block; margin-bottom: 0.25rem; }
-.features span { color: var(--fg-muted); font-size: 0.93rem; }
-
-/* ---------- 页脚 ---------- */
+/* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
   color: var(--fg-muted);
   font-size: 0.88rem;
 }
 .site-footer .inner {
-  max-width: var(--max);
+  max-width: var(--wide);
   margin: 0 auto;
   padding: 1.2rem 1.25rem;
   display: flex;
@@ -175,8 +255,14 @@ th { color: var(--fg-muted); font-weight: 600; }
 .site-footer .links { display: flex; gap: 1rem; flex-wrap: wrap; margin-left: auto; }
 .site-footer a { color: var(--fg-muted); }
 
-@media (max-width: 30rem) {
-  .hero h1 { font-size: 1.9rem; }
-  h1 { font-size: 1.6rem; }
+/* ---------- Responsive ---------- */
+@media (max-width: 40rem) {
   .nav { gap: 0.7rem; }
+  .nav a:not(.brand) { font-size: 0.9rem; }
+}
+@media (max-width: 30rem) {
+  .block { padding-left: 1rem; padding-right: 1rem; }
+  .site-header .inner { padding-left: 1rem; padding-right: 1rem; }
+  .nav .nav-link { display: none; }        /* on phones: brand + language only, footer carries the links */
+  h1 { font-size: 1.6rem; }
 }
