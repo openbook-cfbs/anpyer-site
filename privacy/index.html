@@ -39,7 +39,7 @@
     <div class="inner">
       <p class="eyebrow">Legal</p>
       <h1>Privacy Policy</h1>
-      <p class="meta">Applies to the <strong>AnPyer</strong> Android application (package <code>com.openbook.anpyer</code>), published by <span class="legal-name">Open Book Co., Ltd.</span> ("we", "us").<br>Effective date: 19 September 2026 · Version 1.0</p>
+      <p class="meta">Applies to the <strong>AnPyer</strong> Android application (package <code>com.openbook.anpyer</code>), published by <span class="legal-name">Open Book Co., Ltd.</span> ("we", "us").<br>Effective date: 23 September 2026 · Version 1.1</p>
     </div>
   </section>
 
@@ -48,7 +48,7 @@
     <article class="doc">
 
   <div class="notice">
-    <strong>Summary.</strong> AnPyer is an offline notebook app. We do not operate any server, we do not collect analytics or crash reports, and we never receive your notebooks, your code, or your API keys. The only time data leaves your device is when <em>you</em> choose to use the optional AI assistant — in which case your request goes directly from your device to the third-party model provider <em>you</em> configured — or when code <em>you</em> run makes a network request.
+    <strong>Summary.</strong> AnPyer is an offline notebook app. We do not operate any server, we do not collect analytics or crash reports, and we never receive your notebooks, your code, or your API keys. The only time data leaves your device is when <em>you</em> choose to use the optional AI assistant — in which case your request goes directly from your device to the third-party model provider <em>you</em> configured — or when code <em>you</em> run makes a network request. Two optional assistant features widen what the assistant can see or do (reading files in the notebook's folder; running cells); both are off by default and are described in §4.
   </div>
 
   <h2>1. Who we are</h2>
@@ -62,34 +62,47 @@
   <table>
     <thead><tr><th>Data</th><th>Where it is stored</th><th>Why</th></tr></thead>
     <tbody>
-      <tr><td>Notebook files you open, edit, or create</td><td>The location you choose through the Android file picker, and a private working folder inside the app's sandbox</td><td>Core function: opening, editing, saving notebooks</td></tr>
+      <tr><td>Notebook files you open, edit, or create</td><td>The location you choose through the Android file picker</td><td>Core function: opening, editing, saving notebooks</td></tr>
+      <tr><td>A working copy of the folder your notebook lives in (only if you grant the app access to that folder)</td><td>App-private storage. Files are copied in so that Python code can read them by relative path; files Python writes are copied back to the folder you granted</td><td>Core function: <code>pd.read_csv("data.csv")</code> and friends. Turning the folder switch off stops the sync; the working copy is removed when you uninstall the app</td></tr>
       <tr><td>Recently opened notebook list</td><td>App-private storage</td><td>Convenience: quick re-open</td></tr>
-      <tr><td>AI provider settings, including API keys you enter</td><td>App-private storage (WebView local storage) on this device only</td><td>To authenticate <em>your</em> requests to the provider <em>you</em> configured. Keys are never sent to us.</td></tr>
+      <tr><td>AI provider settings, including API keys you enter, and the assistant switches described in §4.4</td><td>App-private storage (WebView local storage) on this device only, protected by the Android app sandbox</td><td>To authenticate <em>your</em> requests to the provider <em>you</em> configured. Keys are never sent to us.</td></tr>
       <tr><td>AI conversation of the current session</td><td>Memory only; discarded when the app is closed</td><td>Displaying the assistant's replies</td></tr>
       <tr><td>Reports you file about an AI reply ("Report this reply")</td><td>App-private storage</td><td>Kept locally so you can review, export, or e-mail them. <strong>Nothing is sent automatically.</strong></td></tr>
-      <tr><td>Interface language preference</td><td>App-private storage</td><td>UI display</td></tr>
+      <tr><td>Interface preferences (language, panel sizes and similar)</td><td>App-private storage</td><td>UI display</td></tr>
+      <tr><td>Per-cell assistant flags ("hidden from AI", "locked") and an "opened from an external source" marker</td><td>Inside the notebook file itself, under <code>metadata.anpyer</code>, so the file remains a standard <code>.ipynb</code></td><td>Your privacy controls travel with the notebook</td></tr>
     </tbody>
   </table>
-  <p>App-private storage is removed by Android when you uninstall the app. You can also remove it at any time from <em>About → Clear local data</em> inside the app. Notebook files you saved to a location of your choice are ordinary files that you manage yourself.</p>
+  <p>App-private storage is removed by Android when you uninstall the app. You can also remove keys, settings, reports and the recent-files list at any time from <em>About → Delete local data</em> inside the app. Notebook files you saved to a location of your choice are ordinary files that you manage yourself.</p>
 
   <h2>4. The optional AI assistant (bring your own key)</h2>
-  <p>AnPyer includes an optional assistant that can read and edit cells of the notebook you are working on. It is <strong>off until you configure it</strong>: you must enter an API key for a third-party large-language-model provider yourself. We do not provide, resell, or proxy any AI service.</p>
+  <p>AnPyer includes an optional assistant that can read cells of the notebook you are working on, edit them, insert or delete cells and — only with the per-session permission described in §4.4 — run a code cell and read its output. It is <strong>off until you configure it</strong>: you must enter an API key for a third-party large-language-model provider yourself. We do not provide, resell, or proxy any AI service.</p>
 
   <h3>4.1 What is sent, and to whom</h3>
   <p>When you send a message to the assistant, the following is transmitted <strong>directly from your device to the provider you configured</strong> (for example DeepSeek, OpenAI, Google Gemini, OpenRouter, or any other OpenAI-compatible endpoint whose address you enter):</p>
   <ul>
     <li>your message text and the conversation so far;</li>
-    <li>the contents of notebook cells that the assistant reads or edits (only when the assistant invokes a notebook tool, which it does to answer your request);</li>
-    <li>a short system instruction describing the app environment;</li>
+    <li>the contents of notebook cells that the assistant reads, edits or runs (only when the assistant invokes a notebook tool, which it does to answer your request), including cell outputs and error messages, in summarised form. Cells you mark as <em>hidden</em> are never included;</li>
+    <li>a short system instruction describing the app environment. It contains: the name of the open notebook and its number of cells; the list of preinstalled Python packages; your interface language; the current <strong>date, time and time zone as reported by your device</strong> (so the assistant can answer time-related questions); and, if a cell is being edited, a short excerpt of that cell around your cursor;</li>
+    <li>if you have turned on <em>"Let the AI read files in the notebook's folder"</em> (§4.4): the directory listing and the text content of files in that folder that the assistant chooses to read;</li>
     <li>your API key, as required by the provider to authenticate the request.</li>
   </ul>
   <p>The assistant may also ask to fetch a public web page or call a public HTTP API on your behalf. <strong>Each such request requires your explicit confirmation</strong> in the app before it is made, and it goes to the address shown in the confirmation card.</p>
+  <p>The device time zone is sent only as a clock reference. It is not used to infer your location, and the app never accesses location services.</p>
 
   <h3>4.2 We are not a party to that transfer</h3>
   <p>We do not receive, store, log, or have any technical ability to access these requests or responses. The provider's own privacy policy and terms govern how it handles your data (including retention and whether it is used for training). Please review them before entering a key. Where the built-in provider templates offer a "do not store" option supported by the provider's API, AnPyer sets it; we cannot guarantee provider behaviour.</p>
 
   <h3>4.3 Transport security</h3>
   <p>All built-in provider templates use HTTPS. If you enter a custom endpoint, the connection security is that of the address you enter.</p>
+
+  <h3>4.4 Your controls</h3>
+  <ul>
+    <li><strong>Confirmation cards.</strong> Every change the assistant proposes to your notebook (editing, inserting, deleting or running a cell) and every outgoing web request it proposes is shown to you first. You may allow each step individually or, for the current session, allow all steps at once. Each accepted change is one Undo step.</li>
+    <li><strong>Hide a cell from the AI.</strong> A hidden cell's source, outputs and identity are never included in any request. <strong>Lock a cell</strong> to let the assistant read it but never modify it. Both flags are saved in the notebook file.</li>
+    <li><strong>Running cells</strong> ("go nuts") is a <em>per-session</em> permission: it is off when the app starts and resets when you close it. Runs go through the same notebook execution path as your own taps on Run; there is no hidden sandbox.</li>
+    <li><strong>Reading files in the notebook's folder</strong> is a separate switch in <em>AI settings</em>, off by default and persistent. When it is on, the assistant may read any text file in that folder <em>without</em> a per-file confirmation, and that content is sent to your provider. Keep files you do not want a model to see out of that folder, or leave the switch off.</li>
+    <li><strong>Report a reply.</strong> You can flag any assistant reply. Reports are stored on your device only and are never sent automatically; you can export or e-mail them yourself.</li>
+  </ul>
 
   <h2>5. Code that you run</h2>
   <p>AnPyer executes the Python code in your notebooks. Some bundled libraries (for example <code>requests</code>) can make network requests if your code asks them to. Such requests are initiated by your code, go to the destinations your code specifies, and are not visible to or controlled by us. Please review notebooks from sources you do not trust before running them.</p>
@@ -101,6 +114,14 @@
   <h2>7. Google Play</h2>
   <p>Purchases and installation are handled by Google Play under Google's own terms and privacy policy. We receive only the aggregated, non-identifying statistics that Google Play Console shows to every developer (for example install counts by country). We do not receive your name, e-mail address, or payment details from Google.</p>
 
+  <h3>7.1 How this maps to the Play "Data safety" section</h3>
+  <p>Google's Data safety form counts data as "collected" whenever it leaves the device, even if it goes to a third party you chose and never to the developer. Our listing therefore declares the following, all of it <strong>optional</strong>, used for <strong>app functionality</strong> only, <strong>encrypted in transit</strong>, and sent solely when you use the AI assistant:</p>
+  <ul>
+    <li><em>App activity → Other user-generated content</em>: your messages to the assistant and notebook cell contents;</li>
+    <li><em>Files and docs</em>: text files in the notebook's folder, only when the switch in §4.4 is on.</li>
+  </ul>
+  <p>Nothing is declared as "shared", because we never receive the data and therefore cannot share it; the transfer to your provider is initiated by you. No data is used for advertising, analytics or personalisation.</p>
+
   <h2>8. Permissions</h2>
   <table>
     <thead><tr><th>Android permission</th><th>Used for</th></tr></thead>
@@ -111,12 +132,12 @@
   </table>
 
   <h2>9. Children</h2>
-  <p>AnPyer is a general-audience developer tool and is not directed at children under 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal data from anyone, including children.</p>
+  <p>AnPyer is a developer tool intended for adults. Its Google Play listing targets users aged 18 and over, and the app is not directed at children under 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal data from anyone, including children.</p>
 
   <h2>10. Your rights and how to exercise them</h2>
   <p>Because we hold no personal data about app users, requests for access, correction, or deletion under GDPR, UK GDPR, CCPA/CPRA, PIPL, or similar laws can be fulfilled entirely by you on your device:</p>
   <ul>
-    <li><strong>Delete app data:</strong> <em>About → Clear local data</em>, or uninstall the app.</li>
+    <li><strong>Delete app data:</strong> <em>About → Delete local data</em> removes API keys, provider settings, reports and the recent-files list; uninstalling the app removes everything in app-private storage, including any working copy of a folder you granted (§3).</li>
     <li><strong>Delete data held by an AI provider:</strong> contact that provider directly; we cannot do it on your behalf.</li>
     <li><strong>Anything else:</strong> e-mail <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>. You also have the right to lodge a complaint with your local data-protection authority.</li>
   </ul>

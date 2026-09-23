@@ -117,18 +117,9 @@ DNS is managed at Cloudflare and points the apex and `www` at GitHub Pages; the 
 
 ### Placeholders
 
-The only placeholders left in the HTML are the publisher names, which must match the developer name shown in the Play Console listing **character for character**:
+All placeholders have been filled. The publisher name is **`Open Book Co., Ltd.`** on every page (both languages) and must stay identical to the developer name shown in the Play Console listing. If that name ever changes, search-and-replace the `<span class="legal-name">` contents across the HTML.
 
-- `[COMPANY LEGAL NAME]` — English pages
-- `[公司法定名称]` — Chinese pages
-
-Fill them once with:
-
-```powershell
-pwsh -File scripts/fill-placeholders.ps1 -LegalNameEn "<Play developer name>" -LegalNameZh "<same, or Chinese>"
-```
-
-The script is idempotent and also copies `AnPyer/src/generated/third-party-notices.json` into `notices/` if the app repository is available next to this one (`-AnPyerRepo` to override).
+`scripts/fill-placeholders.ps1` is kept for reference; it no longer has anything to replace, but it still copies `AnPyer/src/generated/third-party-notices.json` into `notices/` if the app repository is available next to this one (`-AnPyerRepo` to override).
 
 ### Links from the app
 
@@ -148,12 +139,12 @@ The app's `src/config/links.ts` references this site (`PRIVACY_POLICY_URL`, `SUP
 - [ ] Replace CSS phone mockups with real device screenshots (`<img>` slots)
 - [ ] Feature graphic / social preview image
 - [ ] Google Search Console domain verification
-- [ ] Fill publisher name placeholders before store submission
+- [x] Fill publisher name placeholders before store submission
 
 <!-- TODO: link to the internal planning doc if/when it moves out of the app repo -->
 
 ## License
 
-<!-- TODO: decide. Suggested: site code (HTML/CSS/JS) under MIT; text, brand assets and screenshots © [COMPANY LEGAL NAME], all rights reserved. -->
+<!-- TODO: decide. Suggested: site code (HTML/CSS/JS) under MIT; text, brand assets and screenshots © Open Book Co., Ltd., all rights reserved. -->
 
-Copyright © 2026 [COMPANY LEGAL NAME]. All rights reserved unless stated otherwise.
+Copyright © 2026 Open Book Co., Ltd. All rights reserved unless stated otherwise.

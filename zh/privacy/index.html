@@ -39,7 +39,7 @@
     <div class="inner">
       <p class="eyebrow">法务</p>
       <h1>隐私政策<span class="sub">Privacy Policy</span></h1>
-      <p class="meta">适用于 <strong>AnPyer</strong> Android 应用（包名 <code>com.openbook.anpyer</code>），发布者为 <span class="legal-name">Open Book Co., Ltd.</span>（下称"我们"）。<br>生效日期：2026 年 9 月 19 日 · 版本 1.0</p>
+      <p class="meta">适用于 <strong>AnPyer</strong> Android 应用（包名 <code>com.openbook.anpyer</code>），发布者为 <span class="legal-name">Open Book Co., Ltd.</span>（下称"我们"）。<br>生效日期：2026 年 9 月 23 日 · 版本 1.1</p>
     </div>
   </section>
 
@@ -52,7 +52,7 @@
   </div>
 
   <div class="notice">
-    <strong>摘要。</strong>AnPyer 是一款离线运行的 notebook 应用。我们不运营任何服务器，不采集统计或崩溃报告，也永远不会收到你的 notebook、代码或 API key。数据离开你设备的唯一情形是：<em>你</em>主动使用可选的 AI 助手——此时请求由你的设备直接发往<em>你</em>自己配置的第三方模型服务商；或者<em>你</em>运行的代码自己发起了网络请求。
+    <strong>摘要。</strong>AnPyer 是一款离线运行的 notebook 应用。我们不运营任何服务器，不采集统计或崩溃报告，也永远不会收到你的 notebook、代码或 API key。数据离开你设备的唯一情形是：<em>你</em>主动使用可选的 AI 助手——此时请求由你的设备直接发往<em>你</em>自己配置的第三方模型服务商；或者<em>你</em>运行的代码自己发起了网络请求。助手另有两项可选功能会扩大它能看到或能做的范围（读取 notebook 所在文件夹里的文件；运行 cell），两者默认关闭，详见第 4 节。
   </div>
 
   <h2>1. 我们是谁</h2>
@@ -66,34 +66,47 @@
   <table>
     <thead><tr><th>数据</th><th>存放位置</th><th>用途</th></tr></thead>
     <tbody>
-      <tr><td>你打开、编辑或新建的 notebook 文件</td><td>你通过 Android 文件选择器选定的位置，以及应用沙箱内的私有工作目录</td><td>核心功能：打开、编辑、保存 notebook</td></tr>
+      <tr><td>你打开、编辑或新建的 notebook 文件</td><td>你通过 Android 文件选择器选定的位置</td><td>核心功能：打开、编辑、保存 notebook</td></tr>
+      <tr><td>notebook 所在文件夹的一份工作副本（仅当你授权应用访问该文件夹时）</td><td>应用私有存储。文件被拷入，以便 Python 代码按相对路径读取；Python 写出的文件会拷回你授权的文件夹</td><td>核心功能：<code>pd.read_csv("data.csv")</code> 之类。关闭文件夹开关即停止同步；卸载应用时工作副本随之删除</td></tr>
       <tr><td>最近打开的 notebook 列表</td><td>应用私有存储</td><td>便利：快速重新打开</td></tr>
-      <tr><td>AI 服务商设置，包括你输入的 API key</td><td>仅本设备的应用私有存储（WebView 本地存储）</td><td>用于向<em>你</em>配置的服务商验证<em>你</em>的请求。key 永远不会发给我们。</td></tr>
+      <tr><td>AI 服务商设置，包括你输入的 API key，以及第 4.4 节所述的助手开关</td><td>仅本设备的应用私有存储（WebView 本地存储），受 Android 应用沙箱保护</td><td>用于向<em>你</em>配置的服务商验证<em>你</em>的请求。key 永远不会发给我们。</td></tr>
       <tr><td>当前会话的 AI 对话</td><td>仅内存；关闭应用即丢弃</td><td>显示助手的回复</td></tr>
       <tr><td>你对 AI 回复提交的举报（「报告此回复」）</td><td>应用私有存储</td><td>保留在本地供你查看、导出或邮件发送。<strong>不会自动发送任何内容。</strong></td></tr>
-      <tr><td>界面语言偏好</td><td>应用私有存储</td><td>界面显示</td></tr>
+      <tr><td>界面偏好（语言、面板尺寸等）</td><td>应用私有存储</td><td>界面显示</td></tr>
+      <tr><td>逐 cell 的助手标记（「对 AI 隐藏」「锁定」）及「来自外部来源」标记</td><td>notebook 文件自身的 <code>metadata.anpyer</code> 字段中，文件仍是标准 <code>.ipynb</code></td><td>你的隐私控制随 notebook 一起走</td></tr>
     </tbody>
   </table>
-  <p>卸载应用时，Android 会删除应用私有存储。你也可以随时在应用内 <em>关于 → 清除本地数据</em> 删除它们。你保存到自选位置的 notebook 文件是普通文件，由你自行管理。</p>
+  <p>卸载应用时，Android 会删除应用私有存储。你也可以随时在应用内 <em>关于 → 清除本地数据</em> 删除 key、设置、举报记录和最近文件列表。你保存到自选位置的 notebook 文件是普通文件，由你自行管理。</p>
 
   <h2>4. 可选的 AI 助手（自带 key）</h2>
-  <p>AnPyer 包含一个可选助手，能读取和修改你正在编辑的 notebook 的 cell。它<strong>在你配置之前处于关闭状态</strong>：你必须自行输入某个第三方大语言模型服务商的 API key。我们不提供、不转售、也不代理任何 AI 服务。</p>
+  <p>AnPyer 包含一个可选助手，能读取你正在编辑的 notebook 的 cell、修改它们、插入或删除 cell，并且——仅在获得第 4.4 节所述的会话级授权时——运行某个代码 cell 并读取其输出。它<strong>在你配置之前处于关闭状态</strong>：你必须自行输入某个第三方大语言模型服务商的 API key。我们不提供、不转售、也不代理任何 AI 服务。</p>
 
   <h3>4.1 发送什么、发给谁</h3>
   <p>当你向助手发送消息时，以下内容会<strong>从你的设备直接传输到你配置的服务商</strong>（例如 DeepSeek、OpenAI、Google Gemini、OpenRouter，或你填入地址的任何其他 OpenAI 兼容端点）：</p>
   <ul>
     <li>你的消息文本以及此前的对话；</li>
-    <li>助手读取或修改的 notebook cell 内容（仅当助手为完成你的请求而调用 notebook 工具时）；</li>
-    <li>一段描述应用环境的简短系统指令；</li>
+    <li>助手读取、修改或运行的 notebook cell 内容（仅当助手为完成你的请求而调用 notebook 工具时），包括摘要形式的 cell 输出和错误信息。你标为<em>隐藏</em>的 cell 永远不会包含在内；</li>
+    <li>一段描述应用环境的简短系统指令。它包含：当前打开的 notebook 名称及 cell 数量；预装 Python 包清单；你的界面语言；<strong>设备报告的当前日期、时间和时区</strong>（以便助手回答与时间相关的问题）；以及，若正在编辑某个 cell，光标附近的一小段摘录；</li>
+    <li>若你打开了<em>「允许 AI 读取 notebook 所在文件夹的文件」</em>（第 4.4 节）：该文件夹的目录列表，以及助手选择读取的文件的文本内容；</li>
     <li>你的 API key，作为服务商要求的请求鉴权凭据。</li>
   </ul>
   <p>助手也可能请求代你抓取公开网页或调用公开 HTTP 接口。<strong>每一次此类请求在发出前都需要你在应用内明确确认</strong>，并且只会发往确认卡上显示的地址。</p>
+  <p>设备时区仅作为时钟参考发送，不用于推断你的位置；应用从不访问定位服务。</p>
 
   <h3>4.2 我们不是这次传输的参与方</h3>
   <p>我们不接收、不存储、不记录这些请求和响应，也没有任何技术手段访问它们。服务商如何处理你的数据（包括保留期限、是否用于训练）由其自身的隐私政策和条款约束，请在输入 key 之前阅读。若内置服务商模板所对应的 API 支持「不存储」选项，AnPyer 会设置该选项；但我们无法对服务商的行为作出保证。</p>
 
   <h3>4.3 传输安全</h3>
   <p>所有内置服务商模板均使用 HTTPS。若你填入自定义端点，连接安全性取决于你输入的地址。</p>
+
+  <h3>4.4 你的控制权</h3>
+  <ul>
+    <li><strong>确认卡。</strong>助手对 notebook 提出的每一项变更（修改、插入、删除或运行 cell）以及它提出的每一次对外网络请求，都会先展示给你。你可以逐项允许，也可以在当前会话内一次性允许全部。每次接受的变更都是一步撤销。</li>
+    <li><strong>对 AI 隐藏 cell。</strong>隐藏 cell 的源码、输出和身份永远不会包含在任何请求中。<strong>锁定 cell</strong> 则允许助手读取但永远不能修改。两种标记都保存在 notebook 文件里。</li>
+    <li><strong>运行 cell</strong>（「起飞」）是<em>会话级</em>授权：应用启动时关闭，关闭应用即重置。运行走的是与你自己点 Run 相同的 notebook 执行通路，没有隐藏沙箱。</li>
+    <li><strong>读取 notebook 所在文件夹的文件</strong>是 <em>AI 设置</em> 里的另一个开关，默认关闭、持久保存。打开后，助手可以<em>不经逐文件确认</em>读取该文件夹里的任何文本文件，其内容会发给你的服务商。不希望模型看到的文件请不要放在那个文件夹里，或保持开关关闭。</li>
+    <li><strong>举报回复。</strong>你可以标记任何一条助手回复。举报只保存在你的设备上，永远不会自动发送；你可以自行导出或邮件发送。</li>
+  </ul>
 
   <h2>5. 你运行的代码</h2>
   <p>AnPyer 会执行你 notebook 中的 Python 代码。部分内置库（例如 <code>requests</code>）在你的代码要求时可以发起网络请求。这类请求由你的代码发起、发往你的代码指定的目标，我们既看不到也无法控制。运行来源不可信的 notebook 前，请先审阅其内容。</p>
@@ -105,6 +118,14 @@
   <h2>7. Google Play</h2>
   <p>购买与安装由 Google Play 依其自身条款和隐私政策处理。我们只会从 Google Play Console 获得每位开发者都能看到的汇总性、不可识别个人的统计（例如按国家的安装量）。我们不会从 Google 获得你的姓名、邮箱或支付信息。</p>
 
+  <h3>7.1 与 Play「数据安全」部分的对应关系</h3>
+  <p>Google 的数据安全表单把任何离开设备的数据都算作「收集」，即使它发往的是你自己选的第三方、从未到过开发者手里。因此我们的商店页申报了以下项目，全部为<strong>可选</strong>、仅用于<strong>应用功能</strong>、<strong>传输加密</strong>，且只在你使用 AI 助手时发送：</p>
+  <ul>
+    <li><em>应用活动 → 其他用户生成内容</em>：你发给助手的消息和 notebook cell 内容；</li>
+    <li><em>文件和文档</em>：notebook 所在文件夹里的文本文件，仅当第 4.4 节的开关打开时。</li>
+  </ul>
+  <p>没有任何项目申报为「共享」：我们从未收到这些数据，因此也无从共享；向你的服务商的传输由你发起。任何数据都不用于广告、统计分析或个性化。</p>
+
   <h2>8. 权限</h2>
   <table>
     <thead><tr><th>Android 权限</th><th>用途</th></tr></thead>
@@ -115,12 +136,12 @@
   </table>
 
   <h2>9. 儿童</h2>
-  <p>AnPyer 是面向一般用户的开发工具，不面向 13 岁以下（或你所在司法辖区规定的相应最低年龄）的儿童。我们不会有意收集任何人（包括儿童）的个人信息。</p>
+  <p>AnPyer 是面向成年人的开发工具。其 Google Play 商店页的目标用户为 18 岁及以上，应用不面向 13 岁以下（或你所在司法辖区规定的相应最低年龄）的儿童。我们不会有意收集任何人（包括儿童）的个人信息。</p>
 
   <h2>10. 你的权利及行使方式</h2>
   <p>由于我们不持有任何应用用户的个人信息，你依据《个人信息保护法》、GDPR、CCPA/CPRA 或类似法律享有的查阅、更正、删除等权利，均可以完全由你在自己的设备上完成：</p>
   <ul>
-    <li><strong>删除应用数据：</strong><em>关于 → 清除本地数据</em>，或卸载应用。</li>
+    <li><strong>删除应用数据：</strong><em>关于 → 清除本地数据</em> 会删除 API key、服务商设置、举报记录和最近文件列表；卸载应用会删除应用私有存储中的全部内容，包括你授权的文件夹的任何工作副本（第 3 节）。</li>
     <li><strong>删除 AI 服务商持有的数据：</strong>请直接联系该服务商；我们无法代你处理。</li>
     <li><strong>其他任何事项：</strong>发邮件至 <a href="mailto:contact@anpyer.com">contact@anpyer.com</a>。你也有权向所在地的个人信息保护 / 数据保护监管机构投诉。</li>
   </ul>
