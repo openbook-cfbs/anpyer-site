@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AnPyer — 安卓上的真 Jupyter Notebook</title>
-<meta name="description" content="AnPyer 让 Jupyter Notebook 完整运行在你的 Android 设备上：真正的 CPython 3.13，内置 numpy、pandas、matplotlib 等科学计算库。无需账号、无服务器、无遥测。">
+<title>AnPyer — 安卓上的 Jupyter notebook</title>
+<meta name="description" content="AnPyer 让 Jupyter notebook 原生运行在你的 Android 设备上：应用内置 IPython 内核，预装 NumPy、pandas、SciPy、scikit-learn、matplotlib 等 45+ 个包。不用 pip，没有服务器，无需账号。">
 <link rel="stylesheet" href="/assets/site.css?v=2">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<meta property="og:title" content="AnPyer — 安卓上的 Jupyter notebook">
+<meta property="og:description" content="应用内置 IPython 内核，预装 NumPy、pandas、SciPy 等 45+ 个包。不用 pip，没有服务器，无需账号。">
 <meta property="og:image" content="https://anpyer.com/assets/brand/og-image.png">
-<link rel="stylesheet" href="/assets/landing.css?v=4">
+<link rel="stylesheet" href="/assets/landing.css?v=5">
 <link rel="alternate" hreflang="en" href="/">
 <link rel="alternate" hreflang="zh" href="/zh/">
 </head>
@@ -37,212 +39,163 @@
 
 <main>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO：标题 → 图标 → 一句话 → 商店按钮 ============ -->
   <section class="block hero-block">
-    <div class="inner">
-      <div class="hero-split">
-        <div class="hero-copy">
-          <h1><img class="hero-icon" src="/assets/brand/icon-512.png" alt="" width="64" height="64">真正的 Jupyter Notebook，装进口袋。</h1>
-          <p class="lead">CPython 3.13 加完整科学计算栈，全部在手机本地运行。打开 <code>.ipynb</code>、运行 cell、画图、保存。无需账号，没有服务器，没有遥测。</p>
-          <div class="cta">
-            <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">在 Google Play 获取</a>
-            <a class="btn large" href="#how">看看它怎么工作</a>
-          </div>
-          <p class="fineprint">一次买断 · Android 7.0+ · 下载约 170 MB</p>
-        </div>
+    <div class="inner hero-center">
+      <h1>Jupyter notebook，<br>装进 Android。</h1>
 
-        <!-- 手机 mockup（右栏，底部沉进下一块）：等真机截图到了换成 <img> -->
-        <div class="hero-art" aria-hidden="true">
-      <div class="phone">
-        <div class="screen">
-          <div class="bar"><span class="dot"></span><span class="title">销售.ipynb</span><span class="spacer"></span><span>Python 3.13</span></div>
-          <div class="cell">
-            <div class="in"><span class="k">import</span> pandas <span class="k">as</span> pd
-df = pd.<span class="f">read_csv</span>(<span class="s">"q3.csv"</span>)
-df.<span class="f">groupby</span>(<span class="s">"区域"</span>).sum()</div>
-            <div class="out">
-              <table class="df">
-                <thead><tr><th></th><th>销量</th><th>营收</th></tr></thead>
-                <tbody>
-                  <tr><td>华东</td><td>1 240</td><td>86 800</td></tr>
-                  <tr><td>华北</td><td>980</td><td>71 540</td></tr>
-                  <tr><td>华南</td><td>1 530</td><td>112 300</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="cell">
-            <div class="in">df.<span class="f">plot</span>.bar(x=<span class="s">"区域"</span>, y=<span class="s">"营收"</span>)</div>
-            <div class="out">
-              <div class="bars"><i style="height:62%"></i><i style="height:51%"></i><i style="height:80%"></i></div>
-              <div class="caption">各区域营收</div>
-            </div>
-          </div>
-          <div class="cell">
-            <div class="in"><span class="k">import</span> numpy <span class="k">as</span> np
-np.<span class="f">polyfit</span>(x, y, <span class="n">2</span>)</div>
-          </div>
-        </div>
+      <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">
+        <img class="hero-icon" src="/assets/brand/icon-512.png" alt="AnPyer 应用图标" width="160" height="160">
+        <span class="hero-app-name">AnPyer</span>
+      </a>
+
+      <p class="lead">IPython 内核就在应用里——NumPy、pandas、SciPy 和 45+ 个包已经装好。<br>不用 pip，没有服务器，打开就能用。</p>
+
+      <div class="cta">
+        <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">在 Google Play 获取</a>
+        <a class="btn large" href="#notebook">看看它能做什么</a>
       </div>
-        </div>
-      </div>
+      <p class="fineprint">一次买断 · Android 7.0+ · 64 位 ARM · 下载约 170 MB</p>
+      <p class="pronounce">AnPyer = An(droid) · Py(thon) · er，读作 <em>/ˈempaɪər/</em></p>
     </div>
   </section>
 
-  <!-- ============ 1. 真 CPython ============ -->
-  <section class="block alt" id="how">
+  <!-- ============ 1. 真正的 Python notebook ============ -->
+  <section class="block alt" id="notebook">
     <div class="inner split">
       <div class="copy reveal">
-        <p class="eyebrow">真正的 Python</p>
-        <h2>不是玩具解释器，是 CPython 3.13。</h2>
-        <p class="lead">解释器和全部包随应用一起安装，在你的设备上原生运行。它就是你笔记本上那个 Python——同一个 IPython 内核，同样的 magic，同样的 traceback。</p>
+        <p class="eyebrow">真正的 Python notebook</p>
+        <h2>真 IPython 内核，NumPy、SciPy、pandas 一个不少。</h2>
+        <p class="lead">打开任意 <code>.ipynb</code>，运行 cell，得到表格和图。解释器是运行在应用进程内的 CPython 3.13——不是浏览器标签页里的服务器，也不是远程沙箱。</p>
         <ul>
-          <li><strong>天生离线。</strong>你的代码从不离开设备去运行。</li>
-          <li><strong>中断与重启。</strong>停掉失控的 cell，重启内核，继续工作。</li>
-          <li><strong>补全与帮助。</strong>来自真内核的 Tab 补全和 <code>?</code> 帮助。</li>
+          <li><strong>真 IPython。</strong>Tab 补全、<code>?</code> 帮助、magic 命令、中断与重启。</li>
+          <li><strong>100% 标准 <code>.ipynb</code>。</strong>文件与桌面端 Jupyter、VS Code 完全兼容——双向都行。</li>
+          <li><strong>离线可用。</strong>你的代码从不离开设备去运行。</li>
         </ul>
       </div>
       <div class="visual reveal">
-        <div class="panel">
-          <div class="phone" aria-hidden="true">
-            <div class="screen">
-              <div class="bar"><span class="dot"></span><span class="title">草稿.ipynb</span><span class="spacer"></span><span>● 运行中</span></div>
-              <div class="cell">
-                <div class="in"><span class="k">import</span> sys, numpy, scipy
-<span class="f">print</span>(sys.version.split()[<span class="n">0</span>])
-<span class="f">print</span>(numpy.__version__, scipy.__version__)</div>
-                <div class="out plain">3.13.5
-2.3.2 1.16.1</div>
-              </div>
-              <div class="cell">
-                <div class="in"><span class="k">from</span> scipy <span class="k">import</span> integrate
-integrate.<span class="f">quad</span>(<span class="k">lambda</span> x: x**<span class="n">2</span>, <span class="n">0</span>, <span class="n">1</span>)</div>
-                <div class="out plain">(0.33333333333333337, 3.700743415417189e-15)</div>
-              </div>
-              <div class="cell">
-                <div class="in">%timeit numpy.<span class="f">linalg</span>.inv(numpy.random.rand(<span class="n">200</span>, <span class="n">200</span>))</div>
-                <div class="out plain">4.1 ms ± 120 µs per loop</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img class="shot" src="/assets/demo/01-notebook.png" alt="AnPyer 运行 notebook：scipy curve_fit 代码、拟合参数和 matplotlib 图，同屏显示" width="1080" height="1920" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ============ 2. 科学计算栈 ============ -->
-  <section class="block">
-    <div class="inner">
-      <div class="centered reveal">
-        <p class="eyebrow">预装即用</p>
-        <h2>科学计算全家桶，首次启动就在。</h2>
-        <p class="lead">没有 pip，没有 wheel，不用等。下面这些全部随包内置，并在真机上逐个验过。</p>
-      </div>
-      <ul class="chips reveal">
-        <li class="hl">numpy 2</li><li class="hl">pandas</li><li class="hl">scipy</li><li class="hl">matplotlib</li>
-        <li>scikit-learn</li><li>statsmodels</li><li>sympy</li><li>plotly</li><li>seaborn</li>
-        <li>astropy</li><li>networkx</li><li>lifelines</li><li>emcee</li><li>pint</li>
-        <li>pillow</li><li>requests</li><li>beautifulsoup4</li><li>lxml</li><li>openpyxl</li>
-        <li>jieba</li><li>wordcloud</li><li>yfinance</li><li>tushare</li><li>PyWavelets</li><li>…还有 20 多个</li>
-      </ul>
-      <p class="chips-note reveal">完整清单与许可见 <a href="/notices/">第三方声明</a>。</p>
-    </div>
-  </section>
-
-  <!-- ============ 3. Python 算，Web 渲染 ============ -->
-  <section class="block alt">
-    <div class="inner">
-      <div class="centered reveal">
-        <p class="eyebrow">工作流</p>
-        <h2>用 Python 算，用 Web 渲染。</h2>
-        <p class="lead">AnPyer 的输出区是一个完整的 Web 渲染器。交互图表、Mermaid 流程图、LaTeX、HTML——浏览器能画的，cell 就能显示。</p>
-      </div>
-      <ol class="steps reveal">
-        <li><span class="num">1</span><strong>先把数算出来</strong><span>numpy、pandas、scipy——重活留在 Python 里，那是它该在的地方。</span></li>
-        <li><span class="num">2</span><strong>把结果交出去</strong><span>让 AI 助手照着结果画图，或者自己调 <code>anpyer.plot</code>，传一个普通 dict 就行。</span></li>
-        <li><span class="num">3</span><strong>得到一张交互图</strong><span>ECharts、plotly、Mermaid、MathJax——直接渲染在输出区，手机上可以双指缩放。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ 4. AI 在 cell 里 ============ -->
+  <!-- ============ 2. 你自己的数据 ============ -->
   <section class="block">
     <div class="inner split reverse">
       <div class="copy reveal">
-        <p class="eyebrow">可选 AI 助手</p>
-        <h2>AI 在 cell <em>里</em>工作，不是在旁边。</h2>
-        <p class="lead">助手读你的 notebook，提出修改，给你看 diff。在你点下<strong>应用</strong>之前，什么都不会变。它能增删 cell——但绝不替你运行。</p>
+        <p class="eyebrow">你的文件</p>
+        <h2>处理你自己的数据。任何文件夹都能当工作区。</h2>
+        <p class="lead">授权 notebook 所在的文件夹，<code>pd.read_csv("sales_data.csv")</code> 直接就能用。Python 写出的文件会同步回那个文件夹。</p>
         <ul>
-          <li><strong>自带 key。</strong>任何 OpenAI 兼容的服务商——DeepSeek、OpenRouter、OpenAI、Gemini，或你自己的端点。</li>
-          <li><strong>费用付给服务商，不是我们。</strong>便宜档的模型做 notebook 工作足够了。</li>
-          <li><strong>不开就是关的。</strong>没配 key 时，应用不发起任何网络请求。</li>
+          <li><strong>不要整盘存储权限。</strong>AnPyer 走 Android 系统文件选择器，只看得见你选的那个文件夹。</li>
+          <li><strong>普通文件，没有锁定。</strong>笔记本上写的 notebook，手机上改，再回笔记本打开。</li>
         </ul>
       </div>
       <div class="visual reveal">
-        <div class="panel">
-          <div class="phone" aria-hidden="true">
-            <div class="screen">
-              <div class="bar"><span class="dot"></span><span class="title">助手</span><span class="spacer"></span><span>deepseek</span></div>
-              <div class="ai-card">
-                <div class="who">建议修改 · cell 3</div>
-                <div>用 numpy 向量化这个循环：</div>
-                <div class="diff"><span class="del">- for i in range(len(x)):</span>
-<span class="del">-     y[i] = x[i] ** 2</span>
-<span class="add">+ y = x ** 2</span></div>
-                <div class="actions"><span>忽略</span><span class="ok">应用</span></div>
-              </div>
-              <div class="cell">
-                <div class="in">y = x ** <span class="n">2</span>
-y[:<span class="n">5</span>]</div>
-                <div class="out plain">array([0, 1, 4, 9, 16])</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img class="shot" src="/assets/demo/02-process-own-data.png" alt="notebook 用 pandas 读取同文件夹下的 sales_data.csv，并以表格显示 describe() 结果" width="1080" height="1920" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ============ 5. 你的文件 ============ -->
+  <!-- ============ 3. AI 在 cell 里 ============ -->
   <section class="block alt">
     <div class="inner split">
       <div class="copy reveal">
-        <p class="eyebrow">你的文件</p>
-        <h2>标准 <code>.ipynb</code>，你的文件夹，没有锁定。</h2>
-        <p class="lead">用 Android 文件选择器选一个文件夹，它就是你的工作区：notebook、CSV、图片并排放着。文件保存为标准 Jupyter 格式，到哪都能打开。</p>
+        <p class="eyebrow">可选 AI 助手 · 自带 key</p>
+        <h2>cell 交给 AI。少打字，多做事。</h2>
+        <p class="lead">助手在你的 notebook <em>里面</em>工作，不是旁边开个聊天框。它读你的 cell 和输出，修改或插入 cell——而且只要你在本次会话里拨开「起飞」，它还能运行 cell、读结果或 traceback、然后修正自己的错误。</p>
         <ul>
-          <li><strong>不要整盘存储权限。</strong>AnPyer 只看得见你选的文件夹。</li>
-          <li><strong>来回无损。</strong>笔记本上写的 notebook，手机上改，再回笔记本打开。</li>
+          <li><strong>每一步你来批准。</strong>每次修改落地前都有确认卡；每次接受的修改就是一步撤销。</li>
+          <li><strong>你的 key，你选的服务商。</strong>任何 OpenAI 兼容端点都行。便宜档模型就够用——重活由我们的 prompt 和工具扛。</li>
+          <li><strong>只在你允许时才跑代码。</strong>一次拨动，只管本次会话，重开应用即恢复关闭。</li>
         </ul>
       </div>
       <div class="visual reveal">
-        <div class="panel">
-          <div class="phone" aria-hidden="true">
-            <div class="screen">
-              <div class="bar"><span class="dot"></span><span class="title">工作区</span><span class="spacer"></span><span>/Documents/notebooks</span></div>
-              <div class="cell"><div class="out plain">📁 data/
-📄 销售.ipynb
-📄 q3.csv
-📄 预测.ipynb
-🖼 fig1.png</div></div>
-              <div class="cell">
-                <div class="in">pd.<span class="f">read_csv</span>(<span class="s">"q3.csv"</span>).shape</div>
-                <div class="out plain">(3750, 12)</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img class="shot" src="/assets/demo/03-AI.png" alt="AI 面板里的提示词“画出未来 24 小时我到国际空间站的距离”，上方 notebook 显示它写好并运行出的图表" width="1080" height="1920" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ============ 6. 隐私 ============ -->
+  <!-- ============ 4. AI 不会失控 ============ -->
+  <section class="block">
+    <div class="inner split reverse">
+      <div class="copy reveal">
+        <p class="eyebrow">方向盘在你手里</p>
+        <h2>AI 不会失控。任何 cell 都能隐藏或锁定。</h2>
+        <p class="lead">把一个 cell 标为<em>隐藏</em>，助手拿不到它的源码、输出和哈希——它根本不知道里面有什么。标为<em>锁定</em>，助手能读但永远改不了。</p>
+        <ul>
+          <li><strong>运行 cell 是会话级授权。</strong>默认关闭，重开应用再次关闭。</li>
+          <li><strong>读取 notebook 文件夹里的文件是另一个开关</strong>，在 AI 设置里，默认关闭。</li>
+          <li><strong>没配 key 就没有网络。</strong>没有设置服务商时，应用不发起任何请求。</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <img class="shot" src="/assets/demo/04-no-rogue-AI.png" alt="notebook 里一个 cell 对 AI 隐藏、一个 cell 锁定；助手回复说隐藏的 cell 不给它源码、输出和哈希" width="1080" height="1920" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. 预装包 ============ -->
+  <section class="block alt">
+    <div class="inner split">
+      <div class="copy reveal">
+        <p class="eyebrow">预装即用</p>
+        <h2>要什么 pip？都给你装好了。</h2>
+        <p class="lead">45+ 个包随应用内置、真机逐个验过：NumPy · pandas · SciPy · scikit-learn · statsmodels · SymPy · matplotlib · seaborn · plotly · astropy · skyfield · PyWavelets · networkx · lifelines · pint · yfinance · tushare · openpyxl · pypdf · requests · jieba · wordcloud 等。</p>
+        <ul>
+          <li><strong>每个版本固定——没有 <code>pip install</code>。</strong>先看<a href="/notices/">完整清单</a>：你要的包不在里面，就先别付钱；等下一次更新。</li>
+          <li><strong>缺什么？</strong><a href="/zh/support/">告诉我们</a>。纯 Python 包通常很快就能加。</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <img class="shot" src="/assets/demo/06-packages-wall.png" alt="AnPyer 预装包墙：NumPy、pandas、SciPy、scikit-learn、statsmodels、matplotlib 等" width="1080" height="1920" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Python 算，Web 显示 ============ -->
+  <section class="block">
+    <div class="inner split reverse">
+      <div class="copy reveal">
+        <p class="eyebrow">Python 算 · AI 表达 · Web 显示</p>
+        <h2>前端？等等，什么？Python 算数，TS 渲染。</h2>
+        <p class="lead">AnPyer 的输出区是一个完整的 Web 渲染器。上一格用 Python 把数算出来，对助手说一句「画出来」，它就把下一格写成一张可交互的 ECharts 图——你一行画图代码都不用写，也不需要执行：渲染器直接画。</p>
+        <ul>
+          <li><strong>三层各干最擅长的事。</strong>Python 负责数学，模型负责表达，浏览器负责像素。</li>
+          <li><strong>也可以自己来。</strong><code>anpyer.plot</code> 传一个普通 dict 就能同样渲染——而且它在 PyPI 上，notebook 拿到桌面 Jupyter 也能打开。</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <img class="shot" src="/assets/demo/07-py-frontend.png" alt="上一格打印十二行数字；下一格由 AI 写出，渲染成可交互的 ECharts 折线图" width="1080" height="1920" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. 富输出 ============ -->
+  <section class="block alt">
+    <div class="inner split">
+      <div class="copy reveal">
+        <p class="eyebrow">富输出</p>
+        <h2>一图胜千言。有 AI，即刻出图。</h2>
+        <p class="lead">Markdown、LaTeX 公式、Mermaid 流程图、Graphviz DOT、化学结构式（SMILES）、可交互的 ECharts 和 plotly——Markdown cell 和代码输出共用同一套渲染器。桌面 Jupyter 每一样都要装扩展，这里全部内置。</p>
+        <ul>
+          <li><strong>双指缩放。</strong>任何图表、流程图都能全屏打开，支持触控手势。</li>
+          <li><strong>matplotlib 还是你熟悉的那个。</strong>图形渲染为图片，中文标签正常显示——没有豆腐块。</li>
+        </ul>
+      </div>
+      <div class="visual reveal">
+        <img class="shot" src="/assets/demo/08-frontend-graphs.png" alt="一个 Markdown cell 同屏渲染出 SMILES 咖啡因分子、Mermaid 流程图和 Graphviz DOT 图" width="1080" height="1920" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. 隐私 ============ -->
   <section class="block">
     <div class="inner">
       <div class="centered reveal">
         <p class="eyebrow">隐私</p>
-        <h2>什么都不会离开你的设备。</h2>
-        <p class="lead">AnPyer 没有服务器。没有统计分析，没有崩溃上报，没有遥测 SDK。唯一的网络流量是你自己配置的 AI 助手——从你的手机直连你选的服务商——以及你自己代码发起的 HTTP 请求。</p>
+        <h2>我们不运营服务器，什么都不收集。</h2>
+        <p class="lead">没有统计分析，没有崩溃上报，没有遥测 SDK。你的 notebook、文件和 API key 都留在你的设备上。除非你配置了 AI 服务商，否则什么都不会离开手机——即便配置了，也只从你的设备直连你选的那家。AnPyer 从不下载可执行代码：你运行的每一行，要么随应用打包，要么是你自己写的。</p>
       </div>
       <ul class="stats reveal">
         <li><b>0</b><span>个需要注册的账号</span></li>
@@ -253,34 +206,37 @@ y[:<span class="n">5</span>]</div>
     </div>
   </section>
 
-  <!-- ============ 7. 诚实的边界 ============ -->
+  <!-- ============ 9. 实话实说 ============ -->
   <section class="block alt">
     <div class="inner">
       <div class="centered reveal">
-        <p class="eyebrow">先说清楚</p>
-        <h2>AnPyer 不做什么。</h2>
-        <p class="lead">我们宁愿你买之前就知道。</p>
+        <p class="eyebrow">实话实说</p>
+        <h2>买之前先知道这几件事。</h2>
       </div>
       <ul class="limits reveal">
-        <li><strong>没有 <code>pip install</code></strong>包集合在构建期固定。缺你要的包？<a href="/zh/support/">告诉我们</a>。</li>
-        <li><strong>matplotlib 是静态图</strong>图形渲染为图片。要交互，用 plotly 或内置的 ECharts 渲染。</li>
-        <li><strong>C 扩展无法中断</strong>和桌面 Jupyter 一样：卡在编译代码里的 cell 需要重启内核。</li>
+        <li><strong>没有 <code>pip install</code></strong>包随应用内置，每个版本固定。你要的不在<a href="/notices/">清单</a>里，就先别付钱。</li>
+        <li><strong>matplotlib 是静态图</strong>图形渲染为图片。交互图表来自 plotly 和 ECharts。</li>
+        <li><strong>助手有边界</strong>它碰不到 notebook 文件夹之外的文件，也不能停止一个正在运行的 cell。</li>
+        <li><strong>仅支持 64 位 ARM</strong>arm64-v8a——近几年的手机和平板基本都是。底层是 Python 3.13。</li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ 8. 价格 / CTA ============ -->
+  <!-- ============ 10. 价格 / CTA ============ -->
   <section class="block pricing-block">
-    <div class="inner">
-      <div class="centered reveal">
+    <div class="inner split">
+      <div class="copy reveal">
         <p class="eyebrow">价格</p>
         <h2>买一次，就这样。</h2>
         <p class="price">$4.99<small>一次买断</small></p>
-        <p class="lead">没有订阅，没有内购，没有广告。更新包含在内。</p>
+        <p class="lead">不追踪。不订阅。没有内购。不要账号。没有广告。不需要联网。<br><strong>买了，就是你的。</strong>更新包含在内。</p>
         <div class="cta">
           <a class="btn primary large" href="https://play.google.com/store/apps/details?id=com.openbook.anpyer">在 Google Play 获取</a>
         </div>
-        <p class="fineprint">可选的 AI 助手需要你自行向第三方模型服务商申请 API key，该项使用产生的费用由服务商收取，与我们无关。</p>
+        <p class="fineprint">可选的 AI 助手需要你自行向 OpenAI 兼容的服务商申请 API key（按量付费的 API key，不是 ChatGPT 或 Claude 的订阅）。该项使用产生的费用由服务商收取，与我们无关。</p>
+      </div>
+      <div class="visual reveal">
+        <img class="shot" src="/assets/demo/05-reinforcement.png" alt="No tracking. No subscription. No in-app purchases. No account. No ads. No internet needed. You buy it. You own it." width="1080" height="1920" loading="lazy">
       </div>
     </div>
   </section>
