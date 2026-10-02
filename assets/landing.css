@@ -92,7 +92,13 @@
   margin: 0 auto 1.8rem;
   line-height: 1.5;
 }
-.hero-block .cta { justify-content: center; margin: 0 0 0.8rem; }
+.hero-block .cta { justify-content: center; align-items: center; margin: 0 0 0.8rem; }
+/* Official Google Play badge (assets/brand/google-play-badge-*.svg, from play.google.com/intl/en_us/badges/).
+   Brand rules: never restyle/recolor, keep clear space = 1/4 badge height, min height 40px. */
+.store-badge { display: inline-flex; line-height: 0; transition: transform 0.2s ease; }
+.store-badge img { height: 4rem; width: auto; display: block; }
+.store-badge:hover { transform: translateY(-1px); text-decoration: none; }
+.site-footer .trademark { font-size: 0.75rem; color: var(--fg-muted); opacity: 0.7; margin: 0.8rem 0 0; flex-basis: 100%; }
 .hero-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); margin: 0; }
 .hero-block .pronounce { font-size: 0.85rem; color: var(--fg-muted); margin: 0.4rem 0 0; opacity: 0.8; }
 .hero-block .pronounce em { font-style: normal; color: var(--fg); }
@@ -138,7 +144,7 @@
 .price { font-size: clamp(2.6rem, 6vw, 4rem); letter-spacing: -0.03em; line-height: 1; margin: 0.5rem 0 0.8rem; }
 .price small { font-size: 0.35em; color: var(--fg-muted); letter-spacing: 0; vertical-align: middle; margin-left: 0.4rem; }
 .pricing-block .lead strong { color: var(--fg); }
-.pricing-block .cta { justify-content: flex-start; margin: 1.4rem 0 0.8rem; }
+.pricing-block .cta { justify-content: flex-start; align-items: center; margin: 1.4rem 0 0.8rem; }
 .pricing-block .fineprint { font-size: 0.85rem; color: var(--fg-muted); max-width: 34rem; margin: 0.6rem 0 0; }
 
 /* ---------- Scroll reveal ---------- */
@@ -161,4 +167,5 @@
 @media (max-width: 30rem) {
   .hero-block .cta .btn { flex: 1 1 100%; text-align: center; }
   .pricing-block .cta .btn { flex: 1 1 100%; text-align: center; }
+  .hero-block .cta .store-badge, .pricing-block .cta .store-badge { flex: 1 1 100%; justify-content: center; }
 }

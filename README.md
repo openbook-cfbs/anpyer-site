@@ -7,8 +7,6 @@
 [![Hosting](https://img.shields.io/badge/hosting-GitHub%20Pages-222)](https://pages.github.com/)
 [![No build](https://img.shields.io/badge/build-none-2ea44f)](#development)
 
-<!-- TODO: screenshot / social preview of the landing page -->
-
 ## Table of contents
 
 - [About](#about)
@@ -30,8 +28,6 @@ This repository contains the public website for the AnPyer Android app. It serve
 3. **Support** — contact address, FAQ and bug-report guidance.
 
 The site is intentionally boring on the engineering side: hand-written HTML, two CSS files, one tiny script, no framework, no bundler. Edit a file, push, done.
-
-<!-- TODO: one paragraph on design principles (dark-first, product-page blocks, bilingual) -->
 
 ## Pages
 
@@ -63,9 +59,7 @@ Every page shares the same shell: sticky translucent header (brand, section link
 │   ├── landing.css          # Landing-only blocks: hero, phone mockups, chips, steps, pricing
 │   ├── site.js              # Language menu behaviour + scroll-reveal (progressive enhancement)
 │   ├── icons.svg            # SVG sprite: UI icons (globe, chevron, check)
-│   └── brand/               # GENERATED — favicon-32 / apple-touch-icon / brand-64 / og-image / icon-512 (see "Brand images")
-├── scripts/
-│   └── fill-placeholders.ps1  # One-shot placeholder replacement + notices JSON sync
+│   └── brand/               # GENERATED icons (see "Brand images") + official Google Play badges
 ├── favicon.ico              # GENERATED — 16/32/48 multi-frame
 ├── CNAME  robots.txt  sitemap.xml  .nojekyll
 └── README.md
@@ -83,7 +77,7 @@ The header language switch is a native `<details class="lang-menu">`: a globe ic
 
 ### Brand images
 
-`favicon.ico` and everything under `assets/brand/` are **generated, do not hand-edit**. The single source of truth is the 1024² icon master set in the app repo (`AnPyer/assets/icon/`); `AnPyer/scripts/gen-site-icons.py` renders the web sizes and writes them straight into this repo (the two repos are siblings under `D:/Coding`). To refresh after the icon changes: in the app repo run `uv run --with pillow python scripts/gen-site-icons.py` (add `--check` to verify without writing), then commit here. Every page's `<head>` links `/favicon.ico`, `/assets/brand/favicon-32.png`, `/assets/brand/apple-touch-icon.png` and `og:image`; the header `<img class="logo">` uses `brand-64.png` (displayed at 26 px); the landing hero is a two-column split (`.hero-split`: copy left with `icon-512.png` inline at the start of the `<h1>` as a drop-cap (sized in em, tracks the heading), phone mockup right; stacks under 52rem) — the icon is rounded, transparent, same size as the Play listing icon — also the file to hand out for press / social avatars).
+`favicon.ico` and everything under `assets/brand/` are **generated, do not hand-edit**. The single source of truth is the 1024² icon master set in the app repo (`AnPyer/assets/icon/`); `AnPyer/scripts/gen-site-icons.py` renders the web sizes and writes them straight into this repo (the two repos are expected to be sibling directories). To refresh after the icon changes: in the app repo run `uv run --with pillow python scripts/gen-site-icons.py` (add `--check` to verify without writing), then commit here. Every page's `<head>` links `/favicon.ico`, `/assets/brand/favicon-32.png`, `/assets/brand/apple-touch-icon.png` and `og:image`; the header `<img class="logo">` uses `brand-64.png` (displayed at 26 px); the landing hero is a two-column split (`.hero-split`: copy left with `icon-512.png` inline at the start of the `<h1>` as a drop-cap (sized in em, tracks the heading), phone mockup right; stacks under 52rem) — the icon is rounded, transparent, same size as the Play listing icon — also the file to hand out for press / social avatars).
 
 To add a language: add one `<li>` to the menu on every page and mirror the page tree under `/xx/`.
 
@@ -103,15 +97,11 @@ npx serve .
 
 Then open <http://localhost:8080/>.
 
-<!-- TODO: browser support statement (color-mix, dvh, :has-free — modern evergreen only) -->
-
 ## Deployment
 
 Pushing to `main` deploys automatically (GitHub Pages, *Deploy from a branch*, root). Changes go live in about a minute.
 
 DNS is managed at Cloudflare and points the apex and `www` at GitHub Pages; the `CNAME` file in this repository pins the custom domain. HTTPS is issued by GitHub (Let's Encrypt).
-
-<!-- TODO: condensed first-time setup (Pages settings, A/AAAA records, DNS-only mode on Cloudflare, Enforce HTTPS) -->
 
 ## Configuration
 
@@ -119,32 +109,27 @@ DNS is managed at Cloudflare and points the apex and `www` at GitHub Pages; the 
 
 All placeholders have been filled. The publisher name is **`Open Book Co., Ltd.`** on every page (both languages) and must stay identical to the developer name shown in the Play Console listing. If that name ever changes, search-and-replace the `<span class="legal-name">` contents across the HTML.
 
-`scripts/fill-placeholders.ps1` is kept for reference; it no longer has anything to replace, but it still copies `AnPyer/src/generated/third-party-notices.json` into `notices/` if the app repository is available next to this one (`-AnPyerRepo` to override).
+### Google Play badge
+
+`assets/brand/google-play-badge-{en,zh-cn}.svg` are the **official** badges downloaded from <https://play.google.com/intl/en_us/badges/>. Per Google's brand guidelines they must not be recoloured, reshaped or redrawn; the footer carries the required trademark line. Replace them only with files from that generator.
 
 ### Links from the app
 
 The app's `src/config/links.ts` references this site (`PRIVACY_POLICY_URL`, `SUPPORT_EMAIL`, localized privacy URL). Keep the paths above in sync when moving pages.
 
-<!-- TODO: table of external references (Play Console fields, app links.ts constants) -->
-
 ## Maintenance
 
 - **Privacy policy / terms** — edit both language versions, bump the version and effective date at the top, mention material changes in the Play release notes.
-- **Third-party notices** — after the app's dependencies change, run `uv run scripts/licenses.py --notice` in the app repo, then re-run `fill-placeholders.ps1` (or copy the JSON by hand).
-- **Landing copy** — the marketing text is still a placeholder draft; see [Roadmap](#roadmap).
+- **Third-party notices** — after the app's dependencies change, run `uv run scripts/licenses.py --notice` in the app repo and copy `src/generated/third-party-notices.json` to `notices/`.
 
 ## Roadmap
 
-- [ ] Rewrite landing-page copy (both languages)
-- [ ] Replace CSS phone mockups with real device screenshots (`<img>` slots)
-- [ ] Feature graphic / social preview image
-- [ ] Google Search Console domain verification
+- [x] Rewrite landing-page copy (both languages)
+- [x] Replace CSS phone mockups with real device screenshots
 - [x] Fill publisher name placeholders before store submission
-
-<!-- TODO: link to the internal planning doc if/when it moves out of the app repo -->
+- [x] Official Google Play badge after the app went live
+- [ ] Feature graphic / social preview image
 
 ## License
-
-<!-- TODO: decide. Suggested: site code (HTML/CSS/JS) under MIT; text, brand assets and screenshots © Open Book Co., Ltd., all rights reserved. -->
 
 Copyright © 2026 Open Book Co., Ltd. All rights reserved unless stated otherwise.

@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+
+# Maintainer-side tooling. Lives on disk, never in the public repo.
+scripts/
