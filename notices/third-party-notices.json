@@ -1,6 +1,6 @@
 {
   "generatedFrom": "scripts/licenses.py --notice",
-  "generatedAt": "2026-09-20T18:12:16Z",
+  "generatedAt": "2026-10-05T03:02:58Z",
   "note": "机器生成，勿手编。重跑：uv run scripts/licenses.py --notice（结论与处置见 .docs/依赖许可.md）",
   "licenseTextMissing": [
     "cssparser",
@@ -195,6 +195,17 @@
       "licenseText": null,
       "copyright": null,
       "url": null,
+      "line": [
+        "node"
+      ]
+    },
+    {
+      "name": "@fontsource/jetbrains-mono",
+      "version": "5.3.0",
+      "license": "OFL-1.1",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://fontsource.org/fonts/jetbrains-mono",
       "line": [
         "node"
       ]
@@ -1124,6 +1135,17 @@
       ]
     },
     {
+      "name": "appdirs",
+      "version": "1.4.4",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "http://github.com/ActiveState/appdirs",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "argparse",
       "version": "2.0.1",
       "license": "Python-2.0",
@@ -1157,6 +1179,30 @@
       ]
     },
     {
+      "name": "astropy",
+      "version": "8.0.1",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.astropy.org/",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "astropy-iers-data",
+      "version": "0.2026.9.14.0.56.43",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/astropy/astropy-iers-data",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "asttokens",
       "version": "3.0.2",
       "license": "Apache 2.0",
@@ -1164,7 +1210,8 @@
       "copyright": null,
       "url": "https://github.com/gristlabs/asttokens",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1311,6 +1358,30 @@
       ]
     },
     {
+      "name": "autograd",
+      "version": "1.9.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/HIPS/autograd",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "autograd-gamma",
+      "version": "0.5.0",
+      "license": "MIT License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/CamDavidsonPilon/autograd-gamma",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "base64",
       "version": "0.21.7, 0.22.1",
       "license": "Apache-2.0 OR MIT",
@@ -1329,7 +1400,8 @@
       "copyright": null,
       "url": "https://www.crummy.com/software/BeautifulSoup/bs4/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1439,7 +1511,8 @@
       "copyright": null,
       "url": null,
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1582,7 +1655,8 @@
       "copyright": null,
       "url": "https://github.com/certifi/python-certifi",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1609,13 +1683,14 @@
     },
     {
       "name": "cffi",
-      "version": "2.1.0",
-      "license": "MIT-0",
+      "version": "1.17.1, 2.1.0",
+      "license": "MIT-0 / MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/python-cffi/cffi",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1631,13 +1706,14 @@
     },
     {
       "name": "charset-normalizer",
-      "version": "3.4.9",
+      "version": "3.4.9, 3.5.1",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyright © [Ahmed TAHRI @Ousret](https://github.com/Ousret).<br />",
       "url": null,
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1671,6 +1747,17 @@
       "url": "https://github.com/chronotope/chrono",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/cloudpipe/cloudpickle",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -1763,13 +1850,26 @@
     },
     {
       "name": "contourpy",
-      "version": "1.3.3",
-      "license": "BSD",
+      "version": "1.3.3, 1.4.0",
+      "license": "BSD / BSD-3-Clause",
       "licenseText": null,
       "copyright": "Copyright (c) 2021-2025, ContourPy Developers.",
       "url": "https://github.com/contourpy/contourpy",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "control",
+      "version": "0.10.2",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://python-control.org",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1836,6 +1936,18 @@
       "url": "https://github.com/servo/core-foundation-rs",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "corner",
+      "version": "2.3.0",
+      "license": "BSD 2-Clause License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://corner.readthedocs.io",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -1917,13 +2029,14 @@
     },
     {
       "name": "cryptography",
-      "version": "50.0.0",
+      "version": "42.0.8, 50.0.0",
       "license": "Apache-2.0 OR BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/pyca/cryptography",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -2000,7 +2113,8 @@
       "copyright": null,
       "url": "https://matplotlib.org/cycler/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -2708,6 +2822,18 @@
       ]
     },
     {
+      "name": "emcee",
+      "version": "3.1.6",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": "Copyright 2010-2021 Dan Foreman-Mackey and contributors.",
+      "url": "https://emcee.readthedocs.io",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "endi",
       "version": "1.1.1",
       "license": "MIT",
@@ -2814,7 +2940,8 @@
       "copyright": null,
       "url": "https://foss.heptapod.net/openpyxl/et_xmlfile",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -2858,7 +2985,8 @@
       "copyright": null,
       "url": "https://github.com/alexmojaki/executing",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -2939,6 +3067,18 @@
       ]
     },
     {
+      "name": "filterpy",
+      "version": "1.4.5",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": "Copyright (c) 2015 Roger R. Labbe Jr",
+      "url": "https://github.com/rlabbe/filterpy",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "flate2",
       "version": "1.1.9",
       "license": "Apache-2.0 OR MIT",
@@ -2947,6 +3087,30 @@
       "url": "https://github.com/rust-lang/flate2-rs",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "flexcache",
+      "version": "0.3",
+      "license": "BSD",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/hgrecco/flexcache",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "flexparser",
+      "version": "0.4",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/hgrecco/flexparser",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -2973,13 +3137,14 @@
     },
     {
       "name": "fonttools",
-      "version": "4.63.0",
+      "version": "4.63.0, 4.66.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyrights",
       "url": "http://github.com/fonttools/fonttools",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3024,6 +3189,40 @@
       "url": "https://github.com/servo/rust-url",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "formulaic",
+      "version": "1.2.2",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/matthewwardrop/formulaic",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "FreeType",
+      "version": "2.9.1",
+      "license": "FTL",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://freetype.org/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "frozendict",
+      "version": "2.4.7",
+      "license": "LGPL v3",
+      "licenseText": "GNU LESSER GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n\n  This version of the GNU Lesser General Public License incorporates\nthe terms and conditions of version 3 of the GNU General Public\nLicense, supplemented by the additional permissions listed below.\n\n  0. Additional Definitions.\n\n  As used herein, \"this License\" refers to version 3 of the GNU Lesser\nGeneral Public License, and the \"GNU GPL\" refers to version 3 of the GNU\nGeneral Public License.\n\n  \"The Library\" refers to a covered work governed by this License,\nother than an Application or a Combined Work as defined below.\n\n  An \"Application\" is any work that makes use of an interface provided\nby the Library, but which is not otherwise based on the Library.\nDefining a subclass of a class defined by the Library is deemed a mode\nof using an interface provided by the Library.\n\n  A \"Combined Work\" is a work produced by combining or linking an\nApplication with the Library.  The particular version of the Library\nwith which the Combined Work was made is also called the \"Linked\nVersion\".\n\n  The \"Minimal Corresponding Source\" for a Combined Work means the\nCorresponding Source for the Combined Work, excluding any source code\nfor portions of the Combined Work that, considered in isolation, are\nbased on the Application, and not on the Linked Version.\n\n  The \"Corresponding Application Code\" for a Combined Work means the\nobject code and/or source code for the Application, including any data\nand utility programs needed for reproducing the Combined Work from the\nApplication, but excluding the System Libraries of the Combined Work.\n\n  1. Exception to Section 3 of the GNU GPL.\n\n  You may convey a covered work under sections 3 and 4 of this License\nwithout being bound by section 3 of the GNU GPL.\n\n  2. Conveying Modified Versions.\n\n  If you modify a copy of the Library, and, in your modifications, a\nfacility refers to a function or data to be supplied by an Application\nthat uses the facility (other than as an argument passed when the\nfacility is invoked), then you may convey a copy of the modified\nversion:\n\n   a) under this License, provided that you make a good faith effort to\n   ensure that, in the event an Application does not supply the\n   function or data, the facility still operates, and performs\n   whatever part of its purpose remains meaningful, or\n\n   b) under the GNU GPL, with none of the additional permissions of\n   this License applicable to that copy.\n\n  3. Object Code Incorporating Material from Library Header Files.\n\n  The object code form of an Application may incorporate material from\na header file that is part of the Library.  You may convey such object\ncode under terms of your choice, provided that, if the incorporated\nmaterial is not limited to numerical parameters, data structure\nlayouts and accessors, or small macros, inline functions and templates\n(ten or fewer lines in length), you do both of the following:\n\n   a) Give prominent notice with each copy of the object code that the\n   Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the object code with a copy of the GNU GPL and this license\n   document.\n\n  4. Combined Works.\n\n  You may convey a Combined Work under terms of your choice that,\ntaken together, effectively do not restrict modification of the\nportions of the Library contained in the Combined Work and reverse\nengineering for debugging such modifications, if you also do each of\nthe following:\n\n   a) Give prominent notice with each copy of the Combined Work that\n   the Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the Combined Work with a copy of the GNU GPL and this license\n   document.\n\n   c) For a Combined Work that displays copyright notices during\n   execution, include the copyright notice for the Library among\n   these notices, as well as a reference directing the user to the\n   copies of the GNU GPL and this license document.\n\n   d) Do one of the following:\n\n       0) Convey the Minimal Corresponding Source under the terms of this\n       License, and the Corresponding Application Code in a form\n       suitable for, and under terms that permit, the user to\n       recombine or relink the Application with a modified version of\n       the Linked Version to produce a modified Combined Work, in the\n       manner specified by section 6 of the GNU GPL for conveying\n       Corresponding Source.\n\n       1) Use a suitable shared library mechanism for linking with the\n       Library.  A suitable mechanism is one that (a) uses at run time\n       a copy of the Library already present on the user's computer\n       system, and (b) will operate properly with a modified version\n       of the Library that is interface-compatible with the Linked\n       Version.\n\n   e) Provide Installation Information, but only if you would otherwise\n   be required to provide such information under section 6 of the\n   GNU GPL, and only to the extent that such information is\n   necessary to install and execute a modified version of the\n   Combined Work produced by recombining or relinking the\n   Application with a modified version of the Linked Version. (If\n   you use option 4d0, the Installation Information must accompany\n   the Minimal Corresponding Source and Corresponding Application\n   Code. If you use option 4d1, you must provide the Installation\n   Information in the manner specified by section 6 of the GNU GPL\n   for conveying Corresponding Source.)\n\n  5. Combined Libraries.\n\n  You may place library facilities that are a work based on the\nLibrary side by side in a single library together with other library\nfacilities that are not Applications and are not covered by this\nLicense, and convey such a combined library under terms of your\nchoice, if you do both of the following:\n\n   a) Accompany the combined library with a copy of the same work based\n   on the Library, uncombined with any other library facilities,\n   conveyed under the terms of this License.\n\n   b) Give prominent notice with the combined library that part of it\n   is a work based on the Library, and explaining where to find the\n   accompanying uncombined form of the same work.\n\n  6. Revised Versions of the GNU Lesser General Public License.\n\n  The Free Software Foundation may publish revised and/or new versions\nof the GNU Lesser General Public License from time to time. Such new\nversions will be similar in spirit to the present version, but may\ndiffer in detail to address new problems or concerns.\n\n  Each version is given a distinguishing version number. If the\nLibrary as you received it specifies that a certain numbered version\nof the GNU Lesser General Public License \"or any later version\"\napplies to it, you have the option of following the terms and\nconditions either of that published version or of any later version\npublished by the Free Software Foundation. If the Library as you\nreceived it does not specify a version number of the GNU Lesser\nGeneral Public License, you may choose any version of the GNU Lesser\nGeneral Public License ever published by the Free Software Foundation.\n\n  If the Library as you received it specifies that a proxy can decide\nwhether future versions of the GNU Lesser General Public License shall\napply, that proxy's public statement of acceptance of any version is\npermanent authorization for you to choose that version for the\nLibrary.",
+      "copyright": "Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+      "url": "https://github.com/Marco-Sulla/python-frozendict",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -3225,6 +3424,30 @@
       ]
     },
     {
+      "name": "geographiclib",
+      "version": "2.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://geographiclib.sourceforge.io/Python/",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "geopy",
+      "version": "2.5.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": "© geopy contributors 2006-2026 (see AUTHORS) under the `MIT",
+      "url": "https://github.com/geopy/geopy",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "getrandom",
       "version": "0.2.17, 0.3.4, 0.4.3",
       "license": "Apache-2.0 OR MIT",
@@ -3420,6 +3643,17 @@
       "url": "https://github.com/servo/html5ever",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "html5lib",
+      "version": "1.1",
+      "license": "MIT License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/html5lib/html5lib-python",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -3622,13 +3856,14 @@
     },
     {
       "name": "idna",
-      "version": "1.1.0, 3.18",
+      "version": "1.1.0, 3.18, 3.20",
       "license": "BSD-3-Clause / Apache-2.0 OR MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/kjd/idna",
       "line": [
         "python-desktop",
+        "python-android",
         "rust"
       ]
     },
@@ -3641,6 +3876,18 @@
       "url": "https://github.com/hsivonen/idna_adapter",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "ImageIO",
+      "version": "2.37.4",
+      "license": "BSD-2-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/imageio/imageio",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3674,6 +3921,18 @@
       "url": "https://github.com/bojand/infer",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "interface_meta",
+      "version": "2.0.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/matthewwardrop/interface_meta",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3722,13 +3981,14 @@
     },
     {
       "name": "ipython",
-      "version": "9.16.0",
+      "version": "9.16.0, 9.17.1",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://ipython.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3739,7 +3999,8 @@
       "copyright": null,
       "url": "https://github.com/ipython/ipython-pygments-lexers",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3816,7 +4077,8 @@
       "copyright": null,
       "url": "https://github.com/davidhalter/jedi",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3827,7 +4089,8 @@
       "copyright": null,
       "url": "https://github.com/fxsjy/jieba",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3865,13 +4128,26 @@
     },
     {
       "name": "joblib",
-      "version": "1.5.3",
+      "version": "1.5.3, 1.6.0",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://joblib.readthedocs.io",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "jplephem",
+      "version": "2.24",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/brandon-rhodes/python-jplephem/",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -3964,13 +4240,14 @@
     },
     {
       "name": "kiwisolver",
-      "version": "1.5.0",
+      "version": "1.4.7, 1.5.0",
       "license": "BSD",
       "licenseText": null,
       "copyright": "Copyright (c) 2013-2026, Nucleic Development Team",
       "url": "https://github.com/nucleic/kiwi",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4018,6 +4295,17 @@
       ]
     },
     {
+      "name": "libc++ (LLVM)",
+      "version": "180000",
+      "license": "Apache-2.0 WITH LLVM-exception",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://libcxx.llvm.org/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "libdbus-sys",
       "version": "0.2.7",
       "license": "Apache-2.0 OR MIT",
@@ -4026,6 +4314,28 @@
       "url": "https://github.com/diwic/dbus-rs",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "libffi",
+      "version": "3.3",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://sourceware.org/libffi/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "libjpeg-turbo",
+      "version": "1.5.3",
+      "license": "BSD-3-Clause AND IJG",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://libjpeg-turbo.org/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -4048,6 +4358,51 @@
       "url": "https://gitlab.redox-os.org/redox-os/libredox.git",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "libxml2",
+      "version": "2.9.8",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://gitlab.gnome.org/GNOME/libxml2",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "libxslt",
+      "version": "1.1.32",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://gitlab.gnome.org/GNOME/libxslt",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "LibYAML",
+      "version": "0.2.5",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://pyyaml.org/wiki/LibYAML",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "lifelines",
+      "version": "0.30.3",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/CamDavidsonPilon/lifelines",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4129,13 +4484,14 @@
     },
     {
       "name": "lxml",
-      "version": "6.1.1",
+      "version": "5.3.0, 6.1.1",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://lxml.de/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4217,13 +4573,14 @@
     },
     {
       "name": "matplotlib",
-      "version": "3.11.1",
+      "version": "3.11.1, 3.11.2",
       "license": "PSF-2.0",
       "licenseText": null,
       "copyright": "Copyright (c) 1997, 2009, American Mathematical Society (http://www.ams.org).",
       "url": "https://matplotlib.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4234,7 +4591,8 @@
       "copyright": null,
       "url": "https://github.com/ipython/matplotlib-inline",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4316,6 +4674,18 @@
       ]
     },
     {
+      "name": "missingno",
+      "version": "0.5.2",
+      "license": "MIT License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/ResidentMario/missingno",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "mitt",
       "version": "3.0.1",
       "license": "MIT",
@@ -4338,6 +4708,18 @@
       ]
     },
     {
+      "name": "mplfinance",
+      "version": "0.12.10b0",
+      "license": "BSD-style",
+      "licenseText": null,
+      "copyright": null,
+      "url": "http://github.com/matplotlib/mplfinance",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "mpmath",
       "version": "1.3.0",
       "license": "BSD",
@@ -4345,7 +4727,8 @@
       "copyright": null,
       "url": "http://mpmath.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4389,7 +4772,8 @@
       "copyright": null,
       "url": "https://github.com/ranaroussi/multitasking",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4405,13 +4789,14 @@
     },
     {
       "name": "narwhals",
-      "version": "2.24.0",
+      "version": "2.24.0, 2.26.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/narwhals-dev/narwhals",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4438,13 +4823,14 @@
     },
     {
       "name": "networkx",
-      "version": "3.6.1",
+      "version": "3.6.1, 3.7",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": "Copyright (c) 2004-2025, NetworkX Developers",
       "url": "https://networkx.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4515,13 +4901,14 @@
     },
     {
       "name": "numpy",
-      "version": "2.5.1",
+      "version": "2.5.1, 2.5.3",
       "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
       "licenseText": null,
       "copyright": null,
       "url": "https://numpy.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4741,7 +5128,8 @@
       "copyright": null,
       "url": "https://openpyxl.readthedocs.io",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4790,24 +5178,26 @@
     },
     {
       "name": "packaging",
-      "version": "26.2",
+      "version": "26.2, 26.3",
       "license": "Apache-2.0 OR BSD-2-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/pypa/packaging",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "pandas",
-      "version": "3.0.5",
+      "version": "2.3.2+2.g9f78ceb16d, 2.3.3",
       "license": "BSD",
       "licenseText": null,
       "copyright": "Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team",
       "url": "https://pandas.pydata.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4873,7 +5263,8 @@
       "copyright": null,
       "url": "https://github.com/davidhalter/parso",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4900,13 +5291,14 @@
     },
     {
       "name": "patsy",
-      "version": "1.0.2",
+      "version": "1.0.2, 1.0.3",
       "license": "2-clause BSD",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/pydata/patsy",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -4940,6 +5332,17 @@
       "url": "https://github.com/unjs/perfect-debounce#readme",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0",
+      "license": "ISC license",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://pexpect.readthedocs.io/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -5010,13 +5413,14 @@
     },
     {
       "name": "pillow",
-      "version": "12.3.0",
+      "version": "11.0.0, 12.3.0",
       "license": "MIT-CMU",
       "licenseText": null,
       "copyright": null,
       "url": "https://python-pillow.github.io",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5039,6 +5443,18 @@
       "url": "https://pinia.vuejs.org",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "Pint",
+      "version": "0.26.1",
+      "license": "BSD",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/hgrecco/pint",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5076,13 +5492,14 @@
     },
     {
       "name": "platformdirs",
-      "version": "4.11.0",
+      "version": "4.11.0, 4.11.12",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/tox-dev/platformdirs",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5104,7 +5521,8 @@
       "copyright": "Copyright and Licenses",
       "url": "https://plotly.com/python/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5280,7 +5698,8 @@
       "copyright": null,
       "url": "https://github.com/prompt-toolkit/python-prompt-toolkit",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5296,13 +5715,25 @@
     },
     {
       "name": "psutil",
-      "version": "7.2.2",
+      "version": "7.1.3, 7.2.2",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/giampaolo/psutil",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "license": "ISC",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pexpect/ptyprocess",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -5318,13 +5749,14 @@
     },
     {
       "name": "pure_eval",
-      "version": "0.2.3",
+      "version": "0.2.3, 0.2.4",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "http://github.com/alexmojaki/pure_eval",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5335,29 +5767,68 @@
       "copyright": null,
       "url": "https://github.com/eliben/pycparser",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "pyerfa",
+      "version": "2.0.1.5",
+      "license": "BSD 3-Clause License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/liberfa/pyerfa",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "Pygments",
-      "version": "2.20.0",
+      "version": "2.20.0, 2.21.0",
       "license": "BSD-2-Clause",
       "licenseText": null,
       "copyright": "Copyright 2006-present by the Pygments team, see ``AUTHORS``.",
       "url": "https://pygments.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "pymap3d",
+      "version": "3.2.0",
+      "license": "BSD",
+      "licenseText": null,
+      "copyright": null,
+      "url": null,
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "pyparsing",
-      "version": "3.3.2",
+      "version": "3.3.2, 3.3.3",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/pyparsing/pyparsing/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "pypdf",
+      "version": "6.19.0",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/py-pdf/pypdf",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5372,6 +5843,29 @@
       ]
     },
     {
+      "name": "pyserial",
+      "version": "3.5",
+      "license": "BSD",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pyserial/pyserial",
+      "line": [
+        "python-desktop"
+      ]
+    },
+    {
+      "name": "pyshp",
+      "version": "3.1.6",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/GeospatialPython/pyshp",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "python-dateutil",
       "version": "2.9.0.post0",
       "license": "Dual License",
@@ -5379,7 +5873,8 @@
       "copyright": null,
       "url": "https://github.com/dateutil/dateutil",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5390,7 +5885,8 @@
       "copyright": null,
       "url": "https://github.com/python-openxml/python-docx",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5401,7 +5897,20 @@
       "copyright": null,
       "url": "http://pythonhosted.org/pytz",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "PyWavelets",
+      "version": "1.10.0",
+      "license": "MIT AND BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/PyWavelets/pywt",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5412,7 +5921,8 @@
       "copyright": null,
       "url": "https://pyyaml.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5527,12 +6037,14 @@
     },
     {
       "name": "regex",
-      "version": "1.13.0",
-      "license": "Apache-2.0 OR MIT",
+      "version": "1.13.0, 2026.9.10",
+      "license": "Apache-2.0 AND CNRI-Python / Apache-2.0 OR MIT",
       "licenseText": null,
       "copyright": null,
-      "url": "https://github.com/rust-lang/regex",
+      "url": "https://github.com/mrabarnett/mrab-regex",
       "line": [
+        "python-desktop",
+        "python-android",
         "rust"
       ]
     },
@@ -5566,7 +6078,8 @@
       "copyright": null,
       "url": "https://github.com/psf/requests",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5724,25 +6237,51 @@
       ]
     },
     {
+      "name": "SciencePlots",
+      "version": "2.2.2",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/garrettj403/SciencePlots/wiki",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "scikit-learn",
-      "version": "1.9.0",
+      "version": "1.7.1, 1.9.0",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://scikit-learn.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "scikit-posthocs",
+      "version": "0.17.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/maximtrp/scikit-posthocs",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "scipy",
-      "version": "1.18.0",
+      "version": "1.16.1, 1.18.0",
       "license": "BSD",
       "licenseText": null,
       "copyright": "copyright notice, this list of conditions and the following",
       "url": "https://scipy.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5775,7 +6314,8 @@
       "copyright": null,
       "url": "https://github.com/mwaskom/seaborn",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5944,6 +6484,18 @@
       ]
     },
     {
+      "name": "sgp4",
+      "version": "2.27",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/brandon-rhodes/python-sgp4",
+      "line": [
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
       "name": "sha2",
       "version": "0.10.9",
       "license": "Apache-2.0 OR MIT",
@@ -5978,13 +6530,14 @@
     },
     {
       "name": "simplejson",
-      "version": "4.1.1",
+      "version": "4.1.1, 4.1.2",
       "license": "MIT OR AFL-2.1",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/simplejson/simplejson",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6006,7 +6559,20 @@
       "copyright": null,
       "url": "https://github.com/benjaminp/six",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "skyfield",
+      "version": "1.55",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "http://github.com/brandon-rhodes/python-skyfield/",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6088,13 +6654,14 @@
     },
     {
       "name": "soupsieve",
-      "version": "2.9.1",
+      "version": "2.9.1, 2.9.2",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/facelessuser/soupsieve",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6138,18 +6705,20 @@
       "copyright": null,
       "url": "http://github.com/alexmojaki/stack_data",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "statsmodels",
-      "version": "0.14.6",
-      "license": "BSD License",
+      "version": "0.14.6, 0.15.0",
+      "license": "BSD License / BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://www.statsmodels.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6237,7 +6806,8 @@
       "copyright": null,
       "url": "https://sympy.org",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6271,6 +6841,18 @@
       "url": "https://github.com/mystor/synstructure",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "ta",
+      "version": "0.11.0",
+      "license": "The MIT License (MIT)",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/bukosabino/ta",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6451,13 +7033,26 @@
     },
     {
       "name": "threadpoolctl",
-      "version": "3.6.0",
+      "version": "3.6.0, 3.7.0",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/joblib/threadpoolctl",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "tifffile",
+      "version": "2026.9.20",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.cgohlke.com",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6671,13 +7266,14 @@
     },
     {
       "name": "tqdm",
-      "version": "4.70.0",
+      "version": "4.70.0, 4.70.1",
       "license": "MPL-2.0 AND MIT",
       "licenseText": "`tqdm` is a product of collaborative work.\nUnless otherwise stated, all authors (see commit logs) retain copyright\nfor their respective work, and release the work under the MIT licence\n(text below).\n\nExceptions or notable authors are listed below\nin reverse chronological order:\n\n* files: *\n  MPL-2.0 2015-2026 (c) Casper da Costa-Luis\n  [casperdcl](https://github.com/casperdcl).\n* files: tqdm/_tqdm.py\n  MIT 2016 (c) [PR #96] on behalf of Google Inc.\n* files: tqdm/_tqdm.py README.rst .gitignore\n  MIT 2013 (c) Noam Yorav-Raphael, original author.\n\n[PR #96]: https://github.com/tqdm/tqdm/pull/96\n\n\nMozilla Public Licence (MPL) v. 2.0 - Exhibit A\n-----------------------------------------------\n\nThis Source Code Form is subject to the terms of the\nMozilla Public License, v. 2.0.\nIf a copy of the MPL was not distributed with this project,\nYou can obtain one at https://mozilla.org/MPL/2.0/.\n\n\nMIT License (MIT)\n-----------------\n\nCopyright (c) 2013 noamraph\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
       "copyright": "Copyright (c) 2013 noamraph",
       "url": "https://tqdm.github.io",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6715,13 +7311,14 @@
     },
     {
       "name": "traitlets",
-      "version": "5.16.0",
+      "version": "5.16.0, 5.16.1",
       "license": "BSD",
       "licenseText": null,
       "copyright": "- Copyright (c) 2001-, IPython Development Team",
       "url": "https://github.com/ipython/traitlets",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6787,7 +7384,8 @@
       "copyright": null,
       "url": "https://tushare.pro",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6820,18 +7418,20 @@
       "copyright": null,
       "url": "https://github.com/python/typing_extensions",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
       "name": "tzdata",
-      "version": "2026.3",
+      "version": "2026.3, 2026.4",
       "license": "Apache-2.0",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/python/tzdata",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6865,6 +7465,18 @@
       "url": "https://github.com/unjs/ufo#readme",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "uncertainties",
+      "version": "3.2.3",
+      "license": "Revised BSD License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/lmfit/uncertainties",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -6979,13 +7591,14 @@
     },
     {
       "name": "urllib3",
-      "version": "2.7.0",
+      "version": "2.7.0, 2.8.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": null,
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -7178,13 +7791,14 @@
     },
     {
       "name": "wcwidth",
-      "version": "0.8.2",
+      "version": "0.8.2, 0.9.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/jquast/wcwidth",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -7207,6 +7821,17 @@
       "url": "https://github.com/servo/html5ever",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "webencodings",
+      "version": "0.6.1",
+      "license": "BSD",
+      "licenseText": null,
+      "copyright": "Copyrights are retained by their contributors, no copyright assignment is required to",
+      "url": "https://github.com/CourtBouillon/webencodings",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -7244,13 +7869,14 @@
     },
     {
       "name": "websocket-client",
-      "version": "1.9.0",
+      "version": "1.9.0, 1.9.2",
       "license": "Apache-2.0",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/websocket-client/websocket-client.git",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -7624,7 +8250,20 @@
       "copyright": null,
       "url": "https://github.com/amueller/word_cloud",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "wrapt",
+      "version": "2.4.1, 2.4.2rc1",
+      "license": "BSD-2-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/GrahamDumpleton/wrapt",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -7679,7 +8318,20 @@
       "copyright": null,
       "url": "http://www.python-excel.org/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "xlsxwriter",
+      "version": "3.2.9",
+      "license": "BSD-2-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/jmcnamara/XlsxWriter",
+      "line": [
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -7695,13 +8347,14 @@
     },
     {
       "name": "yfinance",
-      "version": "1.5.2",
+      "version": "0.2.28, 1.5.2",
       "license": "Apache",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/ranaroussi/yfinance",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
