@@ -1,6 +1,6 @@
 {
   "generatedFrom": "scripts/licenses.py --notice",
-  "generatedAt": "2026-10-05T03:02:58Z",
+  "generatedAt": "2026-10-13T06:41:41Z",
   "note": "机器生成，勿手编。重跑：uv run scripts/licenses.py --notice（结论与处置见 .docs/依赖许可.md）",
   "licenseTextMissing": [
     "cssparser",
@@ -1124,6 +1124,17 @@
       ]
     },
     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/annotated-types/annotated-types",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "anyhow",
       "version": "1.0.103",
       "license": "Apache-2.0 OR MIT",
@@ -1132,6 +1143,17 @@
       "url": "https://github.com/dtolnay/anyhow",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/agronholm/anyio",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -1154,6 +1176,17 @@
       "url": "https://github.com/nodeca/argparse#readme",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "asn1crypto",
+      "version": "1.5.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/wbond/asn1crypto",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -1325,6 +1358,17 @@
       ]
     },
     {
+      "name": "asyncpg",
+      "version": "0.32.0",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": null,
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "atk",
       "version": "0.18.2",
       "license": "MIT",
@@ -1390,6 +1434,17 @@
       "url": "https://github.com/marshallpierce/rust-base64",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "beanie",
+      "version": "2.2.0",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://beanie-odm.dev",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -1593,6 +1648,17 @@
       ]
     },
     {
+      "name": "cachetools",
+      "version": "7.2.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": "Copyright (c) 2014-2026 Thomas Kemmer.",
+      "url": "https://github.com/tkem/cachetools/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "cairo-rs",
       "version": "0.18.5",
       "license": "MIT",
@@ -1706,7 +1772,7 @@
     },
     {
       "name": "charset-normalizer",
-      "version": "3.4.9, 3.5.1",
+      "version": "3.4.9, 3.5.2",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyright © [Ahmed TAHRI @Ousret](https://github.com/Ousret).<br />",
@@ -1747,6 +1813,17 @@
       "url": "https://github.com/chronotope/chrono",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pallets/click/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -2690,6 +2767,17 @@
       ]
     },
     {
+      "name": "dnspython",
+      "version": "2.9.0",
+      "license": "ISC",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.dnspython.org",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "dom_query",
       "version": "0.27.0",
       "license": "MIT",
@@ -2808,6 +2896,28 @@
       "url": "https://echarts.apache.org",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "elastic-transport",
+      "version": "9.4.2",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/elastic/elastic-transport-python",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "elasticsearch",
+      "version": "9.5.1",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/elastic/elasticsearch-py",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -2979,7 +3089,7 @@
     },
     {
       "name": "executing",
-      "version": "2.2.1",
+      "version": "2.2.1, 2.3.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -3137,7 +3247,7 @@
     },
     {
       "name": "fonttools",
-      "version": "4.63.0, 4.66.0",
+      "version": "4.63.0, 4.66.1",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyrights",
@@ -3536,6 +3646,28 @@
       ]
     },
     {
+      "name": "greenlet",
+      "version": "3.1.1",
+      "license": "MIT License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://greenlet.readthedocs.io/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "grpcio",
+      "version": "1.67.0",
+      "license": "Apache License 2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://grpc.io",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "gtk",
       "version": "0.18.2",
       "license": "MIT",
@@ -3566,6 +3698,28 @@
       "url": "https://github.com/gtk-rs/gtk3-rs",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/python-hyper/h11",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "h2",
+      "version": "4.4.1",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/python-hyper/h2/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -3624,6 +3778,17 @@
       ]
     },
     {
+      "name": "hiredis",
+      "version": "3.4.2",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/redis/hiredis-py",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "hookable",
       "version": "5.5.3",
       "license": "MIT",
@@ -3632,6 +3797,17 @@
       "url": "https://github.com/unjs/hookable#readme",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "hpack",
+      "version": "4.2.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/python-hyper/hpack/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -3701,6 +3877,28 @@
       ]
     },
     {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.encode.io/httpcore/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/encode/httpx",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "hyper",
       "version": "1.10.1",
       "license": "MIT",
@@ -3720,6 +3918,17 @@
       "url": "https://github.com/hyperium/hyper-util",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "hyperframe",
+      "version": "6.1.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": "Copyright (c) 2014 Cory Benfield",
+      "url": "https://github.com/python-hyper/hyperframe/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -3880,7 +4089,7 @@
     },
     {
       "name": "ImageIO",
-      "version": "2.37.4",
+      "version": "2.37.4, 2.38.1",
       "license": "BSD-2-Clause",
       "licenseText": null,
       "copyright": null,
@@ -4071,7 +4280,7 @@
     },
     {
       "name": "jedi",
-      "version": "0.20.0",
+      "version": "0.20.0, 0.20.1",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -4259,6 +4468,17 @@
       "url": "https://github.com/iVis-at-Bilkent/layout-base#readme",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "lazy-model",
+      "version": "0.4.0",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": null,
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -4789,7 +5009,7 @@
     },
     {
       "name": "narwhals",
-      "version": "2.24.0, 2.26.0",
+      "version": "2.24.0, 2.27.1",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -5166,6 +5386,17 @@
       ]
     },
     {
+      "name": "orjson",
+      "version": "3.13.0",
+      "license": "MPL-2.0 AND (Apache-2.0 OR MIT)",
+      "licenseText": "Apache License\n                        Version 2.0, January 2004\n                     http://www.apache.org/licenses/\n\nTERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n1. Definitions.\n\n   \"License\" shall mean the terms and conditions for use, reproduction,\n   and distribution as defined by Sections 1 through 9 of this document.\n\n   \"Licensor\" shall mean the copyright owner or entity authorized by\n   the copyright owner that is granting the License.\n\n   \"Legal Entity\" shall mean the union of the acting entity and all\n   other entities that control, are controlled by, or are under common\n   control with that entity. For the purposes of this definition,\n   \"control\" means (i) the power, direct or indirect, to cause the\n   direction or management of such entity, whether by contract or\n   otherwise, or (ii) ownership of fifty percent (50%) or more of the\n   outstanding shares, or (iii) beneficial ownership of such entity.\n\n   \"You\" (or \"Your\") shall mean an individual or Legal Entity\n   exercising permissions granted by this License.\n\n   \"Source\" form shall mean the preferred form for making modifications,\n   including but not limited to software source code, documentation\n   source, and configuration files.\n\n   \"Object\" form shall mean any form resulting from mechanical\n   transformation or translation of a Source form, including but\n   not limited to compiled object code, generated documentation,\n   and conversions to other media types.\n\n   \"Work\" shall mean the work of authorship, whether in Source or\n   Object form, made available under the License, as indicated by a\n   copyright notice that is included in or attached to the work\n   (an example is provided in the Appendix below).\n\n   \"Derivative Works\" shall mean any work, whether in Source or Object\n   form, that is based on (or derived from) the Work and for which the\n   editorial revisions, annotations, elaborations, or other modifications\n   represent, as a whole, an original work of authorship. For the purposes\n   of this License, Derivative Works shall not include works that remain\n   separable from, or merely link (or bind by name) to the interfaces of,\n   the Work and Derivative Works thereof.\n\n   \"Contribution\" shall mean any work of authorship, including\n   the original version of the Work and any modifications or additions\n   to that Work or Derivative Works thereof, that is intentionally\n   submitted to Licensor for inclusion in the Work by the copyright owner\n   or by an individual or Legal Entity authorized to submit on behalf of\n   the copyright owner. For the purposes of this definition, \"submitted\"\n   means any form of electronic, verbal, or written communication sent\n   to the Licensor or its representatives, including but not limited to\n   communication on electronic mailing lists, source code control systems,\n   and issue tracking systems that are managed by, or on behalf of, the\n   Licensor for the purpose of discussing and improving the Work, but\n   excluding communication that is conspicuously marked or otherwise\n   designated in writing by the copyright owner as \"Not a Contribution.\"\n\n   \"Contributor\" shall mean Licensor and any individual or Legal Entity\n   on behalf of whom a Contribution has been received by Licensor and\n   subsequently incorporated within the Work.\n\n2. Grant of Copyright License. Subject to the terms and conditions of\n   this License, each Contributor hereby grants to You a perpetual,\n   worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n   copyright license to reproduce, prepare Derivative Works of,\n   publicly display, publicly perform, sublicense, and distribute the\n   Work and such Derivative Works in Source or Object form.\n\n3. Grant of Patent License. Subject to the terms and conditions of\n   this License, each Contributor hereby grants to You a perpetual,\n   worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n   (except as stated in this section) patent license to make, have made,\n   use, offer to sell, sell, import, and otherwise transfer the Work,\n   where such license applies only to those patent claims licensable\n   by such Contributor that are necessarily infringed by their\n   Contribution(s) alone or by combination of their Contribution(s)\n   with the Work to which such Contribution(s) was submitted. If You\n   institute patent litigation against any entity (including a\n   cross-claim or counterclaim in a lawsuit) alleging that the Work\n   or a Contribution incorporated within the Work constitutes direct\n   or contributory patent infringement, then any patent licenses\n   granted to You under this License for that Work shall terminate\n   as of the date such litigation is filed.\n\n4. Redistribution. You may reproduce and distribute copies of the\n   Work or Derivative Works thereof in any medium, with or without\n   modifications, and in Source or Object form, provided that You\n   meet the following conditions:\n\n   (a) You must give any other recipients of the Work or\n       Derivative Works a copy of this License; and\n\n   (b) You must cause any modified files to carry prominent notices\n       stating that You changed the files; and\n\n   (c) You must retain, in the Source form of any Derivative Works\n       that You distribute, all copyright, patent, trademark, and\n       attribution notices from the Source form of the Work,\n       excluding those notices that do not pertain to any part of\n       the Derivative Works; and\n\n   (d) If the Work includes a \"NOTICE\" text file as part of its\n       distribution, then any Derivative Works that You distribute must\n       include a readable copy of the attribution notices contained\n       within such NOTICE file, excluding those notices that do not\n       pertain to any part of the Derivative Works, in at least one\n       of the following places: within a NOTICE text file distributed\n       as part of the Derivative Works; within the Source form or\n       documentation, if provided along with the Derivative Works; or,\n       within a display generated by the Derivative Works, if and\n       wherever such third-party notices normally appear. The contents\n       of the NOTICE file are for informational purposes only and\n       do not modify the License. You may add Your own attribution\n       notices within Derivative Works that You distribute, alongside\n       or as an addendum to the NOTICE text from the Work, provided\n       that such additional attribution notices cannot be construed\n       as modifying the License.\n\n   You may add Your own copyright statement to Your modifications and\n   may provide additional or different license terms and conditions\n   for use, reproduction, or distribution of Your modifications, or\n   for any such Derivative Works as a whole, provided Your use,\n   reproduction, and distribution of the Work otherwise complies with\n   the conditions stated in this License.\n\n5. Submission of Contributions. Unless You explicitly state otherwise,\n   any Contribution intentionally submitted for inclusion in the Work\n   by You to the Licensor shall be under the terms and conditions of\n   this License, without any additional terms or conditions.\n   Notwithstanding the above, nothing herein shall supersede or modify\n   the terms of any separate license agreement you may have executed\n   with Licensor regarding such Contributions.\n\n6. Trademarks. This License does not grant permission to use the trade\n   names, trademarks, service marks, or product names of the Licensor,\n   except as required for reasonable and customary use in describing the\n   origin of the Work and reproducing the content of the NOTICE file.\n\n7. Disclaimer of Warranty. Unless required by applicable law or\n   agreed to in writing, Licensor provides the Work (and each\n   Contributor provides its Contributions) on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n   implied, including, without limitation, any warranties or conditions\n   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n   PARTICULAR PURPOSE. You are solely responsible for determining the\n   appropriateness of using or redistributing the Work and assume any\n   risks associated with Your exercise of permissions under this License.\n\n8. Limitation of Liability. In no event and under no legal theory,\n   whether in tort (including negligence), contract, or otherwise,\n   unless required by applicable law (such as deliberate and grossly\n   negligent acts) or agreed to in writing, shall any Contributor be\n   liable to You for damages, including any direct, indirect, special,\n   incidental, or consequential damages of any character arising as a\n   result of this License or out of the use or inability to use the\n   Work (including but not limited to damages for loss of goodwill,\n   work stoppage, computer failure or malfunction, or any and all\n   other commercial damages or losses), even if such Contributor\n   has been advised of the possibility of such damages.\n\n9. Accepting Warranty or Additional Liability. While redistributing\n   the Work or Derivative Works thereof, You may choose to offer,\n   and charge a fee for, acceptance of support, warranty, indemnity,\n   or other liability obligations and/or rights consistent with this\n   License. However, in accepting such obligations, You may act only\n   on Your own behalf and on Your sole responsibility, not on behalf\n   of any other Contributor, and only if You agree to indemnify,\n   defend, and hold each Contributor harmless for any liability\n   incurred by, or claims asserted against, such Contributor by reason\n   of your accepting any such warranty or additional liability.\n\nEND OF TERMS AND CONDITIONS\n\nAPPENDIX: How to apply the Apache License to your work.\n\n   To apply the Apache License to your work, attach the following\n   boilerplate notice, with the fields enclosed by brackets \"[]\"\n   replaced with your own identifying information. (Don't include\n   the brackets!)  The text should be enclosed in the appropriate\n   comment syntax for the file format. We also recommend that a\n   file or class name and description of purpose be included on the\n   same \"printed page\" as the copyright notice for easier\n   identification within third-party archives.\n\nCopyright [yyyy] [name of copyright owner]\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n\thttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.",
+      "copyright": "copyright notice that is included in or attached to the work",
+      "url": "https://github.com/ijl/orjson",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "package-manager-detector",
       "version": "1.8.0",
       "license": "MIT",
@@ -5346,6 +5577,17 @@
       ]
     },
     {
+      "name": "pg8000",
+      "version": "1.31.5",
+      "license": "BSD 3-Clause License",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://codeberg.org/tlocke/pg8000",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "phf",
       "version": "0.13.1",
       "license": "MIT",
@@ -5492,7 +5734,7 @@
     },
     {
       "name": "platformdirs",
-      "version": "4.11.0, 4.11.12",
+      "version": "4.11.0, 4.13.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -5603,6 +5845,17 @@
       ]
     },
     {
+      "name": "portalocker",
+      "version": "3.2.0",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/wolph/portalocker/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "postcss",
       "version": "8.5.19",
       "license": "MIT",
@@ -5704,13 +5957,14 @@
     },
     {
       "name": "protobuf",
-      "version": "7.35.1",
+      "version": "7.35.1, 7.36.2",
       "license": "3-Clause BSD License",
       "licenseText": null,
       "copyright": null,
       "url": "https://developers.google.com/protocol-buffers/",
       "line": [
-        "python-desktop"
+        "python-desktop",
+        "python-android"
       ]
     },
     {
@@ -5722,6 +5976,28 @@
       "url": "https://github.com/giampaolo/psutil",
       "line": [
         "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.6",
+      "license": "LGPL-3.0-only",
+      "licenseText": "GNU LESSER GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n\n  This version of the GNU Lesser General Public License incorporates\nthe terms and conditions of version 3 of the GNU General Public\nLicense, supplemented by the additional permissions listed below.\n\n  0. Additional Definitions.\n\n  As used herein, \"this License\" refers to version 3 of the GNU Lesser\nGeneral Public License, and the \"GNU GPL\" refers to version 3 of the GNU\nGeneral Public License.\n\n  \"The Library\" refers to a covered work governed by this License,\nother than an Application or a Combined Work as defined below.\n\n  An \"Application\" is any work that makes use of an interface provided\nby the Library, but which is not otherwise based on the Library.\nDefining a subclass of a class defined by the Library is deemed a mode\nof using an interface provided by the Library.\n\n  A \"Combined Work\" is a work produced by combining or linking an\nApplication with the Library.  The particular version of the Library\nwith which the Combined Work was made is also called the \"Linked\nVersion\".\n\n  The \"Minimal Corresponding Source\" for a Combined Work means the\nCorresponding Source for the Combined Work, excluding any source code\nfor portions of the Combined Work that, considered in isolation, are\nbased on the Application, and not on the Linked Version.\n\n  The \"Corresponding Application Code\" for a Combined Work means the\nobject code and/or source code for the Application, including any data\nand utility programs needed for reproducing the Combined Work from the\nApplication, but excluding the System Libraries of the Combined Work.\n\n  1. Exception to Section 3 of the GNU GPL.\n\n  You may convey a covered work under sections 3 and 4 of this License\nwithout being bound by section 3 of the GNU GPL.\n\n  2. Conveying Modified Versions.\n\n  If you modify a copy of the Library, and, in your modifications, a\nfacility refers to a function or data to be supplied by an Application\nthat uses the facility (other than as an argument passed when the\nfacility is invoked), then you may convey a copy of the modified\nversion:\n\n   a) under this License, provided that you make a good faith effort to\n   ensure that, in the event an Application does not supply the\n   function or data, the facility still operates, and performs\n   whatever part of its purpose remains meaningful, or\n\n   b) under the GNU GPL, with none of the additional permissions of\n   this License applicable to that copy.\n\n  3. Object Code Incorporating Material from Library Header Files.\n\n  The object code form of an Application may incorporate material from\na header file that is part of the Library.  You may convey such object\ncode under terms of your choice, provided that, if the incorporated\nmaterial is not limited to numerical parameters, data structure\nlayouts and accessors, or small macros, inline functions and templates\n(ten or fewer lines in length), you do both of the following:\n\n   a) Give prominent notice with each copy of the object code that the\n   Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the object code with a copy of the GNU GPL and this license\n   document.\n\n  4. Combined Works.\n\n  You may convey a Combined Work under terms of your choice that,\ntaken together, effectively do not restrict modification of the\nportions of the Library contained in the Combined Work and reverse\nengineering for debugging such modifications, if you also do each of\nthe following:\n\n   a) Give prominent notice with each copy of the Combined Work that\n   the Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the Combined Work with a copy of the GNU GPL and this license\n   document.\n\n   c) For a Combined Work that displays copyright notices during\n   execution, include the copyright notice for the Library among\n   these notices, as well as a reference directing the user to the\n   copies of the GNU GPL and this license document.\n\n   d) Do one of the following:\n\n       0) Convey the Minimal Corresponding Source under the terms of this\n       License, and the Corresponding Application Code in a form\n       suitable for, and under terms that permit, the user to\n       recombine or relink the Application with a modified version of\n       the Linked Version to produce a modified Combined Work, in the\n       manner specified by section 6 of the GNU GPL for conveying\n       Corresponding Source.\n\n       1) Use a suitable shared library mechanism for linking with the\n       Library.  A suitable mechanism is one that (a) uses at run time\n       a copy of the Library already present on the user's computer\n       system, and (b) will operate properly with a modified version\n       of the Library that is interface-compatible with the Linked\n       Version.\n\n   e) Provide Installation Information, but only if you would otherwise\n   be required to provide such information under section 6 of the\n   GNU GPL, and only to the extent that such information is\n   necessary to install and execute a modified version of the\n   Combined Work produced by recombining or relinking the\n   Application with a modified version of the Linked Version. (If\n   you use option 4d0, the Installation Information must accompany\n   the Minimal Corresponding Source and Corresponding Application\n   Code. If you use option 4d1, you must provide the Installation\n   Information in the manner specified by section 6 of the GNU GPL\n   for conveying Corresponding Source.)\n\n  5. Combined Libraries.\n\n  You may place library facilities that are a work based on the\nLibrary side by side in a single library together with other library\nfacilities that are not Applications and are not covered by this\nLicense, and convey such a combined library under terms of your\nchoice, if you do both of the following:\n\n   a) Accompany the combined library with a copy of the same work based\n   on the Library, uncombined with any other library facilities,\n   conveyed under the terms of this License.\n\n   b) Give prominent notice with the combined library that part of it\n   is a work based on the Library, and explaining where to find the\n   accompanying uncombined form of the same work.\n\n  6. Revised Versions of the GNU Lesser General Public License.\n\n  The Free Software Foundation may publish revised and/or new versions\nof the GNU Lesser General Public License from time to time. Such new\nversions will be similar in spirit to the present version, but may\ndiffer in detail to address new problems or concerns.\n\n  Each version is given a distinguishing version number. If the\nLibrary as you received it specifies that a certain numbered version\nof the GNU Lesser General Public License \"or any later version\"\napplies to it, you have the option of following the terms and\nconditions either of that published version or of any later version\npublished by the Free Software Foundation. If the Library as you\nreceived it does not specify a version number of the GNU Lesser\nGeneral Public License, you may choose any version of the GNU Lesser\nGeneral Public License ever published by the Free Software Foundation.\n\n  If the Library as you received it specifies that a proxy can decide\nwhether future versions of the GNU Lesser General Public License shall\napply, that proxy's public statement of acceptance of any version is\npermanent authorization for you to choose that version for the\nLibrary.",
+      "copyright": "Copyright (C) 2020 The Psycopg Team",
+      "url": "https://psycopg.org/",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "psycopg-c",
+      "version": "3.3.6",
+      "license": "LGPL-3.0-only",
+      "licenseText": "GNU LESSER GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n\n Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n Everyone is permitted to copy and distribute verbatim copies\n of this license document, but changing it is not allowed.\n\n\n  This version of the GNU Lesser General Public License incorporates\nthe terms and conditions of version 3 of the GNU General Public\nLicense, supplemented by the additional permissions listed below.\n\n  0. Additional Definitions.\n\n  As used herein, \"this License\" refers to version 3 of the GNU Lesser\nGeneral Public License, and the \"GNU GPL\" refers to version 3 of the GNU\nGeneral Public License.\n\n  \"The Library\" refers to a covered work governed by this License,\nother than an Application or a Combined Work as defined below.\n\n  An \"Application\" is any work that makes use of an interface provided\nby the Library, but which is not otherwise based on the Library.\nDefining a subclass of a class defined by the Library is deemed a mode\nof using an interface provided by the Library.\n\n  A \"Combined Work\" is a work produced by combining or linking an\nApplication with the Library.  The particular version of the Library\nwith which the Combined Work was made is also called the \"Linked\nVersion\".\n\n  The \"Minimal Corresponding Source\" for a Combined Work means the\nCorresponding Source for the Combined Work, excluding any source code\nfor portions of the Combined Work that, considered in isolation, are\nbased on the Application, and not on the Linked Version.\n\n  The \"Corresponding Application Code\" for a Combined Work means the\nobject code and/or source code for the Application, including any data\nand utility programs needed for reproducing the Combined Work from the\nApplication, but excluding the System Libraries of the Combined Work.\n\n  1. Exception to Section 3 of the GNU GPL.\n\n  You may convey a covered work under sections 3 and 4 of this License\nwithout being bound by section 3 of the GNU GPL.\n\n  2. Conveying Modified Versions.\n\n  If you modify a copy of the Library, and, in your modifications, a\nfacility refers to a function or data to be supplied by an Application\nthat uses the facility (other than as an argument passed when the\nfacility is invoked), then you may convey a copy of the modified\nversion:\n\n   a) under this License, provided that you make a good faith effort to\n   ensure that, in the event an Application does not supply the\n   function or data, the facility still operates, and performs\n   whatever part of its purpose remains meaningful, or\n\n   b) under the GNU GPL, with none of the additional permissions of\n   this License applicable to that copy.\n\n  3. Object Code Incorporating Material from Library Header Files.\n\n  The object code form of an Application may incorporate material from\na header file that is part of the Library.  You may convey such object\ncode under terms of your choice, provided that, if the incorporated\nmaterial is not limited to numerical parameters, data structure\nlayouts and accessors, or small macros, inline functions and templates\n(ten or fewer lines in length), you do both of the following:\n\n   a) Give prominent notice with each copy of the object code that the\n   Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the object code with a copy of the GNU GPL and this license\n   document.\n\n  4. Combined Works.\n\n  You may convey a Combined Work under terms of your choice that,\ntaken together, effectively do not restrict modification of the\nportions of the Library contained in the Combined Work and reverse\nengineering for debugging such modifications, if you also do each of\nthe following:\n\n   a) Give prominent notice with each copy of the Combined Work that\n   the Library is used in it and that the Library and its use are\n   covered by this License.\n\n   b) Accompany the Combined Work with a copy of the GNU GPL and this license\n   document.\n\n   c) For a Combined Work that displays copyright notices during\n   execution, include the copyright notice for the Library among\n   these notices, as well as a reference directing the user to the\n   copies of the GNU GPL and this license document.\n\n   d) Do one of the following:\n\n       0) Convey the Minimal Corresponding Source under the terms of this\n       License, and the Corresponding Application Code in a form\n       suitable for, and under terms that permit, the user to\n       recombine or relink the Application with a modified version of\n       the Linked Version to produce a modified Combined Work, in the\n       manner specified by section 6 of the GNU GPL for conveying\n       Corresponding Source.\n\n       1) Use a suitable shared library mechanism for linking with the\n       Library.  A suitable mechanism is one that (a) uses at run time\n       a copy of the Library already present on the user's computer\n       system, and (b) will operate properly with a modified version\n       of the Library that is interface-compatible with the Linked\n       Version.\n\n   e) Provide Installation Information, but only if you would otherwise\n   be required to provide such information under section 6 of the\n   GNU GPL, and only to the extent that such information is\n   necessary to install and execute a modified version of the\n   Combined Work produced by recombining or relinking the\n   Application with a modified version of the Linked Version. (If\n   you use option 4d0, the Installation Information must accompany\n   the Minimal Corresponding Source and Corresponding Application\n   Code. If you use option 4d1, you must provide the Installation\n   Information in the manner specified by section 6 of the GNU GPL\n   for conveying Corresponding Source.)\n\n  5. Combined Libraries.\n\n  You may place library facilities that are a work based on the\nLibrary side by side in a single library together with other library\nfacilities that are not Applications and are not covered by this\nLicense, and convey such a combined library under terms of your\nchoice, if you do both of the following:\n\n   a) Accompany the combined library with a copy of the same work based\n   on the Library, uncombined with any other library facilities,\n   conveyed under the terms of this License.\n\n   b) Give prominent notice with the combined library that part of it\n   is a work based on the Library, and explaining where to find the\n   accompanying uncombined form of the same work.\n\n  6. Revised Versions of the GNU Lesser General Public License.\n\n  The Free Software Foundation may publish revised and/or new versions\nof the GNU Lesser General Public License from time to time. Such new\nversions will be similar in spirit to the present version, but may\ndiffer in detail to address new problems or concerns.\n\n  Each version is given a distinguishing version number. If the\nLibrary as you received it specifies that a certain numbered version\nof the GNU Lesser General Public License \"or any later version\"\napplies to it, you have the option of following the terms and\nconditions either of that published version or of any later version\npublished by the Free Software Foundation. If the Library as you\nreceived it does not specify a version number of the GNU Lesser\nGeneral Public License, you may choose any version of the GNU Lesser\nGeneral Public License ever published by the Free Software Foundation.\n\n  If the Library as you received it specifies that a proxy can decide\nwhether future versions of the GNU Lesser General Public License shall\napply, that proxy's public statement of acceptance of any version is\npermanent authorization for you to choose that version for the\nLibrary.",
+      "copyright": "Copyright (C) 2020 The Psycopg Team",
+      "url": "https://psycopg.org/",
+      "line": [
         "python-android"
       ]
     },
@@ -5761,13 +6037,35 @@
     },
     {
       "name": "pycparser",
-      "version": "3.0",
+      "version": "3.0, 3.11",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
       "url": "https://github.com/eliben/pycparser",
       "line": [
         "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pydantic/pydantic",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pydantic/pydantic",
+      "line": [
         "python-android"
       ]
     },
@@ -5808,6 +6106,39 @@
       ]
     },
     {
+      "name": "pymilvus",
+      "version": "3.0.2",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://milvus.io",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "pymongo",
+      "version": "4.18.2",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.mongodb.org",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
+      "name": "PyMySQL",
+      "version": "1.2.3",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": null,
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "pyparsing",
       "version": "3.3.2, 3.3.3",
       "license": "MIT",
@@ -5821,7 +6152,7 @@
     },
     {
       "name": "pypdf",
-      "version": "6.19.0",
+      "version": "6.19.0, 6.20.1",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
@@ -5890,8 +6221,19 @@
       ]
     },
     {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/theskumar/python-dotenv",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "pytz",
-      "version": "2026.3.post1",
+      "version": "2026.3.post1, 2026.5",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -5922,6 +6264,17 @@
       "url": "https://pyyaml.org/",
       "line": [
         "python-desktop",
+        "python-android"
+      ]
+    },
+    {
+      "name": "qdrant-client",
+      "version": "1.19.1",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/qdrant/qdrant-client",
+      "line": [
         "python-android"
       ]
     },
@@ -5989,6 +6342,17 @@
       "url": "https://github.com/paulmillr/readdirp",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "redis",
+      "version": "8.1.0",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/redis/redis-py",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -6262,7 +6626,7 @@
     },
     {
       "name": "scikit-posthocs",
-      "version": "0.17.0",
+      "version": "0.17.0, 0.17.1",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -6293,6 +6657,17 @@
       "url": "https://github.com/bluss/scopeguard",
       "line": [
         "rust"
+      ]
+    },
+    {
+      "name": "scramp",
+      "version": "1.4.17",
+      "license": "MIT No Attribution",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://codeberg.org/tlocke/scramp",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -6530,7 +6905,7 @@
     },
     {
       "name": "simplejson",
-      "version": "4.1.1, 4.1.2",
+      "version": "4.1.1, 4.2.0",
       "license": "MIT OR AFL-2.1",
       "licenseText": null,
       "copyright": null,
@@ -6609,6 +6984,17 @@
       ]
     },
     {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "license": "MIT OR Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/python-trio/sniffio",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "socket2",
       "version": "0.6.5",
       "license": "Apache-2.0 OR MIT",
@@ -6654,7 +7040,7 @@
     },
     {
       "name": "soupsieve",
-      "version": "2.9.1, 2.9.2",
+      "version": "2.9.1, 3.0.3",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -6684,6 +7070,17 @@
       "url": "http://pid.github.io/speakingurl/",
       "line": [
         "node"
+      ]
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.1.4",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://www.sqlalchemy.org",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -7411,6 +7808,17 @@
       ]
     },
     {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/pydantic/typing-inspection",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "typing_extensions",
       "version": "4.16.0",
       "license": "PSF-2.0",
@@ -7424,7 +7832,7 @@
     },
     {
       "name": "tzdata",
-      "version": "2026.3, 2026.4",
+      "version": "2026.3, 2026.5",
       "license": "Apache-2.0",
       "licenseText": null,
       "copyright": null,
@@ -7791,7 +8199,7 @@
     },
     {
       "name": "wcwidth",
-      "version": "0.8.2, 0.9.0",
+      "version": "0.8.2, 0.9.2",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -8256,7 +8664,7 @@
     },
     {
       "name": "wrapt",
-      "version": "2.4.1, 2.4.2rc1",
+      "version": "2.4.1, 2.5.1rc1",
       "license": "BSD-2-Clause",
       "licenseText": null,
       "copyright": null,
