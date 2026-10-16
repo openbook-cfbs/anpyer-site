@@ -1,6 +1,6 @@
 {
   "generatedFrom": "scripts/licenses.py --notice",
-  "generatedAt": "2026-10-13T06:41:41Z",
+  "generatedAt": "2026-10-16T13:35:50Z",
   "note": "机器生成，勿手编。重跑：uv run scripts/licenses.py --notice（结论与处置见 .docs/依赖许可.md）",
   "licenseTextMissing": [
     "cssparser",
@@ -1124,6 +1124,17 @@
       ]
     },
     {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/fastapi/annotated-doc",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "annotated-types",
       "version": "0.8.0",
       "license": "MIT",
@@ -1649,7 +1660,7 @@
     },
     {
       "name": "cachetools",
-      "version": "7.2.1",
+      "version": "7.2.2",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyright (c) 2014-2026 Thomas Kemmer.",
@@ -3122,6 +3133,17 @@
       ]
     },
     {
+      "name": "fastapi",
+      "version": "0.143.2",
+      "license": "MIT",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/fastapi/fastapi",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "fastdom",
       "version": "1.0.12",
       "license": "MIT",
@@ -3247,7 +3269,7 @@
     },
     {
       "name": "fonttools",
-      "version": "4.63.0, 4.66.1",
+      "version": "4.63.0, 4.67.0",
       "license": "MIT",
       "licenseText": null,
       "copyright": "Copyrights",
@@ -5353,6 +5375,17 @@
       ]
     },
     {
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "option-ext",
       "version": "0.2.0",
       "license": "MPL-2.0",
@@ -5734,7 +5767,7 @@
     },
     {
       "name": "platformdirs",
-      "version": "4.11.0, 4.13.0",
+      "version": "4.11.0, 4.13.3",
       "license": "MIT",
       "licenseText": null,
       "copyright": null,
@@ -6152,7 +6185,7 @@
     },
     {
       "name": "pypdf",
-      "version": "6.19.0, 6.20.1",
+      "version": "6.19.0, 6.21.0",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
@@ -7107,6 +7140,17 @@
       ]
     },
     {
+      "name": "starlette",
+      "version": "1.8.0",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://github.com/Kludex/starlette",
+      "line": [
+        "python-android"
+      ]
+    },
+    {
       "name": "statsmodels",
       "version": "0.14.6, 0.15.0",
       "license": "BSD License / BSD-3-Clause",
@@ -7442,7 +7486,7 @@
     },
     {
       "name": "tifffile",
-      "version": "2026.9.20",
+      "version": "2026.10.15, 2026.9.20",
       "license": "BSD-3-Clause",
       "licenseText": null,
       "copyright": null,
@@ -8041,6 +8085,17 @@
       "line": [
         "node",
         "rust"
+      ]
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "license": "BSD-3-Clause",
+      "licenseText": null,
+      "copyright": null,
+      "url": "https://uvicorn.dev/",
+      "line": [
+        "python-android"
       ]
     },
     {
@@ -8664,7 +8719,7 @@
     },
     {
       "name": "wrapt",
-      "version": "2.4.1, 2.5.1rc1",
+      "version": "2.4.1, 2.5.1",
       "license": "BSD-2-Clause",
       "licenseText": null,
       "copyright": null,
