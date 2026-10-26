@@ -68,7 +68,7 @@ Every page shares the same shell: sticky translucent header (brand, section link
 ### Layout model
 
 - `assets/site.css` owns the **page skeleton** used by every page: `.site-header`, `.block` / `.block.alt` full-width sections with a centred `.inner` (max `--wide`, 72 rem), `.page-hero` title banner, `.doc` long-form column (max `--doc`, 46 rem), `.site-footer`.
-- `assets/landing.css` adds only what the landing pages need (two-column `.split`, `.stats`, `.limits`, `.pricing-block`, `.reveal` animation, plus the generated `.pkg-wall` of section 5 — an always-dark slab, one tinted cluster per category, no titles).
+- `assets/landing.css` adds only what the landing pages need (two-column `.split`, `.stats`, `.limits`, `.pricing-block`, `.reveal` animation, plus the generated `.pkg-wall` of section 2 — always dark, one tinted card per bucket with the bucket name on top).
 - Colours are CSS variables; dark is the default, light follows `prefers-color-scheme`.
 
 ### Language menu
@@ -81,17 +81,19 @@ The header language switch is a native `<details class="lang-menu">`: a globe ic
 
 To add a language: add one `<li>` to the menu on every page and mirror the page tree under `/xx/`.
 
-### Generated blocks (section 5 package wall)
+### Generated blocks (section 2 package cards)
 
-Section 5 of the landing page (“Preinstalled”, both languages) is **generated — do not hand-edit it**. Two marker pairs and two bare `meta` numbers delimit the generated parts:
+Section 2 of the landing page (“Preinstalled”, both languages) is **generated — do not hand-edit it**. Two marker pairs and two bare `meta` numbers delimit the generated parts:
 
 | Marker | Content | Source |
 |---|---|---|
-| `<!-- BEGIN:packages … -->` … `<!-- END:packages -->` | the package wall (`.pkg-wall`: one `<ul class="pkg-group">` cluster per category, tinted by its hue; category name only in `aria-label` / `title`) | `AnPyer/packages.toml` (`site_group` / `display` / `site_featured`), rendered by `AnPyer/scripts/sync-site-packages.py` |
-| `<!-- BEGIN:pkgcount -->60+<!-- END:pkgcount -->` | the package counter in visible copy (hero lead + section 5 lead) | same script: floor(packages ÷ 10) × 10, then `+` |
-| the `60+` inside `<meta name="description">` and `<meta property="og:description">` | the same number, **without any marker** — an `<!-- -->` inside an attribute value is not a comment: crawlers and social cards would render it verbatim | rewritten in place by the same script (plain `\d+\+` regex on those two tags) |
+| `<!-- BEGIN:packages … -->` … `<!-- END:packages -->` | the card rail (`.pkg-wall`): one `<article class="pkg-card">` per bucket — bucket name on top, that bucket's pills below, the card tinted by its own `--cat` | `AnPyer/packages.toml` (`site_buckets` / `site_hidden` / `display` / `site_featured`), rendered by `AnPyer/scripts/sync-site-packages.py` |
+| `<!-- BEGIN:pkgcount -->70+<!-- END:pkgcount -->` | the package counter in visible copy (hero lead + section 2 lead) | same script: floor(distinct packages ÷ 10) × 10, then `+` |
+| the `70+` inside `<meta name="description">` and `<meta property="og:description">` | the same number, **without any marker** — an `<!-- -->` inside an attribute value is not a comment: crawlers and social cards would render it verbatim | rewritten in place by the same script (plain `\d+\+` regex on those two tags) |
 
-After any package change in the app repo run `uv run scripts/sync-site-packages.py` there (the two repos are expected to be sibling directories; `--check` verifies without writing — it compares the grid, the visible counters **and** both `meta` descriptions, so a stale `60+` anywhere fails). Category names, colours and order live in that script's `GROUPS` table (no per-release "New in x.y" badges — the wall only says what's in the app now); `site_group = "hidden"` packages are internal dependencies and never appear. The old screenshot `assets/demo/06-packages-wall.png` is kept for the Play listing only.
+After any package change in the app repo run `uv run scripts/sync-site-packages.py` there (the two repos are expected to be sibling directories; `--check` verifies without writing — it compares the cards, the visible counters, both `meta` descriptions **and** the package count quoted in the store material under `AnPyer/MarketingMaterial/`, so a stale `60+` anywhere fails). Bucket names, colours and order live in that script's `BUCKETS` table (no per-release "New in x.y" badges — the cards only say what's in the app now); `site_hidden = true` packages are internal dependencies and never appear. A package may sit in several buckets, so it shows up on several cards — **the counter counts packages once**, and a bucket with no packages produces no card. The old screenshot `assets/demo/06-packages-wall.png` is kept for the Play listing only.
+
+The rail is dark in **both** themes (`.pkg-section` remaps the theme variables rather than painting a slab inside a light block). It scrolls sideways: `scroll-snap` plus a fixed card width so the next card peeks out on a phone; `assets/site.js` turns the mouse wheel into horizontal scrolling while the pointer is over the rail and hands the wheel back to the page at either end; the container carries `tabindex="0"` so the arrow keys scroll it. Without JavaScript it is still an ordinary horizontally scrollable box.
 
 ### Cache busting
 
@@ -133,7 +135,7 @@ The app's `src/config/links.ts` references this site (`PRIVACY_POLICY_URL`, `SUP
 
 - **Privacy policy / terms** — edit both language versions, bump the version and effective date at the top, mention material changes in the Play release notes.
 - **Third-party notices** — after the app's dependencies change, run `uv run scripts/licenses.py --notice` in the app repo and copy `src/generated/third-party-notices.json` to `notices/`.
-- **Preinstalled packages (landing section 5)** — after editing `AnPyer/packages.toml`, run `uv run scripts/sync-site-packages.py` in the app repo (`--check` verifies without writing) and commit the result here. It rewrites the package grid and the `60+` counters in `index.html` and `zh/index.html`; the category titles, colours and the `New …` badge come from that script's `GROUPS` table, and every Android-available package must carry a `site_group` (`pkg.py check` enforces it).
+- **Preinstalled packages (landing section 2)** — after editing `AnPyer/packages.toml`, run `uv run scripts/sync-site-packages.py` in the app repo (`--check` verifies without writing, and also reports the package count quoted in the store material) and commit the result here. It rewrites the card rail and the `70+` counters in `index.html` and `zh/index.html`; bucket names, colours and order come from that script's `BUCKETS` table, and every Android-available package must carry at least one bucket in `site_buckets` (`pkg.py check` enforces it).
 
 ## Roadmap
 
